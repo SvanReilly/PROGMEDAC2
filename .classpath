@@ -11,5 +11,6 @@
 	<classpathentry kind="src" path="ServiciosYProcesos"/>
 	<classpathentry kind="src" path="ProgramaciónMultimedia"/>
 	<classpathentry kind="src" path="ProgramacionMultimedia"/>
+	<classpathentry kind="lib" path="jgoodies-forms-1.8.0.jar" sourcepath="jgoodies-forms-1.8.0-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
