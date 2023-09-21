@@ -10,5 +10,6 @@
 	<classpathentry kind="src" path="DesarrolloDeInterfaces"/>
 	<classpathentry kind="src" path="ServiciosYProcesos"/>
 	<classpathentry kind="src" path="ProgramaciónMultimedia"/>
+	<classpathentry kind="src" path="ProgramacionMultimedia"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
