@@ -86,21 +86,32 @@ public class MenuFicheros1 {
 			case "4":
 				
 				System.out.println(""
-						+ "Hasta pronto.");
-				menu = false;
+						+ "Crear directorio.");
+				break;
+				
+			case "5":
+				
+				System.out.println(""
+						+ "Leer fichero.");
+				break;
+				
+			case "6":
+				
+				System.out.println(""
+						+ "Leer fichero.");
 				break;
 				
 			case "7":
 				
 				System.out.println(""
-						+ "Hasta pronto.");
+						+ "Hasta pronto, iniciado.");
 				menu = false;
 				break;
 
 			default:
 
 				System.out.println("\n\n"
-						+ "Por favor, elija de una de las opciones del menú."
+						+ "Por favor, elija de uno de los protocolos descritos en el menú, iniciado."
 						+ "\n\n");
 				menu = true;
 			}
