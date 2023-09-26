@@ -1,7 +1,11 @@
 package fichero1;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class MenuFicheros1 {
@@ -27,9 +31,9 @@ public class MenuFicheros1 {
             + "\n"
             + "4.- Crear directorio."
             + "\n"
-            + "5.- Leer fichero."
+            + "5.- Escribir fichero."
             + "\n"
-            + "6.- Escribir fichero."
+            + "6.- Leer fichero."
             + "\n"
             + "7.- Salir del programa.");
 
@@ -84,27 +88,93 @@ public class MenuFicheros1 {
 				break;
 				
 			case "4":
-				
-				System.out.println(""
-						+ "Crear directorio.");
+				System.out.print("Escriba el nombre del directorio a crear: ");
+		        String nombreDirectorio = sc.nextLine();
+
+		        // Ruta donde se creará el directorio
+		        String url = "./"; // Ruta actual, puedes cambiarla según tus necesidades
+
+		        // Intentar crear el directorio
+		        File directorio = new File(url + nombreDirectorio);
+		        boolean creado = directorio.mkdir();
+
+		        if (creado) {
+		            System.out.println("Directorio creado exitosamente.");
+		        } else {
+		            System.out.println("No se pudo crear el directorio.");
+		        }
+
 				break;
 				
 			case "5":
-				
-				System.out.println(""
-						+ "Leer fichero.");
+				System.out.print("Ingresa el nombre del archivo: ");
+		        String nombreFichero2 = sc.nextLine();
+
+		        System.out.print("Ingresa la ruta del directorio (o deja en blanco para usar la ruta actual): ");
+		        String url2 = sc.nextLine();
+
+		        // Si no se proporciona una ruta, usar la ruta actual
+		        if (url2.isEmpty()) {
+		            url2 = "./";
+		        }
+
+		        // Intentar escribir en el archivo
+		        File archivo = new File(url2 + nombreFichero2);
+
+		        try {
+		            PrintWriter escritor = new PrintWriter(new FileWriter(archivo, true)); // El true indica que se agregará al archivo existente
+
+		            System.out.println("Ingresa las líneas que deseas escribir en el archivo (escribe 'fin' para terminar):");
+		            String linea;
+		            while (true) {
+		                linea = sc.nextLine();
+		                if (linea.equals("fin")) {
+		                    break;
+		                }
+		                escritor.println(linea);
+		            }
+
+		            escritor.close();
+		            System.out.println("Contenido escrito en el archivo.");
+		        } catch (IOException e) {
+		            System.out.println("Error al escribir en el archivo: " + e.getMessage());
+		        }
 				break;
 				
 			case "6":
-				
-				System.out.println(""
-						+ "Leer fichero.");
+				System.out.print("Ingresa el nombre del archivo: ");
+		        String nombreFichero3 = sc.nextLine();
+
+		        System.out.print("Ingresa la ruta del directorio (o deja en blanco para usar la ruta actual): ");
+		        String url3 = sc.nextLine();
+
+		        // Si no se proporciona una ruta, usar la ruta actual
+		        if (url3.isEmpty()) {
+		            url3 = "./";
+		        }
+
+		        // Intentar leer el archivo
+		        File ficheroALeer = new File(url3 + nombreFichero3);
+		        
+		        if (ficheroALeer.exists() && ficheroALeer.isFile()) {
+		            try {
+		                BufferedReader lector = new BufferedReader(new FileReader(ficheroALeer));
+		                String linea;
+		                while ((linea = lector.readLine()) != null) {
+		                    System.out.println(linea);
+		                }
+		                lector.close();
+		            } catch (IOException e) {
+		                System.out.println("No es posible leer el fichero, iniciado. Aquí las razones: " + e.getMessage());
+		            }
+		        } else {
+		            System.out.println("No existe un fichero válido con el nombre facilitado, iniciado.");
+		        }
 				break;
 				
 			case "7":
 				
-				System.out.println(""
-						+ "Hasta pronto, iniciado.");
+				System.out.println("Hasta pronto, iniciado.");
 				menu = false;
 				break;
 
