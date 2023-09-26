@@ -7,211 +7,171 @@ import java.util.Scanner;
 
 public class MenuFicherosFinal {
 
-	public static void main(String[] args)  {
-		        Scanner scanner = new Scanner(System.in);
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		boolean menu = true;
+		while (menu) {
 
-		        while (true) {
-		            System.out.println("**************************************");
-		            System.out.println("** MENU DE ARCHIVOS Y DIRECTORIOS   **");
-		            System.out.println("**************************************");
-		            System.out.println("** 1. Crear archivo                 **");
-		            System.out.println("** 2. Mover archivo                 **");
-		            System.out.println("** 3. Eliminar archivo              **");
-		            System.out.println("** 4. Añadir info a un archivo      **"); 
-		            System.out.println("** 5. Consultar info de un archivo  **");
-		            System.out.println("** 6. Crear directorio              **"); 
-		            System.out.println("** 7. Salir                         **");
-		            System.out.println("**************************************");
-		            System.out.println("Seleccione una opción:");
+			System.out.println("Bienvenido al Gestor de Ficheros Masónicos.");
 
-		            int opcion = scanner.nextInt();
+			System.out.println("1.- Crear fichero. " 
+			+ "\n" 
+			+ "2.- Borrar fichero." 
+			+ "\n" 
+			+ "3.- Mover fichero." 
+			+ "\n"
+			+ "4.- Crear directorio." 
+			+ "\n" 
+			+ "5.- Escribir en fichero." 
+			+ "\n" 
+			+ "6.- Leer fichero." 
+			+ "\n"
+			+ "7.- Salir del programa."
+			+ "\n");
+			
+			System.out.println("¿Qué desea hacer? Inserte un numero del 1-7, por favor:");
+			String value = sc.next();
 
-		            switch (opcion) {
-		                case 1:
-		                    crearArchivo(scanner);
-		                    break;
-		                case 2:
-		                    moverArchivo(scanner);
-		                    break;
-		                case 3:
-		                    eliminarArchivo(scanner);
-		                    break;
-		                case 4:
-		                    añadirInfoArchivo(scanner);
-		                    break;
-		                case 5:
-		                    consultarInfoArchivo(scanner); 
-		                    break;
-		                case 6:
-		                    crearDirectorio(scanner); 
-		                    break;
-		                case 7:
-		                    System.out.println("Saliendo del programa.");
-		                    scanner.close();
-		                    break;
-		                default:
-		                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
-		            }
-		        }
-		    }
+			switch (value) {
+			
+			case "1":
+				System.out.println("Escriba el nombre del archivo a crear (junto con su extensión o formato):");
+				String nombreArchivo1 = sc.next();
 
-		    // Método para crear un archivo.
-		    private static void crearArchivo(Scanner scanner) {
+				try {
+					
+					File archivo1 = new File(nombreArchivo1);
+					if (archivo1.createNewFile()) {
+						System.out.println("Archivo o fichero creado con exito.");
+					} else {
+						System.out.println("El archivo o fichero ya existe.");
+					}
+				} catch (IOException e) {
+					System.out.println("No fue posible crear el archivo o fichero");
+				}
+				break;
+				
+			case "2":
 
-		        // Solicitar nombre del archivo a crear.
-		        System.out.println("Ingrese el nombre del archivo a crear:");
-		        String nombreArchivo = scanner.next(); // Lee el nombre del archivo ingresado por el usuario.
-
-		        try {
-		            // Crea un objeto File con el nombre de archivo proporcionado.
-		            File archivo = new File(nombreArchivo);
-
-		            // Intenta crear el archivo.
-		            if (archivo.createNewFile()) {
-		                System.out.println("Archivo creado exitosamente."); 
-		            } else {
-		                System.out.println("El archivo ya existe."); 
-		            }
-		        } catch (IOException e) {
-		            System.out.println("Error al crear el archivo"); // En caso de error 
-		        }
-		    }
-
-		    // Método para mover un archivo a una nueva ubicación
-		    private static void moverArchivo(Scanner scanner) {
-		        
-		        // Solicitar nombre del archivo a mover.
-		        System.out.println("Ingrese el nombre del archivo a mover:");
-		        String nombreArchivo = scanner.next(); // Lee el nombre del archivo ingresado por el usuario.
-
-		        // Solicitar nueva ubicación del archivo.
-		        System.out.println("Ingrese la nueva ubicación del archivo:");
-		        String nuevaUbicacion = scanner.next(); // Lee la nueva ubicación ingresada por el usuario.
-
-		        // Crea objetos File para representar el archivo y la nueva ubicación.
-		        File archivo = new File(nombreArchivo);
-		        File nuevaUbicacionDir = new File(nuevaUbicacion);
-
-		        // Verifica si el archivo existe y es válido.
-		        if (archivo.exists() && archivo.isFile()) {
-		            // Verifica si la nueva ubicación es un directorio válido.
-		            if (nuevaUbicacionDir.isDirectory()) {
-		                // Crea un nuevo objeto File para representar el archivo en su nueva ubicación.
-		                File nuevoArchivo = new File(nuevaUbicacionDir, archivo.getName());
-
-		                // Intenta mover el archivo a la nueva ubicación.
-		                if (archivo.renameTo(nuevoArchivo)) {
-		                    System.out.println("Archivo movido exitosamente.");
-		                } else {
-		                    System.out.println("No se pudo mover el archivo."); // Error 
-		                }
-		            } else {
-		                System.out.println("La nueva ubicación no es un directorio válido."); // Error mover archivo (ruta) pero archivo existe
-		            }
-		        } else {
-		            System.out.println("El archivo no existe o no es válido."); // Error archivo no existe
-		        }
-		    }
+				System.out.println("Escriba el nombre del archivo que desee mover (junto con su extensión o formato):");
+				String nombre2 = sc.next();
 
 
-		    // Método para eliminar un archivo
-		    private static void eliminarArchivo(Scanner scanner) {
-		        
-		       // Solicitar nombre del archivo a borrar.
-		        System.out.println("Ingrese el nombre del archivo a eliminar:");
-		        String nombreArchivo = scanner.next(); // Lee el nombre del archivo ingresado por el usuario.
+				System.out.println("Escriba el nombre del nuevo directorio:");
+				String nuevaUbicacion = sc.next();
 
-		        // Crea un objeto File para representar el archivo.
-		        File archivo = new File(nombreArchivo);
+				File archivo2 = new File(nombre2);
+				File nuevoDirectorio = new File(nuevaUbicacion);
 
-		        // Verifica si el archivo existe y es un archivo válido.
-		        if (archivo.exists() && archivo.isFile()) {
-		            // Intenta eliminar el archivo.
-		            if (archivo.delete()) {
-		                System.out.println("Archivo eliminado exitosamente."); 
-		            } else {
-		                System.out.println("No se pudo eliminar el archivo."); // Error al eliminar (pero archivo existe)
-		            }
-		        } else {
-		            System.out.println("El archivo no existe o no es válido."); // Error archivo no existe 
-		        }
-		    }
+				if (archivo2.exists() && archivo2.isFile()) {
 
+					if (nuevoDirectorio.isDirectory()) {
 
-		    // Método para añadir información a un archivo en el sistema de archivos local.
-		    private static void añadirInfoArchivo(Scanner scanner) {
+						File nuevoArchivo2 = new File(nuevoDirectorio, archivo2.getName());
 
-		        // Solicitar el nombre del archivo al que desea añadir información.
-		        System.out.println("Ingrese el nombre del archivo al que desea añadir información:");
-		        String nombreArchivo = scanner.next(); // Lee el nombre del archivo ingresado por el usuario.
+						if (archivo2.renameTo(nuevoArchivo2)) {
+							System.out.println("Se movio con éxito el archivo.");
+						} else {
+							System.out.println("No se pudo mover el archivo.");
+						}
+					} else {
+						System.out.println("La nueva ubicación no es un directorio válido.");
+					}
+				} else {
+					System.out.println("El archivo no existe o no es válido.");
+				}
+				break;
+				
+			case "3":
 
-		        // Solicitar que ingrese la información que desea añadir.
-		        System.out.println("Ingrese la información que desea añadir:");
-		        String informacion = scanner.next(); // Lee la información ingresada por el usuario.
+				System.out.println("Escriba el nombre del archivo o fichero a eliminar, iniciado:");
+				String nombreArchivo3 = sc.next();
+				File archivo3 = new File(nombreArchivo3);
 
-		        try {
-		            // Abre el archivo en modo de escritura
-		            FileWriter writer = new FileWriter(nombreArchivo, true);
-		            
-		            // Escribe la información en el archivo.
-		            writer.write(informacion);
-		            
-		            // Cierra el archivo después de escribir.
-		            writer.close();
-		            
-		            System.out.println("Información añadida exitosamente al archivo.");
-		        } catch (IOException e) {
-		            System.out.println("Error al añadir información al archivo"); // Error durante la escritura.
-		        }
-		    }
+				if (archivo3.exists() && archivo3.isFile()) {
 
+					if (archivo3.delete()) {
+						System.out.println("Archivo eliminado exitosamente.");
+					} else {
+						System.out.println("No se pudo eliminar el archivo.");
+					}
+				} else {
+					System.out.println("El archivo no existe o no es válido.");
+				}
+				break;
+				
+			case "4":
 
-		    // Método para consultar la información de un archivo
-		    private static void consultarInfoArchivo(Scanner scanner) {
+				System.out.println("Escriba un nombre para crear el directorio, iniciado: ");
+				String nombreDirectorio = sc.next();
 
-		        // Solicitar el nombre del archivo al que desea consultar información.
-		        System.out.println("Ingrese el nombre del archivo del que desea consultar información:");
-		        String nombreArchivo = scanner.next(); // Lee el nombre del archivo ingresado por el usuario.
+				File directorio = new File(nombreDirectorio);
 
-		        try {
-		            // Crea un objeto File para representar el archivo.
-		            File archivo = new File(nombreArchivo);
+				if (directorio.mkdir()) {
+					System.out.println("El directorio fue creado con éxito en la ubicación actual.");
+				} else {
+					System.out.println("El directorio ya existe o no se pudo crear, iniciado.");
+				}
+				break;
+				
+				
+			case "5":
 
-		            // Verifica si el archivo existe y es un archivo válido.
-		            if (archivo.exists() && archivo.isFile()) {
-		                // Abre el archivo para lectura utilizando un Scanner.
-		                try (Scanner fileScanner = new Scanner(archivo)) {
-		                    // Lee y muestra cada línea del archivo mientras haya más líneas disponibles.
-		                    while (fileScanner.hasNextLine()) {
-		                        String linea = fileScanner.nextLine();
-		                        System.out.println(linea);
-		                    }
-		                }
-		            } else {
-		                System.out.println("El archivo no existe o no es válido."); // Error archivo no existe
-		            }
-		        } catch (IOException e) {
-		            System.out.println("Error al leer el archivo"); // Error lectura
-		        }
-		    }
+				System.out.println("Ingrese el nombre del archivo al que desea añadir información:");
+				String nombreArchivo4 = sc.next();
+				System.out.println("Escriba el contenido que desee incluir en el fichero:");
+				String informacion = sc.next();
+
+				try {
+					FileWriter escribir = new FileWriter(nombreArchivo4, true);
+					escribir.write(informacion);
+					escribir.close();
+
+					System.out.println("Contenido agregado al fichero.");
+				} catch (IOException e) {
+					System.out.println("No fue posible agregar el contenido facilitado al fichero.");
+				}
+				break;
+			
+			case "6":
 
 
-		    // Método para crear un directorio en la ubicación por defecto 
-		    private static void crearDirectorio(Scanner scanner) {
+				System.out.println("Ingrese el nombre del archivo del que desea consultar información:");
+				String nombreArchivo5 = sc.next();
 
-		        // Solicitar el nombre del directorio 
-		        System.out.println("Ingrese el nombre del directorio a crear:");
-		        String nombreDirectorio = scanner.next(); // Lee el nombre del directorio ingresado por el usuario.
+				try {
 
-		        // Crea un objeto File para representar el directorio.
-		        File directorio = new File(nombreDirectorio);
+					File archivo5 = new File(nombreArchivo5);
 
-		        // Intenta crear el directorio en la ubicación actual.
-		        if (directorio.mkdir()) {
-		            System.out.println("Directorio creado exitosamente en la ubicación actual.");
-		        } else {
-		            System.out.println("El directorio ya existe o no se pudo crear."); // Error (ya existe o error de creación)
-		        }
-		    }
 
+					if (archivo5.exists() && archivo5.isFile()) {
+
+						try (Scanner fileScanner = new Scanner(archivo5)) {
+
+							while (fileScanner.hasNextLine()) {
+								String linea = fileScanner.nextLine();
+								System.out.println(linea);
+							}
+						}
+					} else {
+						System.out.println("El archivo no existe o no es válido.");
+					}
+				} catch (IOException e) {
+					System.out.println("Error al leer el archivo");
+				}
+				break;
+
+			case "7":
+				System.out.println("Hasta pronto.");
+				menu = false;
+				sc.close();
+				break;
+			default:
+				System.out.println(
+						"\n\n" + "Por favor, elija de uno de los protocolos descritos en el menú, iniciado." + "\n\n");
+				menu = true;
+			}
 		}
+	}
+}
