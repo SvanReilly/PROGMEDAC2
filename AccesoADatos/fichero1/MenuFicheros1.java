@@ -92,7 +92,7 @@ public class MenuFicheros1 {
 		        String nombreDirectorio = sc.nextLine();
 
 		        // Ruta donde se creará el directorio
-		        String url = "./"; // Ruta actual, puedes cambiarla según tus necesidades
+		        String url = "./"; // Ruta actual.
 
 		        // Intentar crear el directorio
 		        File directorio = new File(url + nombreDirectorio);
@@ -107,10 +107,10 @@ public class MenuFicheros1 {
 				break;
 				
 			case "5":
-				System.out.print("Ingresa el nombre del archivo: ");
+				System.out.print("Escriba el nombre del archivo: ");
 		        String nombreFichero2 = sc.nextLine();
 
-		        System.out.print("Ingresa la ruta del directorio (o deja en blanco para usar la ruta actual): ");
+		        System.out.print("Escriba la ruta del directorio, iniciado. En blanco para ruta actual: ");
 		        String url2 = sc.nextLine();
 
 		        // Si no se proporciona una ruta, usar la ruta actual
@@ -124,28 +124,28 @@ public class MenuFicheros1 {
 		        try {
 		            PrintWriter escritor = new PrintWriter(new FileWriter(archivo, true)); // El true indica que se agregará al archivo existente
 
-		            System.out.println("Ingresa las líneas que deseas escribir en el archivo (escribe 'fin' para terminar):");
+		            System.out.println("Escriba las líneas que deseas escribir en el fichero, iniciado. (Para finalizar, escriba 'summo secretum'):");
 		            String linea;
 		            while (true) {
 		                linea = sc.nextLine();
-		                if (linea.equals("fin")) {
+		                if (linea.equals("summo secretum")) {
 		                    break;
 		                }
 		                escritor.println(linea);
 		            }
 
 		            escritor.close();
-		            System.out.println("Contenido escrito en el archivo.");
+		            System.out.println("Contenido escrito exitosamente en el fichero.");
 		        } catch (IOException e) {
-		            System.out.println("Error al escribir en el archivo: " + e.getMessage());
+		            System.out.println("Error al escribir en el fichero: " + e.getMessage());
 		        }
 				break;
 				
 			case "6":
-				System.out.print("Ingresa el nombre del archivo: ");
+				System.out.print("Escriba el nombre del fichero, iniciado: ");
 		        String nombreFichero3 = sc.nextLine();
 
-		        System.out.print("Ingresa la ruta del directorio (o deja en blanco para usar la ruta actual): ");
+		        System.out.print("Escriba la ruta del directorio, iniciado. En blanco para ruta actual: ");
 		        String url3 = sc.nextLine();
 
 		        // Si no se proporciona una ruta, usar la ruta actual
