@@ -35,7 +35,7 @@ public class MenuFicheros1 {
 			+ "\n"
 			+ "7.- Salir del programa.");
 
-			System.out.println("\n" + "¿Qué desea hacer? Inserte un numero del 1-4, por favor:");
+			System.out.println("\n" + "¿Qué desea hacer? Inserte un numero del 1-7, por favor:");
 			String value = sc.next();
 
 			switch (value) {
