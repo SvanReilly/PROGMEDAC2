@@ -6,31 +6,39 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class MenuFicherosFinal {
-
 	public static void main(String[] args) {
+		final String ANSI_RESET = "\u001B[0m";
+		final String ANSI_RED = "\u001B[31m";
+		final String ANSI_GREEN = "\u001B[32m";
+		final String ANSI_PURPLE = "\u001B[35m";
+		final String ANSI_CYAN = "\u001B[36m";
+		final String ANSI_LIGHT_YELLOW = "\u001B[93m";
+		final String ANSI_BLINK = "\u001B[5m";
+		final String ANSI_LIGHT_PURPLE  = "\033[1;35m";
+		final String ANSI_BROWN = "\033[0;33m";
+
 		Scanner sc = new Scanner(System.in);
-		
 		boolean menu = true;
 		while (menu) {
 
-			System.out.println("Bienvenido al Gestor de Ficheros Masónicos.");
+			System.out.println(ANSI_CYAN + "BIENVENIDO AL GESTOR DE FICHEROS MASÓNICOS." + ANSI_RESET);
 
-			System.out.println("1.- Crear fichero. " 
+			System.out.println(ANSI_GREEN + "1.- Crear fichero. " + ANSI_RESET 
 			+ "\n" 
-			+ "2.- Borrar fichero." 
+			+ ANSI_RED + "2.- Borrar fichero." + ANSI_RESET 
 			+ "\n" 
-			+ "3.- Mover fichero." 
+			+ ANSI_PURPLE + "3.- Mover fichero." + ANSI_RESET
 			+ "\n"
-			+ "4.- Crear directorio." 
+			+ ANSI_LIGHT_YELLOW + "4.- Crear directorio." + ANSI_RESET
 			+ "\n" 
-			+ "5.- Escribir en fichero." 
+			+ ANSI_CYAN + "5.- Escribir en fichero." + ANSI_RESET
 			+ "\n" 
-			+ "6.- Leer fichero." 
+			+ ANSI_LIGHT_PURPLE + "6.- Leer fichero." + ANSI_RESET
 			+ "\n"
-			+ "7.- Salir del programa."
+			+ ANSI_BROWN + "7.- Salir del programa." + ANSI_RESET
 			+ "\n");
 			
-			System.out.println("¿Qué desea hacer? Inserte un numero del 1-7, por favor:");
+			System.out.println(ANSI_BLINK + "¿Qué desea hacer? Inserte un numero del 1-7, por favor: " + ANSI_RESET);
 			String value = sc.next();
 
 			switch (value) {
@@ -40,7 +48,6 @@ public class MenuFicherosFinal {
 				String nombreArchivo1 = sc.next();
 
 				try {
-					
 					File archivo1 = new File(nombreArchivo1);
 					if (archivo1.createNewFile()) {
 						System.out.println("Archivo o fichero creado con exito.");
@@ -53,37 +60,6 @@ public class MenuFicherosFinal {
 				break;
 				
 			case "2":
-
-				System.out.println("Escriba el nombre del archivo que desee mover (junto con su extensión o formato):");
-				String nombre2 = sc.next();
-
-
-				System.out.println("Escriba el nombre del nuevo directorio:");
-				String nuevaUbicacion = sc.next();
-
-				File archivo2 = new File(nombre2);
-				File nuevoDirectorio = new File(nuevaUbicacion);
-
-				if (archivo2.exists() && archivo2.isFile()) {
-
-					if (nuevoDirectorio.isDirectory()) {
-
-						File nuevoArchivo2 = new File(nuevoDirectorio, archivo2.getName());
-
-						if (archivo2.renameTo(nuevoArchivo2)) {
-							System.out.println("Se movio con éxito el archivo.");
-						} else {
-							System.out.println("No se pudo mover el archivo.");
-						}
-					} else {
-						System.out.println("La nueva ubicación no es un directorio válido.");
-					}
-				} else {
-					System.out.println("El archivo no existe o no es válido.");
-				}
-				break;
-				
-			case "3":
 
 				System.out.println("Escriba el nombre del archivo o fichero a eliminar, iniciado:");
 				String nombreArchivo3 = sc.next();
@@ -101,11 +77,37 @@ public class MenuFicherosFinal {
 				}
 				break;
 				
+			case "3":
+
+				System.out.println("Escriba el nombre del archivo que desee mover (junto con su extensión o formato):");
+				String nombre2 = sc.next();
+				File archivo2 = new File(nombre2);
+
+				System.out.println("Escriba el nombre del nuevo directorio:");
+				String nuevaUbicacion = sc.next();
+				File nuevoDirectorio = new File(nuevaUbicacion);
+
+				if (archivo2.exists() && archivo2.isFile()) {
+					if (nuevoDirectorio.isDirectory()) {
+						File nuevoArchivo2 = new File(nuevoDirectorio, archivo2.getName());
+
+						if (archivo2.renameTo(nuevoArchivo2)) {
+							System.out.println("Se movio con éxito el archivo.");
+						} else {
+							System.out.println("No se pudo mover el archivo.");
+						}
+					} else {
+						System.out.println("No es un directorio válido.");
+					}
+				} else {
+					System.out.println("El archivo no existe o no es válido.");
+				}
+				break;
+
 			case "4":
 
 				System.out.println("Escriba un nombre para crear el directorio, iniciado: ");
 				String nombreDirectorio = sc.next();
-
 				File directorio = new File(nombreDirectorio);
 
 				if (directorio.mkdir()) {
@@ -121,13 +123,14 @@ public class MenuFicherosFinal {
 				System.out.println("Ingrese el nombre del archivo al que desea añadir información:");
 				String nombreArchivo4 = sc.next();
 				System.out.println("Escriba el contenido que desee incluir en el fichero:");
-				String informacion = sc.next();
+				String limpiarCache= sc.nextLine();
+				String contenido = sc.nextLine();
 
 				try {
 					FileWriter escribir = new FileWriter(nombreArchivo4, true);
-					escribir.write(informacion);
+					escribir.write(contenido);
 					escribir.close();
-
+			
 					System.out.println("Contenido agregado al fichero.");
 				} catch (IOException e) {
 					System.out.println("No fue posible agregar el contenido facilitado al fichero.");
@@ -136,19 +139,13 @@ public class MenuFicherosFinal {
 			
 			case "6":
 
-
 				System.out.println("Ingrese el nombre del archivo del que desea consultar información:");
 				String nombreArchivo5 = sc.next();
 
 				try {
-
 					File archivo5 = new File(nombreArchivo5);
-
-
 					if (archivo5.exists() && archivo5.isFile()) {
-
 						try (Scanner fileScanner = new Scanner(archivo5)) {
-
 							while (fileScanner.hasNextLine()) {
 								String linea = fileScanner.nextLine();
 								System.out.println(linea);
@@ -158,18 +155,18 @@ public class MenuFicherosFinal {
 						System.out.println("El archivo no existe o no es válido.");
 					}
 				} catch (IOException e) {
-					System.out.println("Error al leer el archivo");
+					System.out.println("No fue posible leer el contenido del fichero.");
 				}
 				break;
 
 			case "7":
-				System.out.println("Hasta pronto.");
+				System.out.println(ANSI_CYAN + "Hasta pronto, iniciado." + ANSI_RESET);
 				menu = false;
-				sc.close();
+
 				break;
 			default:
 				System.out.println(
-						"\n\n" + "Por favor, elija de uno de los protocolos descritos en el menú, iniciado." + "\n\n");
+						"\n\n" + ANSI_RED + "Por favor, elija de uno de los protocolos descritos en el menú, iniciado." + ANSI_RESET + "\n\n");
 				menu = true;
 			}
 		}
