@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -63,9 +64,9 @@ public class Task2Extra extends JFrame {
 		alumnoName.setBounds(24, 40, 283, 20);
 		contentPane.add(alumnoName);
 
-		JLabel Asignatura = new JLabel("Asignatura:");
-		Asignatura.setBounds(24, 71, 134, 39);
-		contentPane.add(Asignatura);
+		JLabel asignatura = new JLabel("Asignatura:");
+		asignatura.setBounds(24, 71, 134, 39);
+		contentPane.add(asignatura);
 
 		asignaturaName = new JTextField();
 		asignaturaName.setToolTipText("");
@@ -100,6 +101,7 @@ public class Task2Extra extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				int calificacion = Integer.parseInt(calificacionNumber.getText());
+				
 				try {
 
 					if (calificacion >= 0 && calificacion <= 4) { // Continuar desde aqui
@@ -113,6 +115,7 @@ public class Task2Extra extends JFrame {
 					}
 				} catch (NumberFormatException ex) {
 					ex.printStackTrace();
+					JOptionPane.showMessageDialog(null, "La calificación insertada no es de un formato válido, por favor, pruebe de nuevo.", "Error de formato", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
