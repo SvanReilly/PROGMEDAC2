@@ -22,6 +22,7 @@ public class Task2Extra extends JFrame {
 	private JTextField calificacionNumber;
 	private JTextField asignaturaName;
 	private JTextField alumnoName;
+
 	/**
 	 * Launch the application.
 	 */
@@ -37,6 +38,7 @@ public class Task2Extra extends JFrame {
 			}
 		});
 	}
+
 	/**
 	 * Create the frame.
 	 */
@@ -93,15 +95,24 @@ public class Task2Extra extends JFrame {
 		calificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-		//if (Integer.parseInt("1") ) { //Continuar desde aqui
-			resultadoCalificacion.append(alumnoName.getText() + " ha suspendido la asignatura de "
-					+  asignaturaName.getText() + " con un " + calificacionNumber.getText()
-							+ "\n");
-		//} else {
-			resultadoCalificacion.append(alumnoName.getText() + " ha aprobado la asignatura de " 
-					+ asignaturaName.getText() + " con un " + calificacionNumber.getText()
-					+ "\n");
-		//}			
+				Integer calificacion = Integer.valueOf(calificacionNumber.getText());
+				
+				try {
+					
+					
+					if (calificacion <=4 && calificacion >=0 ) { //Continuar desde aqui
+						resultadoCalificacion.append(alumnoName.getText() + " ha suspendido la asignatura de "
+								+  asignaturaName.getText() + " con un " + calificacionNumber.getText()
+										+ "\n");
+					} else if (calificacion <=10 && calificacion >=5 ) {
+						resultadoCalificacion.append(alumnoName.getText() + " ha aprobado la asignatura de " 
+								+ asignaturaName.getText() + " con un " + calificacionNumber.getText()
+								+ "\n");
+					}
+					
+				} catch (NumberFormatException ex){
+		            ex.printStackTrace();
+			}
 			}
 		});
 		
@@ -126,4 +137,3 @@ public class Task2Extra extends JFrame {
 
 	}
 }
-
