@@ -22,7 +22,6 @@ public class Task2Extra extends JFrame {
 	private JTextField calificacionNumber;
 	private JTextField asignaturaName;
 	private JTextField alumnoName;
-
 	/**
 	 * Launch the application.
 	 */
@@ -38,7 +37,6 @@ public class Task2Extra extends JFrame {
 			}
 		});
 	}
-
 	/**
 	 * Create the frame.
 	 */
@@ -53,12 +51,19 @@ public class Task2Extra extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		calificacionNumber = new JTextField();
-		calificacionNumber.setFont(new Font("Tahoma", Font.BOLD, 20));
-		calificacionNumber.setForeground(Color.BLACK);
-		calificacionNumber.setBounds(386, 56, 33, 37);
-		contentPane.add(calificacionNumber);
-		calificacionNumber.setColumns(10);
+		JLabel nombreApellidos = new JLabel("Nombre y apellidos:");
+		nombreApellidos.setBounds(24, 11, 169, 32);
+		contentPane.add(nombreApellidos);
+		
+		alumnoName = new JTextField();
+		alumnoName.setForeground(Color.BLACK);
+		alumnoName.setColumns(10);
+		alumnoName.setBounds(24, 40, 283, 20);
+		contentPane.add(alumnoName);
+		
+		JLabel Asignatura = new JLabel("Asignatura:");
+		Asignatura.setBounds(24, 71, 134, 39);
+		contentPane.add(Asignatura);
 		
 		asignaturaName = new JTextField();
 		asignaturaName.setToolTipText("");
@@ -67,28 +72,20 @@ public class Task2Extra extends JFrame {
 		contentPane.add(asignaturaName);
 		asignaturaName.setColumns(10);
 		
-		JLabel nombreApellidos = new JLabel("Nombre y apellidos:");
-		nombreApellidos.setBounds(24, 11, 169, 32);
-		contentPane.add(nombreApellidos);
-		
-		JLabel Asignatura = new JLabel("Asignatura:");
-		Asignatura.setBounds(24, 71, 134, 39);
-		contentPane.add(Asignatura);
-		
 		JLabel calificacion = new JLabel("Calificación");
 		calificacion.setBounds(376, 23, 141, 32);
 		contentPane.add(calificacion);
 		
-		alumnoName = new JTextField();
-		alumnoName.setForeground(Color.BLACK);
-		alumnoName.setColumns(10);
-		alumnoName.setBounds(24, 40, 283, 20);
-		contentPane.add(alumnoName);
-		
+		calificacionNumber = new JTextField();
+		calificacionNumber.setFont(new Font("Tahoma", Font.BOLD, 20));
+		calificacionNumber.setForeground(Color.BLACK);
+		calificacionNumber.setBounds(386, 56, 33, 37);
+		contentPane.add(calificacionNumber);
+		calificacionNumber.setColumns(10);
+
 		JTextArea resultadoCalificacion = new JTextArea();
 		resultadoCalificacion.setBounds(24, 152, 333, 160);
 		contentPane.add(resultadoCalificacion);
-	
 		
 		JButton calificar = new JButton("Calificar");
 		calificar.setBackground(Color.LIGHT_GRAY);
@@ -96,13 +93,15 @@ public class Task2Extra extends JFrame {
 		calificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-		if (Integer.parseInt(getWarningString())) { //Continuar desde aqui
+		//if (Integer.parseInt("1") ) { //Continuar desde aqui
 			resultadoCalificacion.append(alumnoName.getText() + " ha suspendido la asignatura de "
-					+  asignaturaName.getText() +"\n");
-		} else {
+					+  asignaturaName.getText() + " con un " + calificacionNumber.getText()
+							+ "\n");
+		//} else {
 			resultadoCalificacion.append(alumnoName.getText() + " ha aprobado la asignatura de " 
-					+ asignaturaName.getText() + "\n");
-		}			
+					+ asignaturaName.getText() + " con un " + calificacionNumber.getText()
+					+ "\n");
+		//}			
 			}
 		});
 		
