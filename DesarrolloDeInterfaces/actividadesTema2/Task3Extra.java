@@ -42,7 +42,7 @@ public class Task3Extra extends JFrame {
 	 * Create the frame.
 	 */
 	public Task3Extra() {
-		setTitle("Calculadora de Áreas");
+		setTitle("Calculadora de Areas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 507, 532);
 		contentPane = new JPanel();
@@ -80,12 +80,12 @@ public class Task3Extra extends JFrame {
 		
 		
 		JButton btnTriangulo = new JButton("");
-		btnTriangulo.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Desktop\\Nueva carpeta\\piramide.png"));
+		btnTriangulo.setIcon(new ImageIcon("P:\\icons\\piramide.png"));
 		btnTriangulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				double areaT = (Double.parseDouble(BaseNumber.getText()) * Double.parseDouble(AlturaNumber.getText())) / 2;
 				
-				registroResultado.append("El área del triangulo de base " + BaseNumber.getText()+ " y altura " + AlturaNumber.getText() + " es " + areaT+ "\n");
+				registroResultado.append("El area del triangulo de base " + BaseNumber.getText()+ " y altura " + AlturaNumber.getText() + " es " + areaT+ "\n");
 				
 			}
 		});
@@ -93,7 +93,7 @@ public class Task3Extra extends JFrame {
 		contentPane.add(btnTriangulo);
 		
 		JButton btnRectangulo = new JButton("");
-		btnRectangulo.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Desktop\\Nueva carpeta\\rectangulo.png"));
+		btnRectangulo.setIcon(new ImageIcon("P:\\icons\\rectangulo.png"));
 		btnRectangulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				double base= Double.parseDouble(BaseNumber.getText());
@@ -101,9 +101,9 @@ public class Task3Extra extends JFrame {
 				double areaR = Double.parseDouble(BaseNumber.getText()) * Double.parseDouble(AlturaNumber.getText());
 
 				if(base !=altura) {
-					registroResultado.append("El área del rectángulo de base " + BaseNumber.getText() + " y altura " + AlturaNumber.getText() + " es " + areaR+ "\n");
+					registroResultado.append("El area del rectangulo de base " + BaseNumber.getText() + " y altura " + AlturaNumber.getText() + " es " + areaR+ "\n");
 				} else {
-					registroResultado.append("El área del cuadrado de lado " + BaseNumber.getText() +  " es " + areaR+ "\n");
+					registroResultado.append("El area del cuadrado de lado " + BaseNumber.getText() +  " es " + areaR+ "\n");
 				}
 				
 				

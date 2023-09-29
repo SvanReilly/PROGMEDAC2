@@ -37,7 +37,7 @@ public class Task1 extends JFrame {
 	 * Create the frame.
 	 */
 	public Task1() {
-		setTitle("Registrar evento botón pulsado");
+		setTitle("Registrar evento boton pulsado");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 333, 345);
 		contentPane = new JPanel();
@@ -73,7 +73,7 @@ public class Task1 extends JFrame {
 		BotonMostrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	txtrBotnPulsado.append("Boton Pulsado\n");
-            	//txtrBotnPulsado.setText("Botón Pulsado \n" + txtrBotnPulsado.getText()); //less efficient
+            	//txtrBotnPulsado.setText("Boton Pulsado \n" + txtrBotnPulsado.getText()); //less efficient
             }
 });
 		

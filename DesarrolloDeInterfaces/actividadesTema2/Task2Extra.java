@@ -45,7 +45,7 @@ public class Task2Extra extends JFrame {
 	public Task2Extra() {
 		setTitle("Calificar Alumno");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 531, 494);
+		setBounds(100, 100, 725, 634);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(206, 206, 206));
 		contentPane.setForeground(new Color(192, 192, 192));
@@ -61,7 +61,7 @@ public class Task2Extra extends JFrame {
 		alumnoName = new JTextField();
 		alumnoName.setForeground(Color.BLACK);
 		alumnoName.setColumns(10);
-		alumnoName.setBounds(24, 40, 283, 20);
+		alumnoName.setBounds(24, 40, 385, 20);
 		contentPane.add(alumnoName);
 
 		JLabel asignatura = new JLabel("Asignatura:");
@@ -71,11 +71,11 @@ public class Task2Extra extends JFrame {
 		asignaturaName = new JTextField();
 		asignaturaName.setToolTipText("");
 		asignaturaName.setForeground(Color.BLACK);
-		asignaturaName.setBounds(24, 87, 283, 20);
+		asignaturaName.setBounds(24, 87, 385, 20);
 		contentPane.add(asignaturaName);
 		asignaturaName.setColumns(10);
 
-		JLabel calificacion = new JLabel("Calificación");
+		JLabel calificacion = new JLabel("Calificaciones");
 		calificacion.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		calificacion.setBounds(24, 104, 115, 32);
 		contentPane.add(calificacion);
@@ -83,17 +83,18 @@ public class Task2Extra extends JFrame {
 		calificacionNumber = new JTextField();
 		calificacionNumber.setFont(new Font("Tahoma", Font.BOLD, 22));
 		calificacionNumber.setForeground(Color.BLACK);
-		calificacionNumber.setBounds(34, 134, 49, 48);
+		calificacionNumber.setBounds(24, 134, 79, 48);
 		contentPane.add(calificacionNumber);
 		calificacionNumber.setColumns(10);
 
 		JTextArea resultadoCalificacion = new JTextArea();
-		resultadoCalificacion.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		resultadoCalificacion.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		resultadoCalificacion.setBackground(new Color(255, 255, 255));
-		resultadoCalificacion.setBounds(24, 196, 454, 229);
+		resultadoCalificacion.setBounds(24, 196, 662, 388);
 		contentPane.add(resultadoCalificacion);
 
 		JButton calificar = new JButton("Calificar");
+		calificar.setFont(new Font("Tahoma", Font.BOLD, 17));
 		calificar.setBackground(Color.LIGHT_GRAY);
 		calificar.setForeground(Color.BLACK);
 		calificar.addActionListener(new ActionListener() {
@@ -115,15 +116,16 @@ public class Task2Extra extends JFrame {
 					}
 				} catch (NumberFormatException ex) {
 					ex.printStackTrace();
-					JOptionPane.showMessageDialog(null, "La calificación insertada no es de un formato válido, por favor, pruebe de nuevo.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "La calificacion insertada no es de un formato valido, por favor, pruebe de nuevo.", "Error de formato", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
 
-		calificar.setBounds(350, 29, 101, 62);
+		calificar.setBounds(480, 31, 115, 62);
 		contentPane.add(calificar);
 
 		JButton reset = new JButton("Reset");
+		reset.setFont(new Font("Tahoma", Font.BOLD, 13));
 		reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				resultadoCalificacion.setText("");
@@ -131,7 +133,7 @@ public class Task2Extra extends JFrame {
 		});
 		reset.setForeground(Color.WHITE);
 		reset.setBackground(Color.LIGHT_GRAY);
-		reset.setBounds(364, 117, 71, 32);
+		reset.setBounds(495, 116, 87, 32);
 		contentPane.add(reset);
 
 	}
