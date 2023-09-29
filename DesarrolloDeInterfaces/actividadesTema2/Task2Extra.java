@@ -45,7 +45,7 @@ public class Task2Extra extends JFrame {
 	public Task2Extra() {
 		setTitle("Calificar Alumno");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 543, 393);
+		setBounds(100, 100, 531, 494);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(206, 206, 206));
 		contentPane.setForeground(new Color(192, 192, 192));
@@ -65,32 +65,32 @@ public class Task2Extra extends JFrame {
 		contentPane.add(alumnoName);
 
 		JLabel asignatura = new JLabel("Asignatura:");
-		asignatura.setBounds(24, 71, 134, 39);
+		asignatura.setBounds(24, 54, 134, 39);
 		contentPane.add(asignatura);
 
 		asignaturaName = new JTextField();
 		asignaturaName.setToolTipText("");
 		asignaturaName.setForeground(Color.BLACK);
-		asignaturaName.setBounds(24, 104, 283, 20);
+		asignaturaName.setBounds(24, 87, 283, 20);
 		contentPane.add(asignaturaName);
 		asignaturaName.setColumns(10);
 
 		JLabel calificacion = new JLabel("Calificación");
 		calificacion.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		calificacion.setBounds(392, 10, 115, 32);
+		calificacion.setBounds(24, 104, 115, 32);
 		contentPane.add(calificacion);
 
 		calificacionNumber = new JTextField();
-		calificacionNumber.setText(" ");
 		calificacionNumber.setFont(new Font("Tahoma", Font.BOLD, 22));
 		calificacionNumber.setForeground(Color.BLACK);
-		calificacionNumber.setBounds(402, 40, 49, 48);
+		calificacionNumber.setBounds(34, 134, 49, 48);
 		contentPane.add(calificacionNumber);
 		calificacionNumber.setColumns(10);
 
 		JTextArea resultadoCalificacion = new JTextArea();
+		resultadoCalificacion.setFont(new Font("Monospaced", Font.PLAIN, 10));
 		resultadoCalificacion.setBackground(new Color(255, 255, 255));
-		resultadoCalificacion.setBounds(24, 152, 333, 160);
+		resultadoCalificacion.setBounds(24, 196, 454, 229);
 		contentPane.add(resultadoCalificacion);
 
 		JButton calificar = new JButton("Calificar");
@@ -100,11 +100,11 @@ public class Task2Extra extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 
-				int calificacion = Integer.parseInt(calificacionNumber.getText());
+				double calificacion = Double.parseDouble(calificacionNumber.getText());
 				
 				try {
 
-					if (calificacion >= 0 && calificacion <= 4) { // Continuar desde aqui
+					if (calificacion >= 0 && calificacion < 5) { // Continuar desde aqui
 						resultadoCalificacion.append(alumnoName.getText() + " ha suspendido la asignatura de "
 								+ asignaturaName.getText() + " con un " + calificacionNumber.getText() + "\n");
 					} else if (calificacion >= 5 && calificacion <= 10) {
@@ -120,7 +120,7 @@ public class Task2Extra extends JFrame {
 			}
 		});
 
-		calificar.setBounds(376, 185, 131, 37);
+		calificar.setBounds(350, 29, 101, 62);
 		contentPane.add(calificar);
 
 		JButton reset = new JButton("Reset");
@@ -131,7 +131,7 @@ public class Task2Extra extends JFrame {
 		});
 		reset.setForeground(Color.WHITE);
 		reset.setBackground(Color.LIGHT_GRAY);
-		reset.setBounds(408, 245, 71, 32);
+		reset.setBounds(364, 117, 71, 32);
 		contentPane.add(reset);
 
 	}

@@ -15,30 +15,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 
 public class Task2 extends JFrame {
-	final String ANSI_RESET = "\u001B[0m";
-	final String ANSI_BLACK = "\u001B[30m";
-	final String ANSI_RED = "\u001B[31m";
-	final String ANSI_GREEN = "\u001B[32m";
-	final String ANSI_YELLOW = "\u001B[33m";
-	final String ANSI_BLUE = "\u001B[34m";
-	final String ANSI_PURPLE = "\u001B[35m";
-	final String ANSI_CYAN = "\u001B[36m";
-	final String ANSI_WHITE = "\u001B[37m";
-	final String ANSI_LIGHT_YELLOW = "\u001B[93m";
-	final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
-	final String ANSI_BOLD = "\u001B[1m";
-	final String ANSI_UNBOLD = "\u001B[21m";
-	final String ANSI_UNDERLINE = "\u001B[4m";
-	final String ANSI_STOP_UNDERLINE = "\u001B[24m";
-	final String ANSI_BLINK = "\u001B[5m";
-	
-	final String ANSI_LIGHT_BLUE =  "\033[1;34m";
-	final String ANSI_LIGHT_CYAN  = "\033[1;36m";
-	final String ANSI_LIGHT_GREEN  = "\033[1;32m";
-	final String ANSI_LIGHT_PURPLE  = "\033[1;35m";
-	final String ANSI_LIGHT_RED =  "\033[1;31m";
-	final String ANSI_BROWN = "\033[0;33m";
-	final String ANSI_GRAY =  "\033[0;37m";
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
