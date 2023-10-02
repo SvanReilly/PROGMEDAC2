@@ -8,7 +8,7 @@ public class AbrirProceso {
 		// TODO Auto-generated method stub
 
 		// Ruta del ejecutable de gle Cr
-		String RUTA_PROCESO = "C:\\Program Files(x86)\\Google\\Chrome\\Application\\chrome.exe";
+		String RUTA_PROCESO = "C:\\Users\\AlumnoT\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe";
 		// Creamos el proceso de Google Chrome
 		ProcessBuilder pb = new ProcessBuilder(RUTA_PROCESO);
 		try {
