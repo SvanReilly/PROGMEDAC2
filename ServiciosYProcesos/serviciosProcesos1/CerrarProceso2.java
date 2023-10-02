@@ -3,7 +3,7 @@ package serviciosProcesos1;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class AbrirProceso2 {
+public class CerrarProceso2 {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
