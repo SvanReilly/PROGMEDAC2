@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.StreamTokenizer;
 import java.io.StringReader;
 
-public class CasoPracticoPîpes2 {
+public class CasoPracticoPipes2 {
 	public static void main(String[] args) {
 
 		// TODO Auto-generated method stub
