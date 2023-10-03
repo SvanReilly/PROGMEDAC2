@@ -9,7 +9,8 @@ public class CasoPracticoPipes2 {
 
 		// TODO Auto-generated method stub
 
-		StreamTokenizer streamTokenizer = new StreamTokenizer(new StringReader("Hola mi edad es 45.37"));
+		StreamTokenizer streamTokenizer = new StreamTokenizer(new StringReader("Hola "
+				+ "mi edad es 45.37"));
 
 		try {
 			while (streamTokenizer.nextToken() != StreamTokenizer.TT_EOF) {
