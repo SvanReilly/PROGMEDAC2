@@ -1,6 +1,7 @@
 package serviciosProcesos1;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class ActividadesT3_2 {
@@ -27,6 +28,12 @@ public class ActividadesT3_2 {
 					}
 				}
 			}.start();
+			
+			// Obtenemos la salida del proceso hijo
+			
+			PrintWriter salida = new PrintWriter (proceso_echo.getOutputStream());
+			
+			//
 			
 		} catch (IOException | InterruptedException ex ) {
 			
