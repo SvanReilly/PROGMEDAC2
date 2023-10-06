@@ -1,10 +1,10 @@
-package serviciosProcesos1;
+package ejemplovideo3;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class ActividadesT3_2 {
+public class ActividadesT3_3 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -13,12 +13,12 @@ public class ActividadesT3_2 {
 		
 		try {
 			
-			// Creamos el proceso de hijo
+			// Se crea el proceso de hijo
 			ProcessBuilder builder_echo = new ProcessBuilder ("CMD");
 			Process proceso_echo = builder_echo.start();
 			
 			
-			// Indicamos cual es la salida del proceso hijo que ejecuta el bash
+			// Se indica cual es la salida del proceso hijo que ejecuta el bash
 			final Scanner in = new Scanner (proceso_echo.getInputStream());
 			new Thread() {
 				@Override
@@ -29,15 +29,21 @@ public class ActividadesT3_2 {
 				}
 			}.start();
 			
-			// Obtenemos la salida del proceso hijo
+			// Se obtiene la salida del proceso hijo
 			
 			PrintWriter salida = new PrintWriter (proceso_echo.getOutputStream());
 			
-			//
+			// Se procede a realizar 10 llamadas al proceso hijo con el comando echo
+			for (int i = 0; i<10; i++) {
+				salida.println("echo Iteracion " + i);
+				salida.flush();
+			}
+			// Y se cierran los flujos
+			salida.close();
 			
-		} catch (IOException | InterruptedException ex ) {
-			
+		} catch (IOException ex ) {
+			System.err.println("Excepción de E/S!!: " + ex.toString());
 		}
 	}
-
+	
 }
