@@ -13,11 +13,14 @@
 .externalNativeBuild
 .cxx
 local.properties
-/app/
 /actividadesTema1/
 /actividadesTema2/
 /actividadesTema2Layouts/
+/app/
 /build.gradle.kts
+/ejemplovideo1/
+/ejemplovideo2/
+/ejemplovideo3/
 /fichero1/
 /gradle.properties
 /gradle/
@@ -28,7 +31,3 @@ local.properties
 /serviciosProcesos1/
 /settings.gradle.kts
 /streamsFlujos/
-/ejemplovideo1/
-/ejemplovideo2/
-/ejemplovideo3/
-/.idea/
