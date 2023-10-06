@@ -8,12 +8,14 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Dialog1 extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
-	private JTextField DialogText;
+	protected JTextField DialogText;
 
 	/**
 	 * Launch the application.
@@ -39,9 +41,9 @@ public class Dialog1 extends JDialog {
 		contentPanel.setLayout(new BorderLayout(0, 0));
 		{
 			DialogText = new JTextField();
-			DialogText.setText("");
 			contentPanel.add(DialogText, BorderLayout.CENTER);
 			DialogText.setColumns(10);
+	
 		}
 		{
 			JPanel buttonPane = new JPanel();
@@ -49,13 +51,23 @@ public class Dialog1 extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
-				dispose();
+	
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 				dispose();

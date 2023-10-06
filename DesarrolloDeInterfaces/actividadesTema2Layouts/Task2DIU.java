@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.BoxLayout;
 
 public class Task2DIU extends JFrame {
 
@@ -40,6 +41,13 @@ public class Task2DIU extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
+		
+		JPanel panelPantalla1 = new JPanel();
+		contentPane.add(panelPantalla1);
+		
+		JPanel panelBotones = new JPanel();
+		contentPane.add(panelBotones);
 	}
 
 }

@@ -9,6 +9,8 @@ import java.awt.FlowLayout;
 import javax.swing.border.BevelBorder;
 import java.awt.CardLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Rectangle;
 import java.awt.GridLayout;
 import javax.swing.JTextField;
@@ -80,16 +82,21 @@ public class Task1DIU extends JFrame {
 		String contra = "1234";
 		String userAdmin = "admin";
 		JButton Log_In_Button = new JButton("Log In");
+		Dialog1 dialog = new Dialog1();
 		Log_In_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String passwordEntered = String.copyValueOf(passwordField.getPassword());
+				
 				if (passwordEntered.equals(contra) && userName.getText().equals(userAdmin) ) {
 					
-					Dialog1 dialog = new Dialog1();
+					dialog.setVisible(true);
+					dialog.DialogText.setText("BIENVENIDO.");
 				
 					
 				} else {
-
+					//JOptionPane.showInternalMessageDialog(null, "El usuario o la contraseña son incorrectas, intente de nuevo.");
+					dialog.setVisible(true);
+					dialog.DialogText.setText("El usuario o la contraseña son incorrectas, intente de nuevo.");
 				}
 				
 			}
