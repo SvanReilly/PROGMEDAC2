@@ -1,0 +1,5 @@
+<resources>
+    <string name="Fabled_Chronicles_title" translatable="false">FABLED CHRONICLES</string>
+    <string name="continue_button">Continue</string>
+    <string name="cancel_button">Cancel</string>
+</resources>

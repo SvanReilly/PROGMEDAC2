@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="main_background_color">#C39F30</color>
+    <color name="cancel_color_button">#A30404</color>
+    <color name="continue_color_button">#2C6708</color>
+</resources>

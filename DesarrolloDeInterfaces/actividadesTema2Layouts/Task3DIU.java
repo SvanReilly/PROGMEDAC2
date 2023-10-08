@@ -13,7 +13,7 @@ public class Task3DIU extends JFrame {
 
 	/**
 	 * 
-	 * 3. Elaborar una interfaz para una aplicación de venta de entradas.
+	 * 3. Elaborar una interfaz para una aplicacion de venta de entradas.
 	 * 
 	 * Launch the application.
 	 */
