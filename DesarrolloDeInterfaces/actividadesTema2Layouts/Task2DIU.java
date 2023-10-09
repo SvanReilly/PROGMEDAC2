@@ -27,7 +27,7 @@ public class Task2DIU extends JFrame {
 
 	/**
 	 * 
-	 * 2. Diseñar una calculadora en el layout adecuado
+	 * 2. Diseï¿½ar una calculadora en el layout adecuado
 	 * 
 	 * Launch the application.
 	 */
@@ -134,7 +134,7 @@ public class Task2DIU extends JFrame {
 				}
 			
         } catch (NumberFormatException ex) {
-            TextoPantalla.setText("Por favor, introduzca un orden válido de los elementos." + "\n");
+            TextoPantalla.setText("Por favor, introduzca un orden vï¿½lido de los elementos." + "\n");
         }
 		
 			}
@@ -160,7 +160,7 @@ public class Task2DIU extends JFrame {
 				}
 				TextoPantalla.setText(impresionPant);
         } catch (NumberFormatException ex) {
-            TextoPantalla.setText("Por favor, introduzca un orden válido de los elementos." + "\n");
+            TextoPantalla.setText("Por favor, introduzca un orden vï¿½lido de los elementos." + "\n");
         }
 		
 			}
@@ -347,17 +347,17 @@ public class Task2DIU extends JFrame {
 		                            resultado = numero1 / numero2;
 		                            impresionPant=(numero1 + " " + simbolo + " " + numero2 + " = " + resultado + "\n");
 		                        } else {
-		                        	impresionPant=(numero1 + " " + simbolo + " " + numero2 + " = " + "El resultado de esta operación es una indeterminacion." + "\n");
+		                        	impresionPant=(numero1 + " " + simbolo + " " + numero2 + " = " + "El resultado de esta operaciï¿½n es una indeterminacion." + "\n");
 		                        }
 		                        break;
 		                    default:
-		                    	impresionPant=("Operador no válido." + "\n");
+		                    	impresionPant=("Operador no vï¿½lido." + "\n");
 		                        break;
 		                }
 
 		                TextoPantalla.setText(impresionPant);
 		            } catch (NumberFormatException ex) {
-		                TextoPantalla.setText("Por favor, introduzca un orden válido de los elementos." + "\n");
+		                TextoPantalla.setText("Por favor, introduzca un orden valido de los elementos." + "\n");
 		            }
 		    }
 		});
