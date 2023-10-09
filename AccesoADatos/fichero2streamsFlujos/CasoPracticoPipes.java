@@ -1,4 +1,4 @@
-package streamsFlujos;
+package fichero2streamsFlujos;
 
 import java.io.File;
 import java.io.FileWriter;

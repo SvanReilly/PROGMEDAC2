@@ -1,4 +1,4 @@
-package streamsFlujos;
+package fichero2streamsFlujos;
 
 import java.io.IOException;
 import java.io.StreamTokenizer;

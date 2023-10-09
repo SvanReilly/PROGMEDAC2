@@ -1,4 +1,4 @@
-package fichero1;
+package fichero1Basics;
 
 import java.io.BufferedReader;
 import java.io.File;
