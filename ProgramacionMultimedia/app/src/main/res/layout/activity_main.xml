@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Fabled_Chronicles_title"
@@ -23,8 +24,10 @@
         android:layout_height="55dp"
         android:background="@color/continue_color_button"
         android:text="@string/continue_button"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="406dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/button2"
@@ -32,7 +35,9 @@
         android:layout_height="wrap_content"
         android:background="@color/cancel_color_button"
         android:text="@string/cancel_button"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="489dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
