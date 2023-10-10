@@ -1,0 +1,56 @@
+﻿<library>
+  <book>
+    <title>El asombroso mundo del Acceso a Datos</title>
+    <author>Jose Ortega Valiente</author>
+    <year>2023</year>
+    <genre>Programming</genre>
+  </book>
+  <book>
+    <title>Mira mi Python - Basics</title>
+    <author>Jane Smith</author>
+    <year>2023</year>
+    <genre>Programming</genre>
+  </book>
+  <book>
+    <title>Java Programming</title>
+    <author>John Doe</author>
+    <year>2020</year>
+    <genre>Programming</genre>
+  </book>
+  <book>
+    <title>Data Structures and Algorithms</title>
+    <author>Michael Johnson</author>
+    <year>2021</year>
+    <genre>Programming</genre>
+  </book>
+  <book>
+    <title>Introduction to Artificial Intelligence</title>
+    <author>Linda Davis</author>
+    <year>2022</year>
+    <genre>Artificial Intelligence</genre>
+  </book>
+  <book>
+    <title>Book Title 1</title>
+    <author>Author 1</author>
+    <year>2005</year>
+    <genre>Genre 1</genre>
+  </book>
+  <book>
+    <title>Book Title 2</title>
+    <author>Author 2</author>
+    <year>2010</year>
+    <genre>Genre 2</genre>
+  </book>
+  <book>
+    <title>Book Title 29</title>
+    <author>Author 29</author>
+    <year>2016</year>
+    <genre>Genre 29</genre>
+  </book>
+  <book>
+    <title>Book Title 30</title>
+    <author>Author 30</author>
+    <year>2021</year>
+    <genre>Genre 30</genre>
+  </book>
+</library>
