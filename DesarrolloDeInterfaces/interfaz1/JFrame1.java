@@ -18,7 +18,7 @@ import javax.swing.JTextPane;
 import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 
-@SuppressWarnings("unused")
+
 public class JFrame1 extends JFrame {
 
 	private static final long serialVersionUID = 1L;

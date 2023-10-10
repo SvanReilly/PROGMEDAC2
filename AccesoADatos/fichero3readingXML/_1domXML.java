@@ -27,9 +27,9 @@ public class _1domXML {
         XPathFactory xPathFactory = XPathFactory.newInstance();
         XPath xPath = xPathFactory.newXPath();
 
-        XPathExpression expression = xPath.compile("/library/book");
+       // XPathExpression expression = xPath.compile("/library/book");
 
-        NodeList nodeList = (NodeList) expression.evaluate(document, XPathConstants.NODESET);
+        //NodeList nodeList = (NodeList) expression.evaluate(document, XPathConstants.NODESET);
 		}catch(IOException ex) {
 			ex.printStackTrace();
 		}
