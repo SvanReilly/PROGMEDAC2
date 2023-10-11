@@ -21,6 +21,7 @@ import javax.swing.border.EtchedBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class Task3DIU extends JFrame {
 
@@ -63,12 +64,15 @@ public class Task3DIU extends JFrame {
 	public static String estadoReserva(JButton boton) {
 		String estadoEntrada;
 		if(boton.getBackground()==Color.RED) {
-			estadoEntrada="LA ENTRADA ESTA AGOTADA.";
+			estadoEntrada="LA ENTRADA " + boton.getText() + " ESTA AGOTADA.";
 		}else if(boton.getBackground()==Color.GREEN){
-			estadoEntrada="LA ENTRADA ESTA DISPONIBLE.";
+			estadoEntrada="HAS RESERVADO LA ENTRADA " + boton.getText();
+			boton.setBackground(Color.RED);
+			boton.setForeground(Color.WHITE);
 		}else {
 			boton.setForeground(Color.WHITE);
-			estadoEntrada="LA ENTRADA ESTA SIENDO RESERVADA EN ESTE MOMENTO.";
+			estadoEntrada="LA ENTRADA " + boton.getText() 
+			+ " ESTA SIENDO RESERVADA EN ESTE MOMENTO POR OTRO USUARIO.";
 		}
 		return estadoEntrada;
 	}
@@ -79,7 +83,7 @@ public class Task3DIU extends JFrame {
 	public Task3DIU() {
 		setTitle("Reservar entradas 'Toto World Tour'");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 617, 559);
+		setBounds(100, 100, 960, 638);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -91,8 +95,9 @@ public class Task3DIU extends JFrame {
 		contentPane.add(panelOeste, BorderLayout.WEST);
 		panelOeste.setLayout(new GridLayout(0, 3, 0, 0));
 		
+		Dialog3 dialog = new Dialog3();
 		
-		
+		/*
 		JButton Entrada1 = new JButton("1");
 		Entrada1.setBackground(randomizarColor());
 		if (Entrada1.getBackground()!=Color.GREEN) {
@@ -100,12 +105,28 @@ public class Task3DIU extends JFrame {
 		}
 		Entrada1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, estadoReserva(Entrada1));
+				dialog.setVisible(true);
+				dialog.DialogText.setText(estadoReserva(Entrada1));
+				//JOptionPane.showMessageDialog(null, estadoReserva(Entrada1));
+			}
+		});
+		
+		panelOeste.add(Entrada1);
+		*/
+		
+		JButton Entrada1 = new JButton("WEST-VIP");
+		Entrada1.setBackground(Color.GRAY);
+		Entrada1.setForeground(Color.WHITE);
+		
+		Entrada1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dialog.setVisible(true);
+				
 			}
 		});
 		panelOeste.add(Entrada1);
 		
-		JButton Entrada2 = new JButton("2");
+		JButton Entrada2 = new JButton("WEST-2");
 		Entrada2.setBackground(randomizarColor());
 		if (Entrada2.getBackground()!=Color.GREEN) {
 			Entrada2.setForeground(Color.WHITE);
@@ -117,7 +138,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelOeste.add(Entrada2);
 		
-		JButton Entrada3 = new JButton("3");
+		JButton Entrada3 = new JButton("WEST-3");
 		Entrada3.setBackground(randomizarColor());
 		if (Entrada3.getBackground()!=Color.GREEN) {
 			Entrada3.setForeground(Color.WHITE);
@@ -129,7 +150,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelOeste.add(Entrada3);
 		
-		JButton Entrada4 = new JButton("4");
+		JButton Entrada4 = new JButton("WEST-4");
 		Entrada4.setBackground(randomizarColor());
 		if (Entrada4.getBackground()!=Color.GREEN) {
 			Entrada4.setForeground(Color.WHITE);
@@ -141,7 +162,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelOeste.add(Entrada4);
 		
-		JButton Entrada5 = new JButton("5");
+		JButton Entrada5 = new JButton("WEST-5");
 		Entrada5.setBackground(randomizarColor());
 		if (Entrada5.getBackground()!=Color.GREEN) {
 			Entrada5.setForeground(Color.WHITE);
@@ -153,7 +174,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelOeste.add(Entrada5);
 		
-		JButton Entrada6 = new JButton("6");
+		JButton Entrada6 = new JButton("WEST-6");
 		Entrada6.setBackground(randomizarColor());
 		if (Entrada6.getBackground()!=Color.GREEN) {
 			Entrada6.setForeground(Color.WHITE);
@@ -165,7 +186,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelOeste.add(Entrada6);
 		
-		JButton Entrada7 = new JButton("7");
+		JButton Entrada7 = new JButton("WEST-7");
 		Entrada7.setBackground(randomizarColor());
 		if (Entrada7.getBackground()!=Color.GREEN) {
 			Entrada7.setForeground(Color.WHITE);
@@ -177,7 +198,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelOeste.add(Entrada7);
 		
-		JButton Entrada8 = new JButton("8");
+		JButton Entrada8 = new JButton("WEST-8");
 		Entrada8.setBackground(randomizarColor());
 		if (Entrada8.getBackground()!=Color.GREEN) {
 			Entrada8.setForeground(Color.WHITE);
@@ -189,7 +210,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelOeste.add(Entrada8);
 		
-		JButton Entrada9 = new JButton("9");
+		JButton Entrada9 = new JButton("WEST-9");
 		Entrada9.setBackground(randomizarColor());
 		if (Entrada9.getBackground()!=Color.GREEN) {
 			Entrada9.setForeground(Color.WHITE);
@@ -201,7 +222,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelOeste.add(Entrada9);
 		
-		JButton Entrada10 = new JButton("10");
+		JButton Entrada10 = new JButton("WEST-10");
 		Entrada10.setBackground(randomizarColor());
 		if (Entrada10.getBackground()!=Color.GREEN) {
 			Entrada10.setForeground(Color.WHITE);
@@ -213,7 +234,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelOeste.add(Entrada10);
 		
-		JButton Entrada11 = new JButton("11");
+		JButton Entrada11 = new JButton("WEST-11");
 		Entrada11.setBackground(randomizarColor());
 		if (Entrada11.getBackground()!=Color.GREEN) {
 			Entrada11.setForeground(Color.WHITE);
@@ -225,7 +246,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelOeste.add(Entrada11);
 		
-		JButton Entrada12 = new JButton("12");
+		JButton Entrada12 = new JButton("WEST-12");
 		Entrada12.setBackground(randomizarColor());
 		if (Entrada12.getBackground()!=Color.GREEN) {
 			Entrada12.setForeground(Color.WHITE);
@@ -242,7 +263,7 @@ public class Task3DIU extends JFrame {
 		contentPane.add(panelEste, BorderLayout.EAST);
 		panelEste.setLayout(new GridLayout(0, 3, 0, 0));
 		
-		JButton Entrada13 = new JButton("13");
+		JButton Entrada13 = new JButton("EAST-13");
 		Entrada13.setBackground(randomizarColor());
 		if (Entrada13.getBackground()!=Color.GREEN) {
 			Entrada13.setForeground(Color.WHITE);
@@ -254,7 +275,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelEste.add(Entrada13);
 		
-		JButton Entrada14 = new JButton("14");
+		JButton Entrada14 = new JButton("EAST-14");
 		Entrada14.setBackground(randomizarColor());
 		if (Entrada14.getBackground()!=Color.GREEN) {
 			Entrada14.setForeground(Color.WHITE);
@@ -266,7 +287,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelEste.add(Entrada14);
 		
-		JButton Entrada15 = new JButton("15");
+		JButton Entrada15 = new JButton("EAST-15");
 		Entrada15.setBackground(randomizarColor());
 		if (Entrada15.getBackground()!=Color.GREEN) {
 			Entrada15.setForeground(Color.WHITE);
@@ -278,7 +299,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelEste.add(Entrada15);
 		
-		JButton Entrada16 = new JButton("16");
+		JButton Entrada16 = new JButton("EAST-16");
 		Entrada16.setBackground(randomizarColor());
 		if (Entrada16.getBackground()!=Color.GREEN) {
 			Entrada16.setForeground(Color.WHITE);
@@ -290,7 +311,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelEste.add(Entrada16);
 		
-		JButton Entrada17 = new JButton("17");
+		JButton Entrada17 = new JButton("EAST-17");
 		Entrada17.setBackground(randomizarColor());
 		if (Entrada17.getBackground()!=Color.GREEN) {
 			Entrada17.setForeground(Color.WHITE);
@@ -302,7 +323,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelEste.add(Entrada17);
 		
-		JButton Entrada18 = new JButton("18");
+		JButton Entrada18 = new JButton("EAST-18");
 		Entrada18.setBackground(randomizarColor());
 		if (Entrada18.getBackground()!=Color.GREEN) {
 			Entrada18.setForeground(Color.WHITE);
@@ -314,7 +335,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelEste.add(Entrada18);
 		
-		JButton Entrada19 = new JButton("19");
+		JButton Entrada19 = new JButton("EAST-19");
 		Entrada19.setBackground(randomizarColor());
 		if (Entrada19.getBackground()!=Color.GREEN) {
 			Entrada19.setForeground(Color.WHITE);
@@ -326,7 +347,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelEste.add(Entrada19);
 		
-		JButton Entrada20 = new JButton("20");
+		JButton Entrada20 = new JButton("EAST-20");
 		Entrada20.setBackground(randomizarColor());
 		if (Entrada20.getBackground()!=Color.GREEN) {
 			Entrada20.setForeground(Color.WHITE);
@@ -338,7 +359,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelEste.add(Entrada20);
 		
-		JButton Entrada21 = new JButton("21");
+		JButton Entrada21 = new JButton("EAST-21");
 		Entrada21.setBackground(randomizarColor());
 		if (Entrada21.getBackground()!=Color.GREEN) {
 			Entrada21.setForeground(Color.WHITE);
@@ -350,7 +371,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelEste.add(Entrada21);
 		
-		JButton Entrada22 = new JButton("22");
+		JButton Entrada22 = new JButton("EAST-22");
 		Entrada22.setBackground(randomizarColor());
 		if (Entrada22.getBackground()!=Color.GREEN) {
 			Entrada22.setForeground(Color.WHITE);
@@ -362,7 +383,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelEste.add(Entrada22);
 		
-		JButton Entrada23 = new JButton("23");
+		JButton Entrada23 = new JButton("EAST-23");
 		Entrada23.setBackground(randomizarColor());
 		if (Entrada23.getBackground()!=Color.GREEN) {
 			Entrada23.setForeground(Color.WHITE);
@@ -374,7 +395,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelEste.add(Entrada23);
 		
-		JButton Entrada24 = new JButton("24");
+		JButton Entrada24 = new JButton("EAST-24");
 		Entrada24.setBackground(randomizarColor());
 		if (Entrada24.getBackground()!=Color.GREEN) {
 			Entrada24.setForeground(Color.WHITE);
@@ -391,7 +412,7 @@ public class Task3DIU extends JFrame {
 		contentPane.add(panelNorte, BorderLayout.NORTH);
 		panelNorte.setLayout(new GridLayout(0, 3, 0, 0));
 		
-		JButton Entrada25 = new JButton("25");
+		JButton Entrada25 = new JButton("NORTH-25");
 		Entrada25.setBackground(randomizarColor());
 		if (Entrada25.getBackground()!=Color.GREEN) {
 			Entrada25.setForeground(Color.WHITE);
@@ -403,7 +424,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelNorte.add(Entrada25);
 		
-		JButton Entrada26 = new JButton("26");
+		JButton Entrada26 = new JButton("NORTH-26");
 		Entrada26.setBackground(randomizarColor());
 		if (Entrada26.getBackground()!=Color.GREEN) {
 			Entrada26.setForeground(Color.WHITE);
@@ -415,7 +436,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelNorte.add(Entrada26);
 		
-		JButton Entrada27 = new JButton("27");
+		JButton Entrada27 = new JButton("NORTH-27");
 		Entrada27.setBackground(randomizarColor());
 		if (Entrada27.getBackground()!=Color.GREEN) {
 			Entrada27.setForeground(Color.WHITE);
@@ -427,7 +448,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelNorte.add(Entrada27);
 		
-		JButton Entrada28 = new JButton("28");
+		JButton Entrada28 = new JButton("NORTH-28");
 		Entrada28.setBackground(randomizarColor());
 		if (Entrada28.getBackground()!=Color.GREEN) {
 			Entrada28.setForeground(Color.WHITE);
@@ -439,7 +460,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelNorte.add(Entrada28);
 		
-		JButton Entrada29 = new JButton("29");
+		JButton Entrada29 = new JButton("NORTH-29");
 		Entrada29.setBackground(randomizarColor());
 		if (Entrada29.getBackground()!=Color.GREEN) {
 			Entrada29.setForeground(Color.WHITE);
@@ -451,7 +472,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelNorte.add(Entrada29);
 		
-		JButton Entrada30 = new JButton("30");
+		JButton Entrada30 = new JButton("NORTH-30");
 		Entrada30.setBackground(randomizarColor());
 		if (Entrada30.getBackground()!=Color.GREEN) {
 			Entrada30.setForeground(Color.WHITE);
@@ -468,7 +489,7 @@ public class Task3DIU extends JFrame {
 		contentPane.add(panelSur, BorderLayout.SOUTH);
 		panelSur.setLayout(new GridLayout(0, 3, 0, 0));
 		
-		JButton Entrada31 = new JButton("31");
+		JButton Entrada31 = new JButton("SOUTH-31");
 		Entrada31.setBackground(randomizarColor());
 		if (Entrada31.getBackground()!=Color.GREEN) {
 			Entrada31.setForeground(Color.WHITE);
@@ -480,7 +501,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelSur.add(Entrada31);
 		
-		JButton Entrada32 = new JButton("32");
+		JButton Entrada32 = new JButton("SOUTH-32");
 		Entrada32.setBackground(randomizarColor());
 		if (Entrada32.getBackground()!=Color.GREEN) {
 			Entrada32.setForeground(Color.WHITE);
@@ -492,7 +513,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelSur.add(Entrada32);
 		
-		JButton Entrada33 = new JButton("33");
+		JButton Entrada33 = new JButton("SOUTH-33");
 		Entrada33.setBackground(randomizarColor());
 		if (Entrada33.getBackground()!=Color.GREEN) {
 			Entrada33.setForeground(Color.WHITE);
@@ -504,7 +525,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelSur.add(Entrada33);
 		
-		JButton Entrada34 = new JButton("34");
+		JButton Entrada34 = new JButton("SOUTH-34");
 		Entrada34.setBackground(randomizarColor());
 		if (Entrada34.getBackground()!=Color.GREEN) {
 			Entrada34.setForeground(Color.WHITE);
@@ -516,7 +537,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelSur.add(Entrada34);
 		
-		JButton Entrada35 = new JButton("35");
+		JButton Entrada35 = new JButton("SOUTH-35");
 		Entrada35.setBackground(randomizarColor());
 		if (Entrada35.getBackground()!=Color.GREEN) {
 			Entrada35.setForeground(Color.WHITE);
@@ -528,7 +549,7 @@ public class Task3DIU extends JFrame {
 		});
 		panelSur.add(Entrada35);
 		
-		JButton Entrada36 = new JButton("36");
+		JButton Entrada36 = new JButton("SOUTH-36");
 		Entrada36.setBackground(randomizarColor());
 		if (Entrada36.getBackground()!=Color.GREEN) {
 			Entrada36.setForeground(Color.WHITE);
@@ -540,22 +561,10 @@ public class Task3DIU extends JFrame {
 		});
 		panelSur.add(Entrada36);
 		
-		JPanel panelEscenario = new JPanel();
-		panelEscenario.setBorder(null);
-		contentPane.add(panelEscenario, BorderLayout.CENTER);
-		panelEscenario.setLayout(new GridLayout(3, 3, 0, 0));
-		
-		JSeparator separator = new JSeparator();
-		panelEscenario.add(separator);
-		
-		JLabel LabelEscenario = new JLabel("ESCENARIO");
-		LabelEscenario.setHorizontalAlignment(SwingConstants.CENTER);
-		LabelEscenario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
-		panelEscenario.add(LabelEscenario);
-		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setOrientation(SwingConstants.VERTICAL);
-		panelEscenario.add(separator_1);
+		JLabel totoLogo = new JLabel("");
+		totoLogo.setIcon(new ImageIcon(System.getProperty("user.dir") + "\\DesarrolloDeInterfaces\\actividadesTema2Layouts\\toto.jpg"));
+		totoLogo.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(totoLogo, BorderLayout.CENTER);
 	}
 
 }

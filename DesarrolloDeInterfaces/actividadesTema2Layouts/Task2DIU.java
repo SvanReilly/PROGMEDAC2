@@ -134,7 +134,7 @@ public class Task2DIU extends JFrame {
 				}
 			
         } catch (NumberFormatException ex) {
-            TextoPantalla.setText("Por favor, introduzca un orden v�lido de los elementos." + "\n");
+            TextoPantalla.setText("Por favor, introduzca un orden valido de los elementos." + "\n");
         }
 		
 			}
@@ -160,7 +160,7 @@ public class Task2DIU extends JFrame {
 				}
 				TextoPantalla.setText(impresionPant);
         } catch (NumberFormatException ex) {
-            TextoPantalla.setText("Por favor, introduzca un orden v�lido de los elementos." + "\n");
+            TextoPantalla.setText("Por favor, introduzca un orden valido de los elementos." + "\n");
         }
 		
 			}
@@ -170,7 +170,7 @@ public class Task2DIU extends JFrame {
 		panelBotones2.add(squareRootButton);
 		panelBotones2.add(buttonPower);
 		buttonPower.setIcon(new ImageIcon(
-				"A:\\Documentos 1.0\\eclipse-workspace\\PROGMEDAC2\\DesarrolloDeInterfaces\\actividadesTema2Layouts\\xPowerByTwo.png"));
+				System.getProperty("user.dir") + "\\DesarrolloDeInterfaces\\actividadesTema2Layouts\\xPowerByTwo.png"));
 		buttonPower.setBackground(Color.WHITE);
 		buttonPower.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 17));
 		
@@ -307,7 +307,7 @@ public class Task2DIU extends JFrame {
 			}
 		});
 		buttonClear.setIcon(new ImageIcon(
-				"A:\\Documentos 1.0\\eclipse-workspace\\PROGMEDAC2\\DesarrolloDeInterfaces\\actividadesTema2Layouts\\clearTrashCan.png"));
+				System.getProperty("user.dir") + "\\DesarrolloDeInterfaces\\actividadesTema2Layouts\\clearTrashCan.png"));
 		buttonClear.setBackground(new Color(255, 255, 255));
 		panelBotones1.add(buttonClear);
 		buttonClear.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 17));
@@ -347,7 +347,8 @@ public class Task2DIU extends JFrame {
 		                            resultado = numero1 / numero2;
 		                            impresionPant=(numero1 + " " + simbolo + " " + numero2 + " = " + resultado + "\n");
 		                        } else {
-		                        	impresionPant=(numero1 + " " + simbolo + " " + numero2 + " = " + "El resultado de esta operaci�n es una indeterminacion." + "\n");
+		                        	impresionPant=(numero1 + " " + simbolo + " " + numero2 + " = " 
+		                        + "El resultado de esta operacion es una indeterminacion." + "\n");
 		                        }
 		                        break;
 		                    default:

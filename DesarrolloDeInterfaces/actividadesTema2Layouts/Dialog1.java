@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class Dialog1 extends JDialog {
 
@@ -34,6 +35,7 @@ public class Dialog1 extends JDialog {
 	 * Create the dialog.
 	 */
 	public Dialog1() {
+		setTitle("Estado de la reserva");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -41,6 +43,7 @@ public class Dialog1 extends JDialog {
 		contentPanel.setLayout(new BorderLayout(0, 0));
 		{
 			DialogText = new JTextField();
+			DialogText.setHorizontalAlignment(SwingConstants.CENTER);
 			contentPanel.add(DialogText, BorderLayout.CENTER);
 			DialogText.setColumns(10);
 	

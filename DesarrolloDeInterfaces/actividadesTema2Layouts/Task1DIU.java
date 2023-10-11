@@ -109,6 +109,8 @@ public class Task1DIU extends JFrame {
 		JButton Exit_Button = new JButton("Exit");
 		Exit_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+			
 			}
 		});
 		panel.add(Exit_Button);
