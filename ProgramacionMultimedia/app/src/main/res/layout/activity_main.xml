@@ -11,20 +11,22 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:rotationX="29"
         android:text="@string/Fabled_Chronicles_title"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.278"
-        android:fontFamily="monospace"
-        android:textSize="25sp"/>
+        android:textColor="@color/title_color"/>
 
     <Button
         android:id="@+id/button"
-        android:layout_width="167dp"
-        android:layout_height="55dp"
-        android:background="@color/continue_color_button"
+        android:layout_width="180dp"
+        android:layout_height="71dp"
+        android:backgroundTint="@color/continue_color_button"
         android:text="@string/continue_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,13 +35,14 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/cancel_color_button"
+        android:layout_width="115dp"
+        android:layout_height="53dp"
+        android:backgroundTint="@color/cancel_color_button"
         android:text="@string/cancel_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.235" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,4 +3,5 @@
     <color name="main_background_color">#C39F30</color>
     <color name="cancel_color_button">#A30404</color>
     <color name="continue_color_button">#2C6708</color>
+    <color name="title_color">#FFFFFF</color>
 </resources>
