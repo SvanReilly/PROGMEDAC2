@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_view1">#FF0000</color>
+    <color name="color_view2">#00BCD4</color>
+    <color name="color_view3">#FFF176</color>
+    <color name="color_viewsquare1">#000000</color>
+    <color name="color_viewsquare2">#FFFFFF</color>
+    <color name="color_back_calc">#5A5A5A</color>
+    <color name="color_screen_calc">#9B9B9B</color>
+    <color name="color_boton_calc">#000000</color>
+</resources>
