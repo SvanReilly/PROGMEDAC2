@@ -7,13 +7,14 @@ import java.sql.SQLException;
 
 public class SQL {
 
-    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL_CONEXION = "jdbc:mysql://localhost:3306/pruebas";
     private static final String usuario = "root";
     private static final String password = "1234";
 
     public static void main(String[] args) {
 
+        //Visit: https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-8.1.0.zip
         Connection dbConnection = null;
         java.sql.Statement statement = null;
 
