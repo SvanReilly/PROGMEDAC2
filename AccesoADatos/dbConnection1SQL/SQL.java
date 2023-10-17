@@ -15,6 +15,7 @@ public class SQL {
     public static void main(String[] args) {
 
         //Visit: https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-8.1.0.zip
+    	//Proyecto>Build path>configure build path> Libraries > classpath add external JREs select mysqlconnector.jar
         Connection dbConnection = null;
         java.sql.Statement statement = null;
 

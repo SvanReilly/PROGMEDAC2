@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class SQL2{
+public class DataBaseConnectionBorrador{
 	//private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     //private static final String URL_CONEXION = "jdbc:mysql://localhost:3306/pruebas";
     //private static final String usuario = "root";
@@ -72,7 +72,7 @@ public void eliminarRegistro(int id){
 
         //Creamos la consulta SQL para borrar en BBDD
 
-        //TODO -------------------------------------------------------------------------------------------------------
+        //TO DO -------------------------------------------------------------------------------------------------------
         String sql = "DELETE FROM usuarios WHERE id=?"; //Debemos realizar una sentencia sql válida en la que los valores a añadir aparezcan como ?
         //------------------------------------------------------------------------------------------------------------
 
@@ -82,7 +82,7 @@ public void eliminarRegistro(int id){
         
         //Asignamos los valores a los parámetros necesarios para la consulta SQL
 
-        //TODO -------------------------------------------------------------------------------------------------------
+        //TO DO -------------------------------------------------------------------------------------------------------
         /*Ejemplos: pstmt.setTIPO(posicion_sentencia, valor_atributo); 
             - Existen setString, setInt, etc
             - Las posiciones empieza en 1
@@ -122,7 +122,7 @@ public void modificarDatos(int id, String nombre, int edad){
 
         //Creamos la consulta SQL para modificar valores en BBDD
 
-        //TODO -------------------------------------------------------------------------------------------------------
+        //TO DO -------------------------------------------------------------------------------------------------------
         String sql = "UPDATE usuarios SET nombre = ?, edad = ? WHERE id = ?"; //Debemos realizar una sentencia sql válida en la que los valores a añadir aparezcan como ?
         //------------------------------------------------------------------------------------------------------------
 
@@ -132,7 +132,7 @@ public void modificarDatos(int id, String nombre, int edad){
 
         //Asignamos los valores a los parámetros necesarios para la consulta SQL
 
-        //TODO -------------------------------------------------------------------------------------------------------
+        //TO DO -------------------------------------------------------------------------------------------------------
         /*Ejemplos: pstmt.setTIPO(posicion_sentencia, valor_atributo); 
             - Existen setString, setInt, etc
             - Las posiciones empieza en 1
