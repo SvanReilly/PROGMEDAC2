@@ -20,6 +20,8 @@ import javax.swing.JDialog;
 import javax.swing.BoxLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.BorderLayout;
+import javax.swing.JSeparator;
 
 public class Task1DIU extends JFrame {
 
@@ -62,9 +64,10 @@ public class Task1DIU extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
-		contentPane.add(panel);
+		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel LabelUsuario = new JLabel("User");
@@ -101,6 +104,12 @@ public class Task1DIU extends JFrame {
 				
 			}
 		});
+		
+		JSeparator separator = new JSeparator();
+		panel.add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		panel.add(separator_1);
 		panel.add(Log_In_Button);
 		
 
@@ -114,6 +123,26 @@ public class Task1DIU extends JFrame {
 			}
 		});
 		panel.add(Exit_Button);
+		
+		JPanel panel_1 = new JPanel();
+		FlowLayout flowLayout_1 = (FlowLayout) panel_1.getLayout();
+		flowLayout_1.setHgap(20);
+		contentPane.add(panel_1, BorderLayout.WEST);
+		
+		JPanel panel_2 = new JPanel();
+		FlowLayout flowLayout_2 = (FlowLayout) panel_2.getLayout();
+		flowLayout_2.setVgap(20);
+		contentPane.add(panel_2, BorderLayout.NORTH);
+		
+		JPanel panel_3 = new JPanel();
+		FlowLayout flowLayout_3 = (FlowLayout) panel_3.getLayout();
+		flowLayout_3.setHgap(20);
+		contentPane.add(panel_3, BorderLayout.EAST);
+		
+		JPanel panel_4 = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) panel_4.getLayout();
+		flowLayout.setVgap(20);
+		contentPane.add(panel_4, BorderLayout.SOUTH);
 		dispose();
 	}
 
