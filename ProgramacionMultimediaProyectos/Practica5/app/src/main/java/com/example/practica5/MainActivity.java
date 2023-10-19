@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView hiddenText;
     private TextView correoIns;
     private TextView passIns;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonContinuar.setOnClickListener(this);
     }
-
     @Override
     public void onClick(View view) {
         correo = correoIns.getText().toString();
