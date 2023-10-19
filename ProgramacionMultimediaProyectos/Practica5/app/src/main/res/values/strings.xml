@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Practica5</string>
     <string name="boton_login">Continuar</string>
-    <string name="texto_switch">Recordar inicio de sesión</string>
+    <string name="texto_switch">¿Recordar?</string>
     <string name="correo_textView">Correo</string>
     <string name="contraseña_textView">Contraseña</string>
 
