@@ -5,14 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import java.io.*;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-
-import java.awt.EventQueue;
 import java.awt.GridLayout;
 
 public class InterfazXML extends JFrame {
@@ -42,7 +38,7 @@ public class InterfazXML extends JFrame {
         contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 
         try {
-        	File xmlFile = new File("C:\\Users\\AlumnoT\\eclipse-workspace\\INTERFACES\\src\\Tema3\\Tabla.xml");
+        	File xmlFile = new File(System.getProperty("user.dir") + "\\DesarrolloDeInterfaces\\actividadesTema3\\Tabla.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(xmlFile);
