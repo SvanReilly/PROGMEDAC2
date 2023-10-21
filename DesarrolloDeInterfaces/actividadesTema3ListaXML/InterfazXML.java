@@ -1,9 +1,7 @@
-package actividadesTema3;
+package actividadesTema3ListaXML;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -52,6 +50,7 @@ public class InterfazXML extends JFrame {
                     Element departamentoElement = (Element) departamentoNode;
                     String departamentoNombre = departamentoElement.getElementsByTagName("nombre").item(0).getTextContent();
 
+                    
                     JPanel departamentoPanel = new JPanel();
                     departamentoPanel.setBorder(BorderFactory.createTitledBorder(departamentoNombre));
                     departamentoPanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -63,9 +62,19 @@ public class InterfazXML extends JFrame {
                             Element empleadoElement = (Element) empleadoNode;
                             String empleadoNombre = empleadoElement.getElementsByTagName("nombre").item(0).getTextContent();
                             String empleadoDni = empleadoElement.getElementsByTagName("dni").item(0).getTextContent();
-
-                            JLabel empleadoLabel = new JLabel("Nombre: " + empleadoNombre + "DNI: " + empleadoDni);
-                            departamentoPanel.add(empleadoLabel);
+                            String empleadoTelefono= empleadoElement.getElementsByTagName("telefono").item(0).getTextContent();
+                            
+                            JLabel empleadoNombreLabel = new JLabel(empleadoNombre);
+                            JLabel empleadoDNILabel = new JLabel("  - DNI: " + empleadoDni);
+                            JLabel empleadoTelLabel = new JLabel("  - Teléfono: " + empleadoTelefono);
+                            JSeparator separator = new JSeparator();
+                           
+                            departamentoPanel.add(empleadoNombreLabel);
+                            departamentoPanel.add(empleadoDNILabel);
+                            departamentoPanel.add(empleadoTelLabel);
+                            departamentoPanel.add(separator);
+                    		
+                    		//contentPane.add(separator_2);
                         }
                     }
                     contentPane.add(departamentoPanel);

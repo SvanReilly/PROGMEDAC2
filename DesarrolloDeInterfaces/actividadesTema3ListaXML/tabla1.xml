@@ -1,0 +1,140 @@
+<departamentos>
+    <departamento>
+        <nombreDepart>Programación</nombreDepart>
+        <empleado>
+            <nombre>Svan Reilly</nombre>
+            <dni>12345678A</dni>
+            <telefono>555-123-456</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Alejandro Ortega</nombre>
+            <dni>76936294Q</dni>
+            <telefono>555-789-012</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Aarón Rodríguez</nombre>
+            <dni>76936294Q</dni>
+            <telefono>555-345-678</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Miguel A. Roldán</nombre>
+            <dni>76936294Q</dni>
+            <telefono>555-901-234</telefono>
+        </empleado>
+    </departamento>
+    <departamento>
+        <nombreDepart>Laboratorio</nombreDepart>
+        <empleado>
+            <nombre>María Aguilera</nombre>
+            <dni>13579246C</dni>
+            <telefono>555-567-890</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Cipriano Duarte</nombre>
+            <dni>64287931D</dni>
+            <telefono>555-234-567</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Francisco Pérez</nombre>
+            <dni>24681357E</dni>
+            <telefono>555-890-123</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Laura Ruiz</nombre>
+            <dni>46813579F</dni>
+            <telefono>555-456-789</telefono>
+        </empleado>
+    </departamento>
+    <departamento>
+        <nombreDepart>Ventas</nombreDepart>
+        <empleado>
+            <nombre>Luisa Martínez</nombre>
+            <dni>12345678A</dni>
+            <telefono>555-789-012</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Carlos López</nombre>
+            <dni>76936294Q</dni>
+            <telefono>555-234-567</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Elena Sánchez</nombre>
+            <dni>76936294Q</dni>
+            <telefono>555-901-234</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Pedro García</nombre>
+            <dni>76936294Q</dni>
+            <telefono>555-567-890</telefono>
+        </empleado>
+    </departamento>
+    <departamento>
+        <nombreDepart>Recursos Humanos</nombreDepart>
+        <empleado>
+            <nombre>Isabel Pérez</nombre>
+            <dni>98765432B</dni>
+            <telefono>555-678-901</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Juan Martínez</nombre>
+            <dni>23456789C</dni>
+            <telefono>555-012-345</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Marta López</nombre>
+            <dni>34567890D</dni>
+            <telefono>555-678-901</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Pedro Sánchez</nombre>
+            <dni>45678901E</dni>
+            <telefono>555-012-345</telefono>
+        </empleado>
+    </departamento>
+    <departamento>
+        <nombreDepart>Marketing</nombreDepart>
+        <empleado>
+            <nombre>Laura Rodríguez</nombre>
+            <dni>78901234F</dni>
+            <telefono>555-234-567</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Antonio Gómez</nombre>
+            <dni>89012345G</dni>
+            <telefono>555-678-901</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Marta Martínez</nombre>
+            <dni>90123456H</dni>
+            <telefono>555-012-345</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Juan Sánchez</nombre>
+            <dni>01234567I</dni>
+            <telefono>555-234-567</telefono>
+        </empleado>
+    </departamento>
+    <departamento>
+        <nombreDepart>Finanzas</nombreDepart>
+        <empleado>
+            <nombre>Luis González</nombre>
+            <dni>12345678J</dni>
+            <telefono>555-678-901</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Andrea Martín</nombre>
+            <dni>23456789K</dni>
+            <telefono>555-012-345</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Pablo Pérez</nombre>
+            <dni>34567890L</dni>
+            <telefono>555-234-567</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Elena López</nombre>
+            <dni>45678901M</dni>
+            <telefono>555-678-901</telefono>
+        </empleado>
+    </departamento>
+</departamentos>

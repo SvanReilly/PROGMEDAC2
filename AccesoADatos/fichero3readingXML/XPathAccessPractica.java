@@ -71,13 +71,13 @@ public class XPathAccessPractica {
 					
 				
 					System.out.println(ANSI_GRAY + "Obra " + ANSI_RESET + (i + 1));
-					System.out.println(ANSI_GREEN + "Título : " + ANSI_BOLD + ANSI_LIGHT_GREEN
+					System.out.println(ANSI_GREEN + "Titulo : " + ANSI_BOLD + ANSI_LIGHT_GREEN
 							+ eElement.getElementsByTagName("title").item(0).getTextContent() + ANSI_RESET);
 					System.out.println(ANSI_CYAN + "Autor : " + ANSI_BOLD + ANSI_LIGHT_CYAN
 							+ eElement.getElementsByTagName("author").item(0).getTextContent() + ANSI_RESET);
-					System.out.println(ANSI_RED + "Año : " + ANSI_BOLD + ANSI_LIGHT_RED
+					System.out.println(ANSI_RED + "Autor : " + ANSI_BOLD + ANSI_LIGHT_RED
 							+ eElement.getElementsByTagName("year").item(0).getTextContent() + ANSI_RESET);
-					System.out.println(ANSI_LIGHT_YELLOW + "Género : " + ANSI_BOLD + ANSI_YELLOW
+					System.out.println(ANSI_LIGHT_YELLOW + "Genero : " + ANSI_BOLD + ANSI_YELLOW
 							+ eElement.getElementsByTagName("genre").item(0).getTextContent() + ANSI_RESET);
 					System.out.println(ANSI_BLACK + "_______________________________" + ANSI_RESET);
 					

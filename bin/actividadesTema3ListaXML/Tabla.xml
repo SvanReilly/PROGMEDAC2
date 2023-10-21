@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<departamentos>
+    <departamento>
+        <nombreDep>RECURSOS HUMANOS</nombreDep>
+        <empleado>
+            <nombre>John Doe</nombre>
+            <dni>12345678A</dni>
+            <telefono>555-1234</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Jane Smith</nombre>
+            <dni>87654321B</dni>
+            <telefono>555-5678</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Michael Johnson</nombre>
+            <dni>98765432C</dni>
+            <telefono>555-7890</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Susan Davis</nombre>
+            <dni>23456789D</dni>
+            <telefono>555-4321</telefono>
+        </empleado>
+    </departamento>
+    <departamento>
+        <nombreDep>MARKETING Y PUBLICIDAD</nombreDep>
+        <empleado>
+            <nombre>Emily Brown</nombre>
+            <dni>34567890E</dni>
+            <telefono>555-8765</telefono>
+        </empleado>
+        <empleado>
+            <nombre>David Wilson</nombre>
+            <dni>65432109F</dni>
+            <telefono>555-0987</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Olivia Taylor</nombre>
+            <dni>54321098G</dni>
+            <telefono>555-5432</telefono>
+        </empleado>
+        <empleado>
+            <nombre>James Anderson</nombre>
+            <dni>43210987H</dni>
+            <telefono>555-6789</telefono>
+        </empleado>
+    </departamento>
+    <departamento>
+        <nombreDep>DESARROLLO Y TECNOLOGIA</nombreDep>
+        <empleado>
+            <nombre>Liam Martin</nombre>
+            <dni>32109876I</dni>
+            <telefono>555-9876</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Sophia Wilson</nombre>
+            <dni>21098765J</dni>
+            <telefono>555-2109</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Logan Garcia</nombre>
+            <dni>10987654K</dni>
+            <telefono>555-6543</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Emma Davis</nombre>
+            <dni>09876543L</dni>
+            <telefono>555-4321</telefono>
+        </empleado>
+    </departamento>
+    <departamento>
+        <nombreDep>FINANZAS Y CONTABILIDAD</nombreDep>
+        <empleado>
+            <nombre>William Jackson</nombre>
+            <dni>98765432M</dni>
+            <telefono>555-7654</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Ava Thomas</nombre>
+            <dni>87654321N</dni>
+            <telefono>555-4321</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Henry Harris</nombre>
+            <dni>76543210O</dni>
+            <telefono>555-2109</telefono>
+        </empleado>
+        <empleado>
+            <nombre>Mia White</nombre>
+            <dni>65432109P</dni>
+            <telefono>555-1098</telefono>
+        </empleado>
+    </departamento>
+</departamentos>
