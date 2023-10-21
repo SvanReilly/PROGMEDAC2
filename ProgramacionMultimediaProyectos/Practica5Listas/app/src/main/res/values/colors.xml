@@ -5,7 +5,7 @@
     <color name="DifRed">#602525</color>
     <color name="darkBlue">#1F2CA1</color>
     <color name="BushGreen">#30512C</color>
-    <color name="backgroundListGrey">#686868</color>
+    <color name="backgroundListGrey">#B8B8B8</color>
     <color name="DifOrange">#9E6A55</color>
     <color name="DifPurple">#5A3567</color>
 </resources>
