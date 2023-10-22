@@ -1,83 +1,128 @@
 package actividadesTema3ListaXML;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import org.w3c.dom.*;
-import javax.xml.parsers.*;
-import java.io.*;
-import javax.swing.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import java.awt.GridLayout;
+import java.io.File;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 public class test extends JFrame {
 
-    private static final long serialVersionUID = 1L;
-    private JPanel contentPane;
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                	InterfazXML frame = new InterfazXML();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					test frame = new test();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
-    public test() {
-    	setTitle("Lista de empleados XML");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 800, 600);
-        contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPane);
-        contentPane.setLayout(new GridLayout(0, 1, 0, 0));
+	/**
+	 * Create the frame.
+	 */
+	public test() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-        try {
-            File xmlFile = new File(System.getProperty("user.dir") + "\\DesarrolloDeInterfaces\\actividadesTema3\\Tabla.xml");
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(xmlFile);
-            doc.getDocumentElement().normalize();
+		setContentPane(contentPane);
+		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
+		
 
-            NodeList departamentos = doc.getElementsByTagName("departamento");
+		
+		try {
+		    File xmlFile = new File(System.getProperty("user.dir") + "\\DesarrolloDeInterfaces\\actividadesTema3ListaXML\\tabla.xml");
+		    DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		    DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+		    Document doc = dBuilder.parse(xmlFile);
+		    doc.getDocumentElement().normalize();
 
-            for (int i = 0; i < departamentos.getLength(); i++) {
-                Element departamento = (Element) departamentos.item(i);
-                String nombreDepart = departamento.getElementsByTagName("nombreDepart").item(0).getTextContent();
+		    NodeList departamentoList = doc.getElementsByTagName("departamento");
 
-                NodeList empleados = departamento.getElementsByTagName("empleado");
-                for (int j = 0; j < empleados.getLength(); j++) {
-                    Element empleado = (Element) empleados.item(j);
+		    for (int i = 0; i < departamentoList.getLength(); i++) {
+		        Node departamentoNode = departamentoList.item(i);
 
-                    String nombre = empleado.getElementsByTagName("nombre").item(0).getTextContent();
-                    String dni = empleado.getElementsByTagName("dni").item(0).getTextContent();
-                    String telefono = empleado.getElementsByTagName("telefono").item(0).getTextContent();
+		        if (departamentoNode.getNodeType() == Node.ELEMENT_NODE) {
+		            Element departamentoElement = (Element) departamentoNode;
 
-                    JPanel empleadoPanel = new JPanel();
-                    empleadoPanel.setBorder(BorderFactory.createTitledBorder(nombreDepart));
+		            JPanel panelDepartamento = new JPanel();
+		            contentPane.add(panelDepartamento);
+		            panelDepartamento.setLayout(new GridLayout(0, 1, 0, 0));
+		            String departamentoTipo = departamentoElement.getElementsByTagName("nombreDep").item(0).getTextContent();
+		            JLabel departamentoLabel = new JLabel("Departamento de " + departamentoTipo);
+		            departamentoLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 17));
+		            if (departamentoTipo.equals("RECURSOS HUMANOS")) {
+		            	departamentoLabel.setForeground(Color.ORANGE);
+						
+					} else if (departamentoTipo.equals("MARKETING Y PUBLICIDAD")) {
+		            	departamentoLabel.setForeground(Color.MAGENTA);
 
-                    JLabel departLabel = new JLabel("Nombre: " + nombreDepart);
-                    JLabel nombreLabel = new JLabel("Nombre: " + nombre);
-                    JLabel dniLabel = new JLabel("DNI: " + dni);
-                    JLabel telefonoLabel = new JLabel("Teléfono: " + telefono);
+					} else if (departamentoTipo.equals("DESARROLLO Y TECNOLOGIA")) {
+		            	departamentoLabel.setForeground(Color.CYAN);
 
-                    empleadoPanel.add(departLabel);
-                    empleadoPanel.add(nombreLabel);
-                    empleadoPanel.add(dniLabel);
-                    empleadoPanel.add(telefonoLabel);
+					} else if (departamentoTipo.equals("FINANZAS Y CONTABILIDAD")) {
+		            	departamentoLabel.setForeground(Color.GREEN);
 
-                    contentPane.add(empleadoPanel);
-                }
-            }
+					}
+		            panelDepartamento.add(departamentoLabel);
 
+		            NodeList empleadoList = departamentoElement.getElementsByTagName("empleado");
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+		            for (int j = 0; j < empleadoList.getLength(); j++) {
+		                Node empleadoNode = empleadoList.item(j);
+
+		                if (empleadoNode.getNodeType() == Node.ELEMENT_NODE) {
+		                    Element empleadoElement = (Element) empleadoNode;
+
+		                    JPanel panelEmpleado = new JPanel();
+		                    panelDepartamento.add(panelEmpleado);
+		                    panelEmpleado.setLayout(new GridLayout(0, 1, 0, 0));
+
+		                    JLabel nombreEmpleadoLabel = new JLabel(empleadoElement.getElementsByTagName("nombre").item(0).getTextContent());
+		                    nombreEmpleadoLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		                    
+		                    JLabel dniEmpleadoLabel = new JLabel("DNI: " + empleadoElement.getElementsByTagName("dni").item(0).getTextContent());
+		                    dniEmpleadoLabel.setFont(new Font("Courier New", Font.ITALIC, 11));
+		                    
+		                    JLabel telefonoEmpleadoLabel = new JLabel("Tel: " + empleadoElement.getElementsByTagName("telefono").item(0).getTextContent());
+		                    telefonoEmpleadoLabel.setFont(new Font("Consolas", Font.PLAIN, 14));
+		                    
+		                    
+		                    panelEmpleado.add(nombreEmpleadoLabel);
+		                    panelEmpleado.add(dniEmpleadoLabel);
+		                    panelEmpleado.add(telefonoEmpleadoLabel);
+		                }
+		            }
+		        }
+		    }
+
+		    // ...
+
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+	}
+
 }

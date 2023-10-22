@@ -1,9 +1,11 @@
 package actividadesTema3ListaXML;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -41,66 +43,91 @@ public class PanelEmpleado extends JFrame {
 	 * Create the frame.
 	 */
 	public PanelEmpleado() {
+		setTitle("Lista de Empleados");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 455, 912);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		JScrollPane scrollPane = new JScrollPane(contentPane);
 
-		setContentPane(contentPane);
+		setContentPane(scrollPane);
 		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		JPanel panelEmpleado = new JPanel();
-		contentPane.add(panelEmpleado);
-		panelEmpleado.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		JLabel departamentoLabel = new JLabel("Departamento de ");
-		departamentoLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 17));
-		panelEmpleado.add(departamentoLabel);
-		
-		JLabel nombreEmpleadoLabel = new JLabel("Nombre: ");
-		nombreEmpleadoLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		panelEmpleado.add(nombreEmpleadoLabel);
-		
-		JLabel dniEmpleadoLabel = new JLabel("DNI: ");
-		dniEmpleadoLabel.setFont(new Font("Courier New", Font.ITALIC, 11));
-		panelEmpleado.add(dniEmpleadoLabel);
-		
-		JLabel telefonoEmpleadoLabel = new JLabel("Tel: ");
-		telefonoEmpleadoLabel.setFont(new Font("Consolas", Font.PLAIN, 14));
-		panelEmpleado.add(telefonoEmpleadoLabel);
-		
+
 		try {
-        	File xmlFile = new File(System.getProperty("user.dir") + "\\DesarrolloDeInterfaces\\actividadesTema3\\Tabla.xml");
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(xmlFile);
-            doc.getDocumentElement().normalize();
+			File xmlFile = new File(
+					System.getProperty("user.dir") + "\\DesarrolloDeInterfaces\\actividadesTema3ListaXML\\tabla.xml");
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(xmlFile);
+			doc.getDocumentElement().normalize();
 
-            NodeList departamentoList = doc.getElementsByTagName("departamento");
-		
-            for (int i = 0; i < departamentoList.getLength(); i++) {
-            	Node departamentoNode = departamentoList.item(i);
-            	if (departamentoNode.getNodeType()==Node.ELEMENT_NODE) {
+			NodeList departamentoList = doc.getElementsByTagName("departamento");
+
+			for (int i = 0; i < departamentoList.getLength(); i++) {
+				Node departamentoNode = departamentoList.item(i);
+
+				if (departamentoNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element departamentoElement = (Element) departamentoNode;
-					departamentoLabel.setText(departamentoLabel.getText() + departamentoElement.getElementsByTagName("nombreDep").item(0).getTextContent());
-					nombreEmpleadoLabel.setText(departamentoElement.getElementsByTagName("nombre").item(0).getTextContent());
-					dniEmpleadoLabel.setText(departamentoElement.getElementsByTagName("dni").item(0).getTextContent());
-					telefonoEmpleadoLabel.setText(departamentoElement.getElementsByTagName("telefono").item(0).getTextContent());
-				
-					panelEmpleado.add(departamentoLabel);
-					panelEmpleado.add(nombreEmpleadoLabel);
-					panelEmpleado.add(dniEmpleadoLabel);
-					panelEmpleado.add(telefonoEmpleadoLabel);
-					
-					contentPane.add(panelEmpleado);
-            	}
-            	
-            }
-            
-            
-		 } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	}
 
+					JPanel panelDepartamento = new JPanel();
+					contentPane.add(panelDepartamento);
+					panelDepartamento.setLayout(new GridLayout(0, 1, 0, 0));
+					panelDepartamento.setBorder(new EmptyBorder(10, 0, 0, 0));
+
+					String departamentoTipo = departamentoElement.getElementsByTagName("nombreDep").item(0)
+							.getTextContent();
+					JLabel departamentoLabel = new JLabel(departamentoTipo);
+					departamentoLabel.setAlignmentY(CENTER_ALIGNMENT);
+					departamentoLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 17));
+					if (departamentoTipo.equals("RECURSOS HUMANOS")) {
+						departamentoLabel.setForeground(Color.GRAY);
+
+					} else if (departamentoTipo.equals("MARKETING Y PUBLICIDAD")) {
+						departamentoLabel.setForeground(Color.MAGENTA);
+
+					} else if (departamentoTipo.equals("DESARROLLO Y TECNOLOGIA")) {
+						departamentoLabel.setForeground(Color.CYAN);
+
+					} else if (departamentoTipo.equals("FINANZAS Y CONTABILIDAD")) {
+						departamentoLabel.setForeground(Color.GREEN);
+
+					}
+					panelDepartamento.add(departamentoLabel);
+
+					NodeList empleadoList = departamentoElement.getElementsByTagName("empleado");
+
+					for (int j = 0; j < empleadoList.getLength(); j++) {
+						Node empleadoNode = empleadoList.item(j);
+
+						if (empleadoNode.getNodeType() == Node.ELEMENT_NODE) {
+							Element empleadoElement = (Element) empleadoNode;
+
+							JPanel panelEmpleado = new JPanel();
+							panelDepartamento.add(panelEmpleado);
+							panelEmpleado.setLayout(new GridLayout(0, 1, 0, 0));
+							panelEmpleado.setBorder(new EmptyBorder(10, 5, 2, 0));
+
+							JLabel nombreEmpleadoLabel = new JLabel(
+									empleadoElement.getElementsByTagName("nombre").item(0).getTextContent());
+							nombreEmpleadoLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+
+							JLabel dniEmpleadoLabel = new JLabel(
+									"DNI: " + empleadoElement.getElementsByTagName("dni").item(0).getTextContent());
+							dniEmpleadoLabel.setFont(new Font("Courier New", Font.ITALIC, 14));
+
+							JLabel telefonoEmpleadoLabel = new JLabel("Tel: "
+									+ empleadoElement.getElementsByTagName("telefono").item(0).getTextContent());
+							telefonoEmpleadoLabel.setFont(new Font("Consolas", Font.PLAIN, 14));
+
+							panelEmpleado.add(nombreEmpleadoLabel);
+							panelEmpleado.add(dniEmpleadoLabel);
+							panelEmpleado.add(telefonoEmpleadoLabel);
+						}
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
