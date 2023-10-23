@@ -15,4 +15,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Practica6SettingsActivity"
 include(":app")
- 
