@@ -1,6 +1,7 @@
 package actividadesTema3ListaXML;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -99,35 +100,59 @@ public class test extends JFrame {
 
                             JPanel panelEmpleado = new JPanel();
                             panelDepartamento.add(panelEmpleado);
-                            panelEmpleado.setLayout(new GridLayout(0, 1, 0, 0));
+                            panelEmpleado.setPreferredSize(new Dimension(302,103));
+                            panelEmpleado.setLayout(new GridLayout(0, 2, 0, 0));
                             panelEmpleado.setBorder(new EmptyBorder(10, 5, 2, 0));
 
                             JLabel nombreEmpleadoLabel = new JLabel(empleadoElement.getElementsByTagName("nombre").item(0).getTextContent());
                             nombreEmpleadoLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 
                             JLabel dniEmpleadoLabel = new JLabel("DNI: " + empleadoElement.getElementsByTagName("dni").item(0).getTextContent());
-                            dniEmpleadoLabel.setFont(new Font("Courier New", Font.ITALIC, 14));
+                            dniEmpleadoLabel.setFont(new Font("Courier New", Font.BOLD | Font.ITALIC, 14));
 
                             JLabel telefonoEmpleadoLabel = new JLabel("Tel: " + empleadoElement.getElementsByTagName("telefono").item(0).getTextContent());
                             telefonoEmpleadoLabel.setFont(new Font("Consolas", Font.PLAIN, 14));
+                            
+                            JLabel correoEmpleadoLabel = new JLabel("Email: " + empleadoElement.getElementsByTagName("correo").item(0).getTextContent());
+                            correoEmpleadoLabel.setFont(new Font("Consolas", Font.PLAIN, 14));
+                            
+                            JLabel dirEmpleadoLabel = new JLabel("Domicilio: " + empleadoElement.getElementsByTagName("direccion").item(0).getTextContent());
+                            dirEmpleadoLabel.setFont(new Font("Consolas", Font.PLAIN, 14));
+                            
+                            JLabel cargoEmpleadoLabel = new JLabel("Cargo: " + empleadoElement.getElementsByTagName("cargo").item(0).getTextContent());
+                            cargoEmpleadoLabel.setFont(new Font("Consolas", Font.PLAIN, 14));
+                            
+                            JLabel salarioEmpleadoLabel = new JLabel("Salario: " + empleadoElement.getElementsByTagName("salario").item(0).getTextContent());
+                            salarioEmpleadoLabel.setFont(new Font("Consolas", Font.PLAIN, 14));
 
                             panelEmpleado.add(nombreEmpleadoLabel);
 
                             // Agregar botón para mostrar más información sobre el empleado
                             JButton infoButton = new JButton("Más información");
+                            infoButton.setBackground(Color.WHITE);
+                            infoButton.setForeground(Color.BLACK);
+                            infoButton.setBounds(300, 152, 103, 45);
+                            infoButton.setPreferredSize(new Dimension(103,45));
                             panelEmpleado.add(infoButton);
 
                             // ActionListener para el botón de información
                             infoButton.addActionListener(new ActionListener() {
                                 public void actionPerformed(ActionEvent e) {
                                     JDialog dialog = new JDialog();
-                                    dialog.setTitle(departamentoTipo + "nombre empleado");
+                                    dialog.setBounds(100, 100, 471, 312);
+                                    dialog.setPreferredSize(new Dimension(400, 300));
+                                    String nombre_empleado = nombreEmpleadoLabel.getText();
+                                    dialog.setTitle(departamentoTipo + " - " + nombre_empleado);
                                     JPanel panelMasInformacion = new JPanel();
                                     panelMasInformacion.setLayout(new GridLayout(0, 1, 0, 0));
                                     panelMasInformacion.setBorder(new EmptyBorder(10, 5, 2, 0));
 
                                     panelMasInformacion.add(dniEmpleadoLabel);
                                     panelMasInformacion.add(telefonoEmpleadoLabel);
+                                    panelMasInformacion.add(correoEmpleadoLabel);
+                                    panelMasInformacion.add(dirEmpleadoLabel);
+                                    panelMasInformacion.add(cargoEmpleadoLabel);
+                                    panelMasInformacion.add(salarioEmpleadoLabel);
 
                                     dialog.add(panelMasInformacion);
                                     dialog.pack();

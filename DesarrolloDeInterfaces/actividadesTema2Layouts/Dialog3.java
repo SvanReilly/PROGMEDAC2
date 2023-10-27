@@ -45,7 +45,7 @@ public class Dialog3 extends JDialog {
 	
 	public Dialog3() {
 		setTitle("Estado del palco VIP OESTE");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 471, 312);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);

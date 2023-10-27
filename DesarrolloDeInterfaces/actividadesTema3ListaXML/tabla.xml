@@ -6,21 +6,37 @@
             <nombre>John Doe</nombre>
             <dni>12345678A</dni>
             <telefono>555-1234</telefono>
+            <correo>john.doe@example.com</correo>
+            <direccion>123 Main St, Cityville</direccion>
+            <cargo>Gerente de Recursos Humanos</cargo>
+            <salario>50000$/per year</salario>
         </empleado>
         <empleado>
             <nombre>Jane Smith</nombre>
             <dni>87654321B</dni>
             <telefono>555-5678</telefono>
+            <correo>jane.smith@example.com</correo>
+            <direccion>456 Oak Ave, Townsville</direccion>
+            <cargo>Analista de RRHH</cargo>
+            <salario>35000$/per year</salario>
         </empleado>
         <empleado>
             <nombre>Michael Johnson</nombre>
             <dni>98765432C</dni>
             <telefono>555-7890</telefono>
+            <correo>michael.johnson@example.com</correo>
+            <direccion>789 Maple Rd, Villageton</direccion>
+            <cargo>Asistente de RRHH</cargo>
+            <salario>30000$/per year</salario>
         </empleado>
         <empleado>
             <nombre>Susan Davis</nombre>
             <dni>23456789D</dni>
             <telefono>555-4321</telefono>
+            <correo>susan.davis@example.com</correo>
+            <direccion>101 Pine Lane, Hamletville</direccion>
+            <cargo>Coordinador de Personal</cargo>
+            <salario>40000$/per year</salario>
         </empleado>
     </departamento>
     <departamento>
@@ -29,44 +45,76 @@
             <nombre>Emily Brown</nombre>
             <dni>34567890E</dni>
             <telefono>555-8765</telefono>
+            <correo>emily.brown@example.com</correo>
+            <direccion>555 Cedar Blvd, Metropolis</direccion>
+            <cargo>Gerente de Marketing</cargo>
+            <salario>45000$/per year</salario>
         </empleado>
         <empleado>
             <nombre>David Wilson</nombre>
             <dni>65432109F</dni>
             <telefono>555-0987</telefono>
+            <correo>david.wilson@example.com</correo>
+            <direccion>777 Elm Dr, Megacity</direccion>
+            <cargo>Analista de Publicidad</cargo>
+            <salario>35000$/per year</salario>
         </empleado>
         <empleado>
             <nombre>Olivia Taylor</nombre>
             <dni>54321098G</dni>
             <telefono>555-5432</telefono>
+            <correo>olivia.taylor@example.com</correo>
+            <direccion>999 Oak Lane, Gotham</direccion>
+            <cargo>Asistente de Marketing</cargo>
+            <salario>30000$/per year</salario>
         </empleado>
         <empleado>
             <nombre>James Anderson</nombre>
             <dni>43210987H</dni>
             <telefono>555-6789</telefono>
+            <correo>james.anderson@example.com</correo>
+            <direccion>123 Pine Rd, Capital City</direccion>
+            <cargo>Coordinador de Eventos</cargo>
+            <salario>40000$/per year</salario>
         </empleado>
     </departamento>
     <departamento>
-        <nombreDep>DESARROLLO Y TECNOLOGIA</nombreDep>
+        <nombreDep>DESARROLLO Y TECNOLOGÍA</nombreDep>
         <empleado>
             <nombre>Liam Martin</nombre>
             <dni>32109876I</dni>
             <telefono>555-9876</telefono>
+            <correo>liam.martin@example.com</correo>
+            <direccion>888 Cedar Lane, Technoville</direccion>
+            <cargo>Gerente de Desarrollo</cargo>
+            <salario>50000$/per year</salario>
         </empleado>
         <empleado>
             <nombre>Sophia Wilson</nombre>
             <dni>21098765J</dni>
             <telefono>555-2109</telefono>
+            <correo>sophia.wilson@example.com</correo>
+            <direccion>444 Oak Dr, Robotropolis</direccion>
+            <cargo>Desarrollador Senior</cargo>
+            <salario>45000$/per year</salario>
         </empleado>
         <empleado>
             <nombre>Logan Garcia</nombre>
             <dni>10987654K</dni>
             <telefono>555-6543</telefono>
+            <correo>logan.garcia@example.com</correo>
+            <direccion>666 Maple Rd, Futuropolis</direccion>
+            <cargo>Analista de Sistemas</cargo>
+            <salario>35000$/per year</salario>
         </empleado>
         <empleado>
             <nombre>Emma Davis</nombre>
             <dni>09876543L</dni>
             <telefono>555-4321</telefono>
+            <correo>emma.davis@example.com</correo>
+            <direccion>222 Pine Ave, Cyberville</direccion>
+            <cargo>Desarrollador Junior</cargo>
+            <salario>30000$/per year</salario>
         </empleado>
     </departamento>
     <departamento>
@@ -75,21 +123,37 @@
             <nombre>William Jackson</nombre>
             <dni>98765432M</dni>
             <telefono>555-7654</telefono>
+            <correo>william.jackson@example.com</correo>
+            <direccion>333 Elm Dr, Megalopolis</direccion>
+            <cargo>Gerente Financiero</cargo>
+            <salario>48000$/per year</salario>
         </empleado>
         <empleado>
             <nombre>Ava Thomas</nombre>
             <dni>87654321N</dni>
             <telefono>555-4321</telefono>
+            <correo>ava.thomas@example.com</correo>
+            <direccion>777 Oak Lane, Moneyville</direccion>
+            <cargo>Analista Contable</cargo>
+            <salario>38000$/per year</salario>
         </empleado>
         <empleado>
             <nombre>Henry Harris</nombre>
             <dni>76543210O</dni>
             <telefono>555-2109</telefono>
+            <correo>henry.harris@example.com</correo>
+            <direccion>111 Maple Rd, Richville</direccion>
+            <cargo>Asistente Financiero</cargo>
+            <salario>32000$/per year</salario>
         </empleado>
         <empleado>
             <nombre>Mia White</nombre>
             <dni>65432109P</dni>
             <telefono>555-1098</telefono>
+            <correo>mia.white@example.com</correo>
+            <direccion>Shibuya Crossroad 57 cho, Tokyo (Japan)</direccion>
+            <cargo>Analista de RRHH</cargo>
+            <salario>35000$/per year</salario>
         </empleado>
     </departamento>
 </departamentos>
