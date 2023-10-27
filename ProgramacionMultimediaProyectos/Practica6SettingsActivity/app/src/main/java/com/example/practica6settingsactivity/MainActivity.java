@@ -16,16 +16,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        userNameTextView = findViewById(R.id.userTextView);
         Button buttonSettings = findViewById(R.id.buttonSettings);
         buttonSettings.setOnClickListener(this);
         };
-
-    @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-        startActivity(intent);
-    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -33,14 +27,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Obtén el valor del switch de preferencias
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean showUser = prefs.getBoolean("show_user", false);
-
-        // Si el switch está activo, muestra el nombre de usuario
-        if (showUser) {
-            String userName = prefs.getString("Usuario", "");
+        if (showUser == true) {
             userNameTextView.setVisibility(View.VISIBLE);
-            userNameTextView.setText("Usuario: " + userName);
+            userNameTextView.setText("Usuario: " + prefs.getString("Usuario", ""));
         } else {
             userNameTextView.setVisibility(View.GONE);
         }
+    }
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(intent);
     }
 }

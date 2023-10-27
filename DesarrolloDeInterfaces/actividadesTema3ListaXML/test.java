@@ -52,7 +52,8 @@ public class test extends JFrame {
         contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 
         try {
-            File xmlFile = new File(System.getProperty("user.dir") + "\\DesarrolloDeInterfaces\\actividadesTema3ListaXML\\tabla.xml");
+            File xmlFile = new File(System.getProperty("user.dir") +
+            		"\\DesarrolloDeInterfaces\\actividadesTema3ListaXML\\tabla.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(xmlFile);
@@ -71,18 +72,19 @@ public class test extends JFrame {
                     panelDepartamento.setLayout(new GridLayout(0, 1, 0, 0));
                     panelDepartamento.setBorder(new EmptyBorder(10, 0, 0, 0));
 
-                    String departamentoTipo = departamentoElement.getElementsByTagName("nombreDep").item(0).getTextContent();
+                    String departamentoTipo = departamentoElement.
+                    		getElementsByTagName("nombreDep").item(0).getTextContent();
                     JLabel departamentoLabel = new JLabel(departamentoTipo);
                     departamentoLabel.setAlignmentY(CENTER_ALIGNMENT);
                     departamentoLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 17));
                     if (departamentoTipo.equals("RECURSOS HUMANOS")) {
-                        departamentoLabel.setForeground(Color.GRAY);
+                        departamentoLabel.setForeground(Color.CYAN);
 
                     } else if (departamentoTipo.equals("MARKETING Y PUBLICIDAD")) {
                         departamentoLabel.setForeground(Color.MAGENTA);
 
                     } else if (departamentoTipo.equals("DESARROLLO Y TECNOLOGIA")) {
-                        departamentoLabel.setForeground(Color.CYAN);
+                        departamentoLabel.setForeground(Color.RED);
 
                     } else if (departamentoTipo.equals("FINANZAS Y CONTABILIDAD")) {
                         departamentoLabel.setForeground(Color.GREEN);
@@ -100,29 +102,36 @@ public class test extends JFrame {
 
                             JPanel panelEmpleado = new JPanel();
                             panelDepartamento.add(panelEmpleado);
-                            panelEmpleado.setPreferredSize(new Dimension(302,103));
+                            panelEmpleado.setPreferredSize(new Dimension(75,75));
                             panelEmpleado.setLayout(new GridLayout(0, 2, 0, 0));
                             panelEmpleado.setBorder(new EmptyBorder(10, 5, 2, 0));
 
-                            JLabel nombreEmpleadoLabel = new JLabel(empleadoElement.getElementsByTagName("nombre").item(0).getTextContent());
-                            nombreEmpleadoLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+                            JLabel nombreEmpleadoLabel = new JLabel(empleadoElement.
+                            		getElementsByTagName("nombre").item(0).getTextContent());
+                            nombreEmpleadoLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
 
-                            JLabel dniEmpleadoLabel = new JLabel("DNI: " + empleadoElement.getElementsByTagName("dni").item(0).getTextContent());
+                            JLabel dniEmpleadoLabel = new JLabel("DNI: " + empleadoElement.
+                            		getElementsByTagName("dni").item(0).getTextContent());
                             dniEmpleadoLabel.setFont(new Font("Courier New", Font.BOLD | Font.ITALIC, 14));
 
-                            JLabel telefonoEmpleadoLabel = new JLabel("Tel: " + empleadoElement.getElementsByTagName("telefono").item(0).getTextContent());
+                            JLabel telefonoEmpleadoLabel = new JLabel("Tel: " + empleadoElement.
+                            		getElementsByTagName("telefono").item(0).getTextContent());
                             telefonoEmpleadoLabel.setFont(new Font("Consolas", Font.PLAIN, 14));
                             
-                            JLabel correoEmpleadoLabel = new JLabel("Email: " + empleadoElement.getElementsByTagName("correo").item(0).getTextContent());
+                            JLabel correoEmpleadoLabel = new JLabel("Email: " + empleadoElement.
+                            		getElementsByTagName("correo").item(0).getTextContent());
                             correoEmpleadoLabel.setFont(new Font("Consolas", Font.PLAIN, 14));
                             
-                            JLabel dirEmpleadoLabel = new JLabel("Domicilio: " + empleadoElement.getElementsByTagName("direccion").item(0).getTextContent());
+                            JLabel dirEmpleadoLabel = new JLabel("Domicilio: " + empleadoElement.
+                            		getElementsByTagName("direccion").item(0).getTextContent());
                             dirEmpleadoLabel.setFont(new Font("Consolas", Font.PLAIN, 14));
                             
-                            JLabel cargoEmpleadoLabel = new JLabel("Cargo: " + empleadoElement.getElementsByTagName("cargo").item(0).getTextContent());
+                            JLabel cargoEmpleadoLabel = new JLabel("Cargo: " + empleadoElement.
+                            		getElementsByTagName("cargo").item(0).getTextContent());
                             cargoEmpleadoLabel.setFont(new Font("Consolas", Font.PLAIN, 14));
                             
-                            JLabel salarioEmpleadoLabel = new JLabel("Salario: " + empleadoElement.getElementsByTagName("salario").item(0).getTextContent());
+                            JLabel salarioEmpleadoLabel = new JLabel("Salario: " + empleadoElement.
+                            		getElementsByTagName("salario").item(0).getTextContent());
                             salarioEmpleadoLabel.setFont(new Font("Consolas", Font.PLAIN, 14));
 
                             panelEmpleado.add(nombreEmpleadoLabel);

@@ -79,7 +79,7 @@
         </empleado>
     </departamento>
     <departamento>
-        <nombreDep>DESARROLLO Y TECNOLOGÍA</nombreDep>
+        <nombreDep>DESARROLLO Y TECNOLOGIA</nombreDep>
         <empleado>
             <nombre>Liam Martin</nombre>
             <dni>32109876I</dni>

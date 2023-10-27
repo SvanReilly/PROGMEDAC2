@@ -23,10 +23,11 @@
             android:layout_gravity="top"
             android:layout_weight="1"/>
         <TextView
+            app:key="userTextView"
             android:id="@+id/userTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Usuario: "
+            android:text=""
             android:visibility="gone"
             android:layout_margin="10sp"
             android:textStyle="bold|italic"
