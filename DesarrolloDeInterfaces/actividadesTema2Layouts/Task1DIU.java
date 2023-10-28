@@ -23,6 +23,7 @@ import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import javax.swing.JSeparator;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class Task1DIU extends JFrame {
 
@@ -72,6 +73,7 @@ public class Task1DIU extends JFrame {
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel LabelUsuario = new JLabel("User");
+		LabelUsuario.setHorizontalAlignment(SwingConstants.CENTER);
 		LabelUsuario.setFont(new Font("Arial", Font.PLAIN, 11));
 		panel.add(LabelUsuario);
 		
@@ -80,6 +82,7 @@ public class Task1DIU extends JFrame {
 		userName.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Password");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel);
 		
 		passwordField = new JPasswordField();
