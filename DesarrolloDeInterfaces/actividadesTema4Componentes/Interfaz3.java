@@ -1,16 +1,18 @@
 package actividadesTema4Componentes;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
-public class Interfaz3 extends JFrame {
+public class Interfaz3 extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
 	/**
 	 * Launch the application.
 	 */
@@ -35,8 +37,18 @@ public class Interfaz3 extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
+        CalendarioComponente calendario = new CalendarioComponente();
+		
+        setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		
+		contentPane.add(calendario);
+		
+		JLabel lblNewLabel = new JLabel("CALENDARIO PITAG\u00D3RICO");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(lblNewLabel, BorderLayout.NORTH);
 	}
 
 }
