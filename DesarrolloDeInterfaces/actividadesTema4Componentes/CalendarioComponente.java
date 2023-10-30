@@ -12,42 +12,42 @@ public class CalendarioComponente extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = -7349056413879261570L;
-	private int mes;
-    private int año;
+	private int month;
+    private int year;
     private JButton btnAnterior, btnSiguiente;
-    private JLabel lblMesAño;
+    private JLabel lblYearMonth;
     private JPanel panelDias;
 
     public CalendarioComponente() {
-        // Inicializa el calendario con el mes y año actual
+        // Inicializa el calendario con el mes y aï¿½o actual
         Calendar calendario = Calendar.getInstance();
-        mes = calendario.get(Calendar.MONTH) + 1; // Mes es 0-indexado
-        año = calendario.get(Calendar.YEAR);
+        month = calendario.get(Calendar.MONTH) + 1; // Mes es 0-indexado
+        year = calendario.get(Calendar.YEAR);
 
-        // Diseño y layout del panel
+        // Diseï¿½o y layout del panel
         setLayout(new BorderLayout());
 
-        // Panel superior con botones y etiqueta del mes y año
+        // Panel superior con botones y etiqueta del mes y aï¿½o
         JPanel panelSuperior = new JPanel();
         btnAnterior = new JButton("<<");
         btnSiguiente = new JButton(">>");
-        lblMesAño = new JLabel();
-        lblMesAño.setFont(new Font("Times New Roman", Font.BOLD, 18));
+        lblYearMonth = new JLabel();
+        lblYearMonth.setFont(new Font("Times New Roman", Font.BOLD, 18));
 
-        actualizarEtiquetaMesAño();
+        actualizarEtiquetaMonthYear();
         panelSuperior.add(btnAnterior);
-        panelSuperior.add(lblMesAño);
+        panelSuperior.add(lblYearMonth);
         panelSuperior.add(btnSiguiente);
 
-        // Panel de los días
+        // Panel de los dï¿½as
         panelDias = new JPanel(new GridLayout(0, 7)); // Cambio en el layout
         actualizarDias();
 
-        // Añade componentes al panel
+        // Aï¿½ade componentes al panel
         add(panelSuperior, BorderLayout.NORTH);
         add(panelDias, BorderLayout.CENTER);
 
-        // Añade ActionListener para los botones de navegación
+        // Aï¿½ade ActionListener para los botones de navegaciï¿½n
         btnAnterior.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -63,14 +63,14 @@ public class CalendarioComponente extends JPanel {
         });
     }
 
-    private void actualizarEtiquetaMesAño() {
-        String nombreMes = new DateFormatSymbols().getMonths()[mes - 1];
-        lblMesAño.setText(nombreMes + " " + año);
+    private void actualizarEtiquetaMonthYear() {
+        String nombreMes = new DateFormatSymbols().getMonths()[month - 1];
+        lblYearMonth.setText(nombreMes + " " + year);
     }
 
     private void actualizarDias() {
         panelDias.removeAll();
-        String[] nombresDias = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
+        String[] nombresDias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
         for (String nombre : nombresDias) {
             JLabel lblDia = new JLabel(nombre, SwingConstants.CENTER);
             switch (lblDia.getText()) {
@@ -81,7 +81,7 @@ public class CalendarioComponente extends JPanel {
 				lblDia.setForeground(Color.BLUE);
 
 				break;
-			case "Miércoles":
+			case "Miï¿½rcoles":
 				lblDia.setForeground(Color.CYAN);
 
 				break;
@@ -93,7 +93,7 @@ public class CalendarioComponente extends JPanel {
 				lblDia.setForeground(Color.ORANGE);
 
 				break;
-			case "Sábado":
+			case "Sï¿½bado":
 				lblDia.setForeground(Color.PINK);
 
 				break;
@@ -109,13 +109,13 @@ public class CalendarioComponente extends JPanel {
         }
 
         Calendar calendar = Calendar.getInstance();
-        calendar.setFirstDayOfWeek(Calendar.MONDAY); // Establece el Lunes como el primer día de la semana
-        calendar.set(año, mes - 1, 1);
+        calendar.setFirstDayOfWeek(Calendar.MONDAY); // Establece el Lunes como el primer dï¿½a de la semana
+        calendar.set(year, month - 1, 1);
 
         int primerDia = calendar.get(Calendar.DAY_OF_WEEK);
         int ultimoDia = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
 
-        // Añade los espacios en blanco antes del primer día del mes
+        // Aï¿½ade los espacios en blanco antes del primer dï¿½a del mes
         for (int i = Calendar.MONDAY; i < primerDia; i++) {
             panelDias.add(new JLabel(""));
         }
@@ -125,8 +125,8 @@ public class CalendarioComponente extends JPanel {
             btnDia.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    // Aquí puedes agregar la lógica para manejar la selección de un día
-                    JOptionPane.showMessageDialog(null, "Has seleccionado el día " + btnDia.getText());
+                    // Aquï¿½ puedes agregar la lï¿½gica para manejar la selecciï¿½n de un dï¿½a
+                    JOptionPane.showMessageDialog(null, "Has seleccionado el dia " + btnDia.getText());
                 }
             });
             panelDias.add(btnDia);
@@ -137,22 +137,22 @@ public class CalendarioComponente extends JPanel {
     }
 
     private void retrocederMes() {
-        mes--;
-        if (mes < 1) {
-            mes = 12;
-            año--;
+        month--;
+        if (month < 1) {
+            month = 12;
+            year--;
         }
-        actualizarEtiquetaMesAño();
+        actualizarEtiquetaMonthYear();
         actualizarDias();
     }
 
     private void avanzarMes() {
-        mes++;
-        if (mes > 12) {
-            mes = 1;
-            año++;
+        month++;
+        if (month > 12) {
+            month = 1;
+            year++;
         }
-        actualizarEtiquetaMesAño();
+        actualizarEtiquetaMonthYear();
         actualizarDias();
     }
 // Test de funcionalidad para posterior implementacion en Interfaz3
