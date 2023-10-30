@@ -81,7 +81,7 @@ public class CalendarioComponente extends JPanel {
 				lblDia.setForeground(Color.BLUE);
 
 				break;
-			case "Mi�rcoles":
+			case "Miercoles":
 				lblDia.setForeground(Color.CYAN);
 
 				break;
@@ -93,7 +93,7 @@ public class CalendarioComponente extends JPanel {
 				lblDia.setForeground(Color.ORANGE);
 
 				break;
-			case "S�bado":
+			case "Sebado":
 				lblDia.setForeground(Color.PINK);
 
 				break;
@@ -126,7 +126,7 @@ public class CalendarioComponente extends JPanel {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     // Aqu� puedes agregar la l�gica para manejar la selecci�n de un d�a
-                    JOptionPane.showMessageDialog(null, "Has seleccionado el dia " + btnDia.getText());
+                    JOptionPane.showMessageDialog(null, "Has seleccionado el dia " + btnDia.getText() + " de " + lblYearMonth.getText());
                 }
             });
             panelDias.add(btnDia);
@@ -154,6 +154,14 @@ public class CalendarioComponente extends JPanel {
         }
         actualizarEtiquetaMonthYear();
         actualizarDias();
+    }
+    
+    private void retrocederrYear() { //por hacer, separar el valor de los años del lblYearMonth y agregar dos botones mas encima de los meses para saltar los años.
+    	
+    }
+    
+    private void avanzarYear() {
+    	
     }
 // Test de funcionalidad para posterior implementacion en Interfaz3
 //    public static void main(String[] args) {
