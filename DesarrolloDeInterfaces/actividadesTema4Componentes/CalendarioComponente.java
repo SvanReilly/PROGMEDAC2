@@ -32,6 +32,8 @@ public class CalendarioComponente extends JPanel {
         btnAnterior = new JButton("<<");
         btnSiguiente = new JButton(">>");
         lblMesAño = new JLabel();
+        lblMesAño.setFont(new Font("Times New Roman", Font.BOLD, 18));
+
         actualizarEtiquetaMesAño();
         panelSuperior.add(btnAnterior);
         panelSuperior.add(lblMesAño);

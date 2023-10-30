@@ -34,7 +34,7 @@ public class Interfaz3 extends JFrame{
 	 */
 	public Interfaz3() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 650, 465);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         CalendarioComponente calendario = new CalendarioComponente();
@@ -46,7 +46,7 @@ public class Interfaz3 extends JFrame{
 		contentPane.add(calendario);
 		
 		JLabel lblNewLabel = new JLabel("CALENDARIO PITAG\u00D3RICO");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 23));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblNewLabel, BorderLayout.NORTH);
 	}
