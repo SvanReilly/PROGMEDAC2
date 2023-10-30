@@ -71,6 +71,38 @@ public class CalendarioComponente extends JPanel {
         String[] nombresDias = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
         for (String nombre : nombresDias) {
             JLabel lblDia = new JLabel(nombre, SwingConstants.CENTER);
+            switch (lblDia.getText()) {
+			case "Lunes":
+				lblDia.setForeground(Color.BLACK);
+				break;
+			case "Martes":
+				lblDia.setForeground(Color.BLUE);
+
+				break;
+			case "Miércoles":
+				lblDia.setForeground(Color.CYAN);
+
+				break;
+			case "Jueves":
+				lblDia.setForeground(Color.GREEN);
+
+				break;
+			case "Viernes":
+				lblDia.setForeground(Color.ORANGE);
+
+				break;
+			case "Sábado":
+				lblDia.setForeground(Color.PINK);
+
+				break;
+			case "Domingo":
+				lblDia.setForeground(Color.MAGENTA);
+
+				break;
+
+			default:
+				break;
+			}
             panelDias.add(lblDia);
         }
 
