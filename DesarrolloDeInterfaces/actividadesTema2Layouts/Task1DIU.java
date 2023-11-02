@@ -62,7 +62,7 @@ public class Task1DIU extends JFrame {
 	 */
 	public Task1DIU() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 558, 435);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -155,11 +155,10 @@ public class Task1DIU extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				JDialog calendarioRumano = new JDialog();
 				CalendarioComponente calendarioComponente = new CalendarioComponente();
-				panel_4.add(calendarioComponente);
 				calendarioRumano.setVisible(true);
 				calendarioRumano.setBounds(100, 100, 650, 465);
-				calendarioRumano.add(calendarioComponente);
-				dispose();
+				calendarioRumano.getContentPane().add(calendarioComponente);
+				
 			}
 		});
 		panel_4.add(btnNewButton);
