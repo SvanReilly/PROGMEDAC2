@@ -24,6 +24,7 @@ import java.awt.BorderLayout;
 import javax.swing.JSeparator;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import actividadesTema4Componentes.CalendarioComponente;
 
 public class Task1DIU extends JFrame {
 
@@ -148,7 +149,22 @@ public class Task1DIU extends JFrame {
 		FlowLayout flowLayout = (FlowLayout) panel_4.getLayout();
 		flowLayout.setVgap(20);
 		contentPane.add(panel_4, BorderLayout.SOUTH);
-		dispose();
+		
+		JButton btnNewButton = new JButton("Birthdate");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JDialog calendarioRumano = new JDialog();
+				CalendarioComponente calendarioComponente = new CalendarioComponente();
+				panel_4.add(calendarioComponente);
+				calendarioRumano.setVisible(true);
+				calendarioRumano.setBounds(100, 100, 650, 465);
+				calendarioRumano.add(calendarioComponente);
+				dispose();
+			}
+		});
+		panel_4.add(btnNewButton);
+		
+
 	}
 
 }

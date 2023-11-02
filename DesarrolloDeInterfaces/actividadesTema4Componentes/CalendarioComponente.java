@@ -1,11 +1,14 @@
 package actividadesTema4Componentes;
 
 import javax.swing.*;
+
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
+
 
 public class CalendarioComponente extends JPanel {
     /**
@@ -15,28 +18,40 @@ public class CalendarioComponente extends JPanel {
 	private int month;
     private int year;
     private JButton btnAnterior, btnSiguiente;
-    private JLabel lblYearMonth;
+    private JLabel lblMonth;
+    private JLabel lblYear;
     private JPanel panelDias;
+    private JButton btnAnterior_1;
+    private JButton btnSiguiente_1;
+    JButton btnDia = new JButton();
+    JDialog recordatorioDialog;
+    
 
-    public CalendarioComponente() {
+
+	public CalendarioComponente() {
         // Inicializa el calendario con el mes y a�o actual
         Calendar calendario = Calendar.getInstance();
         month = calendario.get(Calendar.MONTH) + 1; // Mes es 0-indexado
         year = calendario.get(Calendar.YEAR);
 
         // Dise�o y layout del panel
-        setLayout(new BorderLayout());
+        BorderLayout borderLayout = new BorderLayout();
+        borderLayout.setHgap(10);
+        borderLayout.setVgap(10);
+        setLayout(borderLayout);
 
         // Panel superior con botones y etiqueta del mes y a�o
         JPanel panelSuperior = new JPanel();
         btnAnterior = new JButton("<<");
         btnSiguiente = new JButton(">>");
-        lblYearMonth = new JLabel();
-        lblYearMonth.setFont(new Font("Times New Roman", Font.BOLD, 18));
+        lblMonth = new JLabel();
+        lblMonth.setHorizontalAlignment(SwingConstants.CENTER);
+        lblMonth.setFont(new Font("Times New Roman", Font.BOLD, 18));
 
-        actualizarEtiquetaMonthYear();
+        actualizarEtiquetaMonth();
+        panelSuperior.setLayout(new GridLayout(0, 3, 50, 10));
         panelSuperior.add(btnAnterior);
-        panelSuperior.add(lblYearMonth);
+        panelSuperior.add(lblMonth);
         panelSuperior.add(btnSiguiente);
 
         // Panel de los d�as
@@ -45,6 +60,28 @@ public class CalendarioComponente extends JPanel {
 
         // A�ade componentes al panel
         add(panelSuperior, BorderLayout.NORTH);
+        
+        btnAnterior_1 = new JButton("<<");
+        btnAnterior_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		retrocederrYear();
+        	}
+        });
+        panelSuperior.add(btnAnterior_1);
+        
+        lblYear = new JLabel();
+        lblYear.setText("2023");
+        lblYear.setHorizontalAlignment(SwingConstants.CENTER);
+        lblYear.setFont(new Font("Times New Roman", Font.BOLD, 18));
+        panelSuperior.add(lblYear);
+        
+        btnSiguiente_1 = new JButton(">>");
+        btnSiguiente_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		avanzarYear();
+        	}
+        });
+        panelSuperior.add(btnSiguiente_1);
         add(panelDias, BorderLayout.CENTER);
 
         // A�ade ActionListener para los botones de navegaci�n
@@ -63,9 +100,12 @@ public class CalendarioComponente extends JPanel {
         });
     }
 
-    private void actualizarEtiquetaMonthYear() {
+    private void actualizarEtiquetaMonth() {
         String nombreMes = new DateFormatSymbols().getMonths()[month - 1];
-        lblYearMonth.setText(nombreMes + " " + year);
+        lblMonth.setText(nombreMes);
+    }
+    private void actualizarEtiquetaYear() {
+    	lblYear.setText("" + year + "");
     }
 
     private void actualizarDias() {
@@ -93,7 +133,7 @@ public class CalendarioComponente extends JPanel {
 				lblDia.setForeground(Color.ORANGE);
 
 				break;
-			case "Sebado":
+			case "Sabado":
 				lblDia.setForeground(Color.PINK);
 
 				break;
@@ -121,12 +161,21 @@ public class CalendarioComponente extends JPanel {
         }
 
         for (int i = 1; i <= ultimoDia; i++) {
-            JButton btnDia = new JButton(String.valueOf(i));
+            btnDia = new JButton(String.valueOf(i));
+            String diaActual = btnDia.getText();
             btnDia.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     // Aqu� puedes agregar la l�gica para manejar la selecci�n de un d�a
-                    JOptionPane.showMessageDialog(null, "Has seleccionado el dia " + btnDia.getText() + " de " + lblYearMonth.getText());
+            		try {
+            			recordatorioDialog dialog = new recordatorioDialog(diaActual, lblMonth.getText(), lblYear.getText());
+            			dialog.setTitle("Establecer recordatorio para el " + diaActual + " de " + lblMonth.getText()+ " del " + lblYear.getText());
+            			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+            			dialog.setVisible(true);
+            			
+            		} catch (Exception e1) {
+            			e1.printStackTrace();
+            		}
                 }
             });
             panelDias.add(btnDia);
@@ -135,14 +184,15 @@ public class CalendarioComponente extends JPanel {
         revalidate();
         repaint();
     }
-
+    
     private void retrocederMes() {
         month--;
         if (month < 1) {
             month = 12;
             year--;
         }
-        actualizarEtiquetaMonthYear();
+        actualizarEtiquetaMonth();
+    	actualizarEtiquetaYear();
         actualizarDias();
     }
 
@@ -152,24 +202,22 @@ public class CalendarioComponente extends JPanel {
             month = 1;
             year++;
         }
-        actualizarEtiquetaMonthYear();
+        actualizarEtiquetaMonth();
+    	actualizarEtiquetaYear();
         actualizarDias();
     }
     
     private void retrocederrYear() { //por hacer, separar el valor de los años del lblYearMonth y agregar dos botones mas encima de los meses para saltar los años.
-    	
+    	year--;
+    	actualizarEtiquetaYear();
+    	actualizarDias();
     }
     
     private void avanzarYear() {
-    	
-    }
-// Test de funcionalidad para posterior implementacion en Interfaz3
-//    public static void main(String[] args) {
-//        JFrame frame = new JFrame();
-//        CalendarioComponente calendario = new CalendarioComponente();
-//        frame.getContentPane().add(calendario);
-//        frame.setSize(400, 300);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setVisible(true);
-//    }
+    	year ++;
+    	actualizarEtiquetaYear();
+    	actualizarDias();
+    }	
+
 }
+

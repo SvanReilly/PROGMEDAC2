@@ -38,7 +38,6 @@ public class Interfaz3 extends JFrame{
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         CalendarioComponente calendario = new CalendarioComponente();
-		
         setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
