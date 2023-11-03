@@ -34,6 +34,7 @@ public class Interfaz3 extends JFrame{
 	 */
 	public Interfaz3() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Actividad 3, crear componentes. (Calendario)");
 		setBounds(100, 100, 650, 465);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
