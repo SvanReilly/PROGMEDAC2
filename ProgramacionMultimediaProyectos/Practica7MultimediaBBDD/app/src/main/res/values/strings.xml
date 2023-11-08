@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Practica7MultimediaBBDD</string>
+    <string name="nowPlaying">Now playing:</string>
+    <string name="trackName">trackname.mp3 </string>
+</resources>

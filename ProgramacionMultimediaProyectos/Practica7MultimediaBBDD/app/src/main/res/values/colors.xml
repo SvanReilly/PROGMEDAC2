@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blackColor">#FF000000</color>
+    <color name="whiteColor">#FFFFFFFF</color>
+    <color name="grayColor">#757474</color>
+    <color name="blueishColor">#3F7B97</color>
+    <color name="brownishColor">#775849</color>
+    <color name="playButtonColor">#379F00</color>
+    <color name="pauseButtonColor">#C33333</color>
+    <color name="backgroundColor">#273440</color>
+</resources>
