@@ -2,11 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="red">#C65A5A</color>
+    <color name="red">#D3A07E</color>
     <color name="blue">#2670A1</color>
     <color name="background_color">#614E98</color>
     <color name="green">#3C5935</color>
     <color name="yellowish">#BF9453</color>
     <color name="forGradientRegistrados1">#2C2A28</color>
     <color name="forGradientRegistrados2">#AF381A</color>
+    <color name="forGradientRegistrados3">#CABF9A</color>
+    <color name="forGradientRegistrados4">#739E90</color>
+    <color name="button1">"@drawable/gradient_insert_button"</color>
 </resources>
