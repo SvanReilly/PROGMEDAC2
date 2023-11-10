@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerViewMain;
     private EditText editPokeNameMain, editPokeURLPicMain;
+    private String PokeNameMain,PokeURLPicMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +20,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewMain = findViewById(R.id.recView);
         editPokeNameMain = findViewById(R.id.editPokeName);
         editPokeURLPicMain = findViewById(R.id.editPokeURLPic);
-
+        PokeNameMain = String.valueOf(editPokeNameMain.getText());
+        PokeURLPicMain = String.valueOf(editPokeURLPicMain.getText());
         PokedexBD pokedex = new PokedexBD();
 
         pokedex.getPokemon();
+        pokedex.insertPokemon(PokeNameMain, PokeURLPicMain);
+        pokedex.removePokemon(PokeNameMain);
     }
 }

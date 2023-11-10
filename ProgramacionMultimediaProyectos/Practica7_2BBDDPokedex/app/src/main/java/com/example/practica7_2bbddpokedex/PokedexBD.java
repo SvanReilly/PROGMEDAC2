@@ -67,18 +67,18 @@ public class PokedexBD extends SQLiteOpenHelper {
                 pokemonList.add(new Pokemon(c.getString(0), c.getString(1)));
             }while (c.moveToNext());
         }
-        close();
+        closeBD();
         return pokemonList;
     }
 
-    public void insertPokemon(String nombre, String URL) {
+    public void insertPokemon(String name, String URL) {
         databaseSQL = getWritableDatabase();
         if (databaseSQL != null) {
             ContentValues values= new ContentValues();
-            values.put("Name", nombre);
+            values.put("Name", name);
             values.put("Picture", URL);
             databaseSQL.insert("Pokemon", "", values);
-            close();
+            closeBD();
         }
     }
     public void removePokemon(String name){
@@ -87,7 +87,7 @@ public class PokedexBD extends SQLiteOpenHelper {
             String where = "Name = ?";
             String [] deleteArguments = {name};
             databaseSQL.delete("Pokemon", where, deleteArguments);
-            close();
+            closeBD();
         }
     }
 }
