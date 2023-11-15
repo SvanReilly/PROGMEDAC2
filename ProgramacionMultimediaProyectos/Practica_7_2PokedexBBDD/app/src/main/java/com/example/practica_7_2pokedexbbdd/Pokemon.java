@@ -12,16 +12,10 @@ public class Pokemon {
         return name;
     }
 
-    public void setName(String name) {
-        name = name;
-    }
-
     public String getPicture() {
         return picture;
     }
 
-    public void setPicture(String v) {
-        picture = picture;
-    }
+
 }
 

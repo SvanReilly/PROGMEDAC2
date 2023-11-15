@@ -1,6 +1,5 @@
 package com.example.practica_7_2pokedexbbdd;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,33 +12,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder> {
-
-    private Pokemon[] listaPokemon;
-
-    public PokemonAdapter(Pokemon[] listaPokemon) {
-
-        this.listaPokemon = listaPokemon;
-    }
+    private ArrayList<Pokemon> listaPokemon;
+    public PokemonAdapter(ArrayList<Pokemon> listaPokemon) {this.listaPokemon = listaPokemon;}
+    public void setListaPokemon(ArrayList<Pokemon> listaPokemon) {this.listaPokemon=listaPokemon;}
 
     @NonNull
     @Override
     public PokemonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.pokemon_item, parent, false);
-
         return new PokemonViewHolder(view, parent.getContext());
     }
-
     @Override
     public void onBindViewHolder(@NonNull PokemonViewHolder holder, int position) {
-        holder.BindPokemon(this.listaPokemon[position]);
+        holder.BindPokemon(this.listaPokemon.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return this.listaPokemon.length;
+        return this.listaPokemon.size();
     }
 
     public static class PokemonViewHolder extends RecyclerView.ViewHolder {
@@ -58,7 +52,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
 
         public void BindPokemon(Pokemon pokemon) {
             nombreView.setText(pokemon.getName());
-            Picasso.get().load(pokemon.sprites.front_default).into(imagenView);
+            Picasso.get().load(pokemon.getPicture()).into(imagenView);
         }
     }
 }

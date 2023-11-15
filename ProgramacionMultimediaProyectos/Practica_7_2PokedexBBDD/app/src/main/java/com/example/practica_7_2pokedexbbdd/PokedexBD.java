@@ -10,47 +10,51 @@ import java.util.ArrayList;
 
 
 public class PokedexBD extends SQLiteOpenHelper {
+
+    private ArrayList<Pokemon> listaPokemon;
     private static final String DATABASE_NAME = "BDPokemon.db";
     private static final int DATABASE_VERSION = 1;
-
+    private static final String TABLE_NAME = "Pokemon";
+    private static final String COLUMN_ID = "ID";
+    private static final String COLUMN_NAME = "Name";
+    private static final String COLUMN_URL = "Picture";
     private Context context;
     private SQLiteDatabase databaseSQL = null;
-    private String SQLCREATE = "CREATE TABLE Pokemon (Name TEXT, Picture STRING)";
-    private String SQLDROP = "DROP TABLE IF EXISTS Pokemon";
+    private String SQLCREATE = "CREATE TABLE "
+            + TABLE_NAME
+            + "(" + COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + COLUMN_NAME + "Name,"
+            + COLUMN_URL + " URL" + ");" ;
+    private String SQLDROP = "DROP TABLE IF EXISTS " + TABLE_NAME;
 
 
     public PokedexBD(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        this.context = context;
+        listaPokemon = new ArrayList<>();
     }
 
 
 
-    public void closeBD(){
-        if (databaseSQL != null) {
-            databaseSQL.close();
-        }
-    }
-    //Crear y actualizar Base de datos
+
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(SQLCREATE);
+    public void onCreate(SQLiteDatabase databaseSQL) {
+        databaseSQL.execSQL(SQLCREATE);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int preVersion, int newVersion) {
-        sqLiteDatabase.execSQL(SQLDROP);
-        sqLiteDatabase.execSQL(SQLCREATE);
+    public void onUpgrade(SQLiteDatabase databaseSQL, int preVersion, int newVersion) {
+        databaseSQL.execSQL(SQLDROP);
+        onCreate(databaseSQL);
     }
 
-    //Metodos para modificar la tabla (insertar, borrar, listar)
+
     public ArrayList<Pokemon> getPokemon() {
-        databaseSQL = getReadableDatabase();
-
-        ArrayList<Pokemon> pokemonList = new ArrayList<>();
+        databaseSQL = this.getReadableDatabase();
+        String [] SQL_COLUMNS = {COLUMN_ID, COLUMN_NAME, COLUMN_URL};
+        ArrayList<Pokemon> listaPokemon = new ArrayList<>();
         Cursor c = databaseSQL.query(
-                "Pokemon",
-                null,
+                TABLE_NAME,
+                SQL_COLUMNS,
                 null,
                 null,
                 null,
@@ -58,27 +62,41 @@ public class PokedexBD extends SQLiteOpenHelper {
                 null,
                 null
         );
-        c.moveToFirst();
-        if (c.getCount() > 0){
-            do {
-                pokemonList.add(new Pokemon(c.getString(0), c.getString(1)));
-            }while (c.moveToNext());
+
+        if (c!= null){
+            try {
+                int nameIndex = c.getColumnIndex(COLUMN_NAME);
+                int pictureURLIndex = c.getColumnIndex(COLUMN_URL);
+
+                while (c.moveToNext()) {
+                    String name = (nameIndex != -1) ? c.getString(nameIndex) :
+                            "Pokemon no identificado";
+                    String pictureURL = (pictureURLIndex != -1) ? c.getString(pictureURLIndex) :
+                            "Imagen no disponible";
+
+                    Pokemon pokemon = new Pokemon(name, pictureURL);
+                    listaPokemon.add(pokemon);
+                }
+            } finally {
+                c.close();
+            }
         }
+
+
         closeBD();
-        return pokemonList;
+        return listaPokemon;
     }
 
     public void insertPokemon(String name, String URL) {
 
         databaseSQL = getWritableDatabase();
 
-        if (databaseSQL != null) {
-            ContentValues values= new ContentValues();
-            values.put("Name", name);
-            values.put("Picture", URL);
-            databaseSQL.insert("Pokemon", "", values);
-            closeBD();
-        }
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_NAME, name);
+        contentValues.put(COLUMN_URL, URL);
+        databaseSQL.insert(TABLE_NAME, null, contentValues);
+        closeBD();
+
     }
     public void removePokemon(String name){
         databaseSQL = getWritableDatabase();
@@ -87,6 +105,18 @@ public class PokedexBD extends SQLiteOpenHelper {
             String [] deleteArguments = {name};
             databaseSQL.delete("Pokemon", where, deleteArguments);
             closeBD();
+        }
+    }
+
+    public void dropPokedex(){
+        databaseSQL = this.getWritableDatabase();
+        databaseSQL.delete(TABLE_NAME, null, null);
+        closeBD();
+    }
+
+    public void closeBD(){
+        if (databaseSQL != null) {
+            databaseSQL.close();
         }
     }
 }
