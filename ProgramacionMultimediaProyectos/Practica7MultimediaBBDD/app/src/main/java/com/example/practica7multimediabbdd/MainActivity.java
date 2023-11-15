@@ -14,8 +14,10 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private TextView nowPlayingViewMain;
     private TextView trackNameViewMain;
+    private TextView loopNotifViewMain;
     private ImageButton playButtonMain;
     private ImageButton pauseButtonMain;
+    private ImageButton loopButtonMain, stopButtonMain;
     MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +26,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mediaPlayer = MediaPlayer.create(this, R.raw.feelslikesummer);
         nowPlayingViewMain = findViewById(R.id.nowPlayingView);
         trackNameViewMain = findViewById(R.id.trackNameView);
+        loopNotifViewMain = findViewById(R.id.loopNotification);
+
         playButtonMain = findViewById(R.id.playButton);
         pauseButtonMain = findViewById(R.id.pauseButton);
+        stopButtonMain = findViewById(R.id.stopButton);
+        loopButtonMain = findViewById(R.id.loopButton);
 
         playButtonMain.setOnClickListener(this);
         pauseButtonMain.setOnClickListener(this);
@@ -41,10 +47,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             nowPlayingViewMain.setVisibility(View.VISIBLE);
             trackNameViewMain.setVisibility(View.VISIBLE);
             mediaPlayer.start();
-        } else {
+        } else if (v.getId() == R.id.pauseButton){
             nowPlayingViewMain.setVisibility(View.GONE);
             trackNameViewMain.setVisibility(View.GONE);
             mediaPlayer.pause();
+
+        } else if (v.getId() == R.id.stopButton){
+
+                nowPlayingViewMain.setVisibility(View.GONE);
+                trackNameViewMain.setVisibility(View.GONE);
+                mediaPlayer.stop();
+
+                mediaPlayer.release();
+
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.feelslikesummer);
+
+
+        } else if (v.getId() == R.id.loopButton){
+            if (mediaPlayer.isLooping()) {
+                mediaPlayer.setLooping(false);
+                loopNotifViewMain.setVisibility(View.GONE);
+
+            } else{
+                mediaPlayer.setLooping(true);
+                loopNotifViewMain.setVisibility(View.VISIBLE);
+                }
+            }
         }
     }
-}
