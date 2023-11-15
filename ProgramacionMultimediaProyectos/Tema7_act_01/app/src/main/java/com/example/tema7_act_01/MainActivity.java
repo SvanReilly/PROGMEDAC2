@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText urlEditText;
-
     private RecyclerView recyclerView;
+    private EditText urlEditText;
+    private EditText nombreEditText;
     private manejoBD control;
     private ArrayList<Books> booksList;
     private Adapter adapter;
-    private EditText nombreEditText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

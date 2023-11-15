@@ -1,12 +1,12 @@
 package com.example.practica_7_2pokedexbbdd;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -14,11 +14,11 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerViewMain;
     private EditText editPokeNameMain, editPokeURLPicMain;
-    private String PokeNameMain,PokeURLPicMain;
-    private PokedexBD pokedex;
+    private PokedexBD pokedexBD;
     private Button insertButtonMain, removeButtonMain;
     private ArrayList<Pokemon> listaPokemonMain;
     private PokemonAdapter pokeAdapter;
+    private String PokeNameMain,PokeURLPicMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +34,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        pokedex = new PokedexBD(getApplicationContext());
+        pokedexBD = new PokedexBD(getApplicationContext());
+
         listaPokemonMain = new ArrayList<>();
+
+        //Pokemon Arceus = new Pokemon("Arceus", "https://assets.pokemon.com/assets/cms2/img/pokedex/full/493.png");
+        //listaPokemonMain.add(Arceus);
+
         pokeAdapter = new PokemonAdapter(listaPokemonMain);
 
         recyclerViewMain.setHasFixedSize(true);
@@ -48,36 +53,15 @@ public class MainActivity extends AppCompatActivity {
 
         insertButtonMain.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                PokeNameMain = String.valueOf(editPokeNameMain.getText());
-                PokeURLPicMain = String.valueOf(editPokeURLPicMain.getText());
-
-                if (!PokeNameMain.isEmpty() && !PokeURLPicMain.isEmpty()) {
-                    Pokemon newPokemon = new Pokemon(PokeNameMain, PokeURLPicMain );
-                    pokedex.insertPokemon(newPokemon.getName(), newPokemon.getPicture());
-
-                    listaPokemonMain = pokedex.getPokemon();
-                    pokeAdapter.setListaPokemon(listaPokemonMain);
-                    pokeAdapter.notifyDataSetChanged();
-                    editPokeNameMain.setText("");
-                    editPokeURLPicMain.setText("");
-                }
-            }
+            public void onClick(View view) {addPokemon();}
         });
         removeButtonMain.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                pokedex.dropPokedex();
-                listaPokemonMain.clear();
-                pokeAdapter.setListaPokemon(listaPokemonMain);
-                pokeAdapter.notifyDataSetChanged();
-            }
+            public void onClick(View view) {removePokemonList();}
         });
     }
-}
 
 
-    /*
     private void addPokemon() {
 
         PokeNameMain = String.valueOf(editPokeNameMain.getText());
@@ -85,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (!PokeNameMain.isEmpty() && !PokeURLPicMain.isEmpty()) {
             Pokemon newPokemon = new Pokemon(PokeNameMain, PokeURLPicMain );
-            pokedex.insertPokemon(newPokemon.getName(), newPokemon.getPicture());
+            pokedexBD.insertPokemon(newPokemon.getName(), newPokemon.getPicture());
 
-            listaPokemonMain = pokedex.getPokemon();
+            listaPokemonMain = pokedexBD.getPokemon();
             pokeAdapter.setListaPokemon(listaPokemonMain);
             pokeAdapter.notifyDataSetChanged();
             editPokeNameMain.setText("");
@@ -95,11 +79,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void removePokemon() {
-        pokedex.dropPokedex();
+    private void removePokemonList() {
+        pokedexBD.dropPokedex();
         listaPokemonMain.clear();
         pokeAdapter.setListaPokemon(listaPokemonMain);
         pokeAdapter.notifyDataSetChanged();
     }
 
-}*/
+}

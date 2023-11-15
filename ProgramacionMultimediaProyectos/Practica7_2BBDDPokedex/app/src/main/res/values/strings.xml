@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">Practica7_2BBDDPokedex</string>
-    <string name="textTextViewItem">Description</string>
-    <string name="insertButton">Agregar</string>
-    <string name="removeButton">Eliminar</string>
-</resources>

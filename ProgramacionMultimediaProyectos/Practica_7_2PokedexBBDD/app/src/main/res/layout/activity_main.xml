@@ -36,7 +36,7 @@
             android:layout_margin="5sp"
             android:ems="10"
             android:inputType="text"
-            android:text="Escriba un nombre para el Pokemon"
+            android:hint="Escriba un nombre para el Pokemon"
             android:textAlignment="center"
             android:textSize="15sp"
             android:textStyle="italic" />
@@ -48,7 +48,7 @@
             android:layout_margin="5sp"
             android:ems="10"
             android:inputType="text"
-            android:text="Escriba una URL para establecer una imagen"
+            android:hint="Escriba una URL para establecer una imagen"
             android:textAlignment="center"
             android:textSize="15sp"
             android:textStyle="italic" />
@@ -67,8 +67,8 @@
 
             <Button
                 android:id="@+id/insertButton"
-                android:layout_width="105sp"
-                android:layout_height="110sp"
+                android:layout_width="106sp"
+                android:layout_height="111sp"
                 android:layout_margin="10sp"
                 android:backgroundTint="@color/green"
                 android:text="@string/insertButton"
@@ -82,8 +82,8 @@
 
             <Button
                 android:id="@+id/removeButton"
-                android:layout_width="105sp"
-                android:layout_height="110sp"
+                android:layout_width="106sp"
+                android:layout_height="111sp"
                 android:layout_margin="10sp"
                 android:backgroundTint="@color/forGradientRegistrados2"
                 android:text="@string/removeButton"

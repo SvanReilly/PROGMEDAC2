@@ -17,6 +17,7 @@ public class manejoBD extends SQLiteOpenHelper {
     private static final String COLUMN_ID = "ID";
     private static final String COLUMN_NOMBRE = "Nombre";
     private static final String COLUMN_URL = "URL";
+
     private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME +
             "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_NOMBRE +
             " TEXT," + COLUMN_URL + " TEXT);";
