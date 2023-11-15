@@ -7,8 +7,8 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,18 +71,31 @@
             android:textSize="20sp"
             android:text="@string/loopNotifString" />
 
-        <ImageButton
-            android:id="@+id/loopButton"
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="loop button"
-            app:srcCompat="@android:drawable/stat_notify_sync" />
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="5sp"
-            android:background="?android:attr/listDivider" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3" />
+
+            <ImageButton
+                android:id="@+id/loopButton"
+                android:layout_width="wrap_content"
+                android:layout_height="60sp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:contentDescription="loop button"
+                app:srcCompat="@android:drawable/stat_notify_sync" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3" />
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
@@ -117,6 +130,7 @@
                 android:src="@android:drawable/alert_light_frame" />
 
         </TableRow>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

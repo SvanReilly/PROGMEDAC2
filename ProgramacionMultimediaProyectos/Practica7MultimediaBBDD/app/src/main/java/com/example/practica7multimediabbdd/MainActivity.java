@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         playButtonMain.setOnClickListener(this);
         pauseButtonMain.setOnClickListener(this);
+        stopButtonMain.setOnClickListener(this);
+        loopButtonMain.setOnClickListener(this);
 
     }
 
@@ -53,14 +55,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mediaPlayer.pause();
 
         } else if (v.getId() == R.id.stopButton){
-
-                nowPlayingViewMain.setVisibility(View.GONE);
-                trackNameViewMain.setVisibility(View.GONE);
-                mediaPlayer.stop();
-
-                mediaPlayer.release();
-
-                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.feelslikesummer);
+            nowPlayingViewMain.setVisibility(View.GONE);
+            trackNameViewMain.setVisibility(View.GONE);
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.feelslikesummer);
 
 
         } else if (v.getId() == R.id.loopButton){
