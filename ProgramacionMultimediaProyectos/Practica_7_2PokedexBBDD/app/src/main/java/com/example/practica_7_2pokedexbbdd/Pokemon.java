@@ -12,6 +12,8 @@ public class Pokemon {
         return name;
     }
 
+
+
     public String getPicture() {
         return picture;
     }
