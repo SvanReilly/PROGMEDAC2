@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Practica7_2BBDDPokedex</string>
-    <string name="textTextViewItem">Description</string>
+    <string name="app_name">MounTimeDex</string>
+    <string name="textTextViewItem">Name</string>
     <string name="insertButton">Agregar</string>
     <string name="removeButton">Eliminar Registro</string>
 </resources>

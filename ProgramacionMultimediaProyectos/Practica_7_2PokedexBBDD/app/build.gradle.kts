@@ -11,7 +11,7 @@ android {
         minSdk = 25
         targetSdk = 34
         versionCode = 1
-        versionName = "1.0"
+        versionName = "pre-alpha 1.0 nevergonnagive nevergonnagive"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

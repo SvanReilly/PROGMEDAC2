@@ -19,7 +19,7 @@
         <View
             android:id="@+id/topDivider"
             android:layout_width="match_parent"
-            android:layout_height="5sp"
+            android:layout_height="2sp"
             android:layout_margin="1sp"
             android:background="?android:attr/listDivider" />
 
@@ -29,12 +29,12 @@
 
             <ImageView
                 android:id="@+id/pokePicView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
                 android:layout_marginLeft="10sp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="5sp"
-                android:layout_marginBottom="5sp"
+                android:layout_marginTop="1sp"
+                android:layout_marginBottom="1sp"
                 android:layout_weight="1"
                 tools:srcCompat="@tools:sample/avatars"
                 android:contentDescription="Pokemon picture view"
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5sp"
                 android:layout_marginTop="5sp"
-                android:layout_weight="10"
+                android:layout_weight="30"
                 android:text="@string/textTextViewItem"
                 android:textAlignment="center"
                 android:textColor="@color/black"
@@ -62,7 +62,7 @@
         <View
             android:id="@+id/bottomDivider"
             android:layout_width="match_parent"
-            android:layout_height="5sp"
+            android:layout_height="2sp"
             android:layout_margin="1sp"
             android:background="?android:attr/listDivider" />
 

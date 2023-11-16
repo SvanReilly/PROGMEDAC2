@@ -86,14 +86,14 @@ public class PokedexBD extends SQLiteOpenHelper {
 
     }
     //Pendiente//
-    public void removeOnlyOnePokemon(String name){
-        databaseSQL = getWritableDatabase();
-        if (databaseSQL != null) {
-            String where = "Name = ?";
-            String [] deleteArguments = {name};
-            databaseSQL.delete("Pokemon", where, deleteArguments);
+    public void removeOnlyOnePokemon(String Name){
+        databaseSQL = this.getWritableDatabase();
+        databaseSQL = this.getWritableDatabase();
+        String selection = COLUMN_NAME + "=?";
+        String[] selectionArgs = {Name};
+        databaseSQL.delete(TABLE_NAME, selection, selectionArgs);
             closeBD();
-        }
+
     }
 
     public void dropPokedex(){

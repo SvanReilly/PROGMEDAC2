@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText editPokeNameMain, editPokeURLPicMain;
     private PokedexBD pokedexBD;
     private ImageButton InsertImageButtonMain, RemoveImageButtonMain, DropImageButtonMain;
-
     private ImageView pokedexHeaderMain, pokemonListedViewMain, insertImageText, removeImageText, dropImageText;
     private ArrayList<Pokemon> listaPokemonMain;
     private PokemonAdapter pokeAdapter;
@@ -35,8 +34,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pokedexHeaderMain = findViewById(R.id.pokedexHeader);
         Glide.with(this).asGif().load(R.drawable.pokedexnacionalspain).into(pokedexHeaderMain);
 
+
         pokemonListedViewMain = findViewById(R.id.pokemonListedView);
         Glide.with(this).asGif().load(R.drawable.registrados).into(pokemonListedViewMain);
+
         recyclerViewMain = findViewById(R.id.recView);
 
         editPokeNameMain = findViewById(R.id.editPokeName);
@@ -54,13 +55,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dropImageText = findViewById(R.id.dropText);
         Glide.with(this).asGif().load(R.drawable.liberartodos).into(dropImageText);
 
+
+
         pokedexBD = new PokedexBD(getApplicationContext());
+        /*
+        Aqui algunos ejemplos de Pokemon con sus imagenes para probar las funciones de insertar y soltar.
 
-        listaPokemonMain = new ArrayList<>();
+        Mew https://assets.pokemon.com/assets/cms2/img/pokedex/full/151.png
+        Arceus https://assets.pokemon.com/assets/cms2/img/pokedex/full/493.png
+        Suicune https://assets.pokemon.com/assets/cms2/img/pokedex/full/245.png
+        Mega-Gyarados https://assets.pokemon.com/assets/cms2/img/pokedex/full/130_f2.png
 
-        //Pokemon Arceus = new Pokemon("Arceus", "https://assets.pokemon.com/assets/cms2/img/pokedex/full/493.png");
-        //listaPokemonMain.add(Arceus);
+        */
 
+        //Actualizar la lista de registrados que se mostrará incluso si la aplicacion es cerrada
+        listaPokemonMain = pokedexBD.getPokemon();
+
+        if (listaPokemonMain.size()!=0){
+            pokemonListedViewMain.setVisibility(View.VISIBLE);
+        } else{
+            pokemonListedViewMain.setVisibility(View.GONE);
+        }
         pokeAdapter = new PokemonAdapter(listaPokemonMain);
 
         recyclerViewMain.setHasFixedSize(true);
@@ -72,8 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         InsertImageButtonMain.setOnClickListener(this);
         RemoveImageButtonMain.setOnClickListener(this);
-
-
+        DropImageButtonMain.setOnClickListener(this);
     }
 
     @Override
@@ -93,61 +107,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 pokeAdapter.notifyDataSetChanged();
                 editPokeNameMain.setText("");
                 editPokeURLPicMain.setText("");
-                if (pokemonListedViewMain.getVisibility() != View.VISIBLE)
+
                 pokemonListedViewMain.setVisibility(View.VISIBLE);
 
             }
         } else if (v.getId() == R.id.removeImageButton) {
+
             PokeNameMain = String.valueOf(editPokeNameMain.getText());
+
             pokedexBD.removeOnlyOnePokemon(PokeNameMain);
-
-
+            listaPokemonMain = pokedexBD.getPokemon();
+            pokeAdapter.setListaPokemon(listaPokemonMain);
+            pokeAdapter.notifyDataSetChanged();
+            editPokeNameMain.setText("");
+            editPokeURLPicMain.setText("");
+            if (listaPokemonMain.size()==0){
+                pokemonListedViewMain.setVisibility(View.GONE);
+            }
 
         } else if (v.getId() == R.id.dropImageButton) {
                 pokedexBD.dropPokedex();
                 listaPokemonMain.clear();
                 pokeAdapter.setListaPokemon(listaPokemonMain);
                 pokeAdapter.notifyDataSetChanged();
-        }
 
-    }
-}
-
-
-
-    /*
- InsertImageButtonMain.setOnClickListener(new View.OnClickListener() {
-     @Override
-     public void onClick(View view) {addPokemon();}
- });
- RemoveImageButtonMain.setOnClickListener(new View.OnClickListener() {
-     @Override
-     public void onClick(View view) {removePokemonList();}
- });
-    private void addPokemon() {
-
-        PokeNameMain = String.valueOf(editPokeNameMain.getText());
-        PokeURLPicMain = String.valueOf(editPokeURLPicMain.getText());
-
-        if (!PokeNameMain.isEmpty() && !PokeURLPicMain.isEmpty()) {
-            Pokemon newPokemon = new Pokemon(PokeNameMain, PokeURLPicMain );
-            pokedexBD.insertPokemon(newPokemon.getName(), newPokemon.getPicture());
-
-            listaPokemonMain = pokedexBD.getPokemon();
-            pokeAdapter.setListaPokemon(listaPokemonMain);
-            pokeAdapter.notifyDataSetChanged();
-            editPokeNameMain.setText("");
-            editPokeURLPicMain.setText("");
+                pokemonListedViewMain.setVisibility(View.GONE);
         }
     }
-
-    private void removePokemonList() {
-        pokedexBD.dropPokedex();
-        listaPokemonMain.clear();
-        pokeAdapter.setListaPokemon(listaPokemonMain);
-        pokeAdapter.notifyDataSetChanged();
-    }
-
-
 }
-*/

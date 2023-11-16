@@ -178,13 +178,12 @@
         <ImageView
             android:id="@+id/pokemonListedView"
             android:layout_width="match_parent"
-            android:layout_height="70sp"
+            android:layout_height="60sp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5sp"
             android:background="#00000000"
             android:gravity="center_horizontal|center_vertical"
-            android:src="@drawable/registrados"
-            android:visibility="gone"/>
+            android:src="@drawable/registrados"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recView"
