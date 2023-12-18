@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Practica9_1_PHP</string>
+    <string name="name">MonumentName</string>
+    <string name="date">Construcción: </string>
+    <string name="description">Descripción</string>
+    <string name="location">Ubicación</string>
+    <string name="latitud">Latitud: </string>
+    <string name="longitud">Longitud: </string>
+    <string name="button">Comprar entrada desde </string>
+    <string name="video">Vídeo</string>
+
+
 </resources>

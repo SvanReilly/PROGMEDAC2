@@ -54,18 +54,12 @@
                 android:layout_gravity="center"
                 android:textStyle="bold|italic" />
 
-
-
-
         </TableRow>
-
         <View
             android:id="@+id/bottomDivider"
             android:layout_width="match_parent"
             android:layout_height="2sp"
             android:layout_margin="1sp"
             android:background="?android:attr/listDivider" />
-
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
