@@ -106,7 +106,7 @@
                 android:background="@drawable/gradient_background_title"
                 android:layout_margin="15sp"
                 android:padding="15sp"
-                android:visibility="visible">
+                android:visibility="gone">
 
 
                 <LinearLayout
@@ -129,10 +129,16 @@
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
                         android:textSize="15sp"
-
                         android:text="@string/date" />
 
 
+                    <ImageView
+                        android:id="@+id/monumentImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+
+                        tools:srcCompat="@tools:sample/avatars[2]" />
 
                     <TextView
                         android:id="@+id/monumentDescrLabel"

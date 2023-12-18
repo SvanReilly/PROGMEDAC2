@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,9 +22,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ControladorMonumento monumentController = new ControladorMonumento(getApplicationContext());
-    private VolleyCallBack callBack;
-    private ImageView monumentHeaderMain, resultsViewMain;
+    private ControladorMonumento monumentController ;
+    private ImageView monumentHeaderMain, resultsViewMain, monumentPictureMain;
     private ImageButton searchButtonMain;
     private TextView monumentNameMain, monumentDateMain, monumentDescriptionMain, monumentActualLocation,
             monumentLat, monumentLong ;
@@ -31,10 +31,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button monumentPriceButtonMain;
     private EditText editMonumentIDMain;
     private TableRow monumentTableRowMain;
+    String fechaConstruccionText, comprarEntradaText, latitudText, longitudText;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        monumentController = new ControladorMonumento(getApplicationContext());
 
         //Diseño del encabezado de monument searcher
         monumentHeaderMain = findViewById(R.id.monumentHeader);
@@ -53,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         monumentTableRowMain= findViewById(R.id.monumentTableRow);
         monumentNameMain=findViewById(R.id.monumentName);
         monumentDateMain=findViewById(R.id.monumentDate);
+        monumentPictureMain = findViewById(R.id.monumentImageView);
         monumentDescriptionMain=findViewById(R.id.monumentDescription);
         monumentActualLocation=findViewById(R.id.monumentActualLocation);
         monumentLat=findViewById(R.id.monumentLat);
@@ -60,6 +65,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         monumentPriceButtonMain = findViewById(R.id.monumentPriceButton);
         monumentVideoMain=findViewById(R.id.monumentVideo);
 
+
+        fechaConstruccionText = String.valueOf(monumentDateMain.getText());
+        comprarEntradaText = String.valueOf(monumentPriceButtonMain.getText());
+        latitudText = String.valueOf(monumentLat.getText());
+        longitudText = String.valueOf(monumentLong.getText());
 
         searchButtonMain.setOnClickListener(this);
 
@@ -74,7 +84,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 monumentController.obtenerMonumentoID(idTextBoxContent, new VolleyCallBack() {
                     @Override
                     public void onSuccess(Context context, ArrayList<Monumento> monumentos) {
-                        monumentos Monument = monumentos.get(0);
+                        Monumento monument = monumentos.get(0);
+
+                        monumentNameMain.setText(monument.getNombre());
+                        monumentDateMain.setText(monument.getFecha());
+                        Glide.with(getApplicationContext()).load(monument.getImagen()).into(monumentPictureMain);
+                        monumentDescriptionMain.setText(monument.getDescripcion());
+                        monumentActualLocation.setText(monument.getCiudad());
+                        monumentLat.setText(latitudText + monument.getLatitud());
+                        monumentLong.setText(longitudText + monument.getLongitud());
+                        monumentPriceButtonMain.setText(comprarEntradaText + monument.getPrecio() + monument.getMoneda());
+
+                        String html = monument.getVideo();
+                        WebSettings settings = monumentVideoMain.getSettings();
+                        settings.setJavaScriptEnabled(true);
+                        monumentVideoMain.loadData(html, "text/html", "URF-8");
 
                     }
                 });
