@@ -1,8 +1,6 @@
 package com.example.practica9_1_php;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -14,19 +12,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.VideoView;
-
 import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ControladorMonumento monumentController ;
+    private ControladorMonumento monumentController = new ControladorMonumento(this);
     private ImageView monumentHeaderMain, resultsViewMain, monumentPictureMain;
     private ImageButton searchButtonMain;
     private TextView monumentNameMain, monumentDateMain, monumentDescriptionMain, monumentActualLocation,
-            monumentLat, monumentLong ;
+            monumentLat, monumentLong;
     private WebView monumentVideoMain;
     private Button monumentPriceButtonMain;
     private EditText editMonumentIDMain;
@@ -38,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        monumentController = new ControladorMonumento(getApplicationContext());
+
 
         //Diseño del encabezado de monument searcher
         monumentHeaderMain = findViewById(R.id.monumentHeader);
@@ -87,28 +82,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Monumento monument = monumentos.get(0);
 
                         monumentNameMain.setText(monument.getNombre());
-                        monumentDateMain.setText(monument.getFecha());
-                        Glide.with(getApplicationContext()).load(monument.getImagen()).into(monumentPictureMain);
+                        monumentDateMain.setText(fechaConstruccionText + " " + monument.getFecha());
+                        Glide.with(monumentPictureMain).load(monument.getImagen()).into(monumentPictureMain);
                         monumentDescriptionMain.setText(monument.getDescripcion());
                         monumentActualLocation.setText(monument.getCiudad());
-                        monumentLat.setText(latitudText + monument.getLatitud());
-                        monumentLong.setText(longitudText + monument.getLongitud());
-                        monumentPriceButtonMain.setText(comprarEntradaText + monument.getPrecio() + monument.getMoneda());
+                        monumentLat.setText(latitudText + " " + monument.getLatitud());
+                        monumentLong.setText(longitudText + " " + monument.getLongitud());
+                        monumentPriceButtonMain.setText(comprarEntradaText + " " + monument.getPrecio() + monument.getMoneda());
 
                         String html = monument.getVideo();
                         WebSettings settings = monumentVideoMain.getSettings();
                         settings.setJavaScriptEnabled(true);
-                        monumentVideoMain.loadData(html, "text/html", "URF-8");
+                        monumentVideoMain.loadData(html, "text/html", "UTF-8");
 
                     }
                 });
             } catch (ServidorPHPException e) {
-                throw new RuntimeException(e);
+
             }
-
-
-
-
+            resultsViewMain.setVisibility(View.VISIBLE);
+            monumentTableRowMain.setVisibility(View.VISIBLE);
         }
     }
 }

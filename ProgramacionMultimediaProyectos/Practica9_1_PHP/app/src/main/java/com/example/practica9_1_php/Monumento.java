@@ -7,6 +7,18 @@ public class Monumento {
     private String id, nombre, descripcion, latitud, longitud, fecha, ciudad, visitable, precio, moneda, video, imagen ;
 
     public Monumento() {
+        this.id = " ";
+        this.nombre = " ";
+        this.descripcion = " ";
+        this.latitud = " ";
+        this.longitud = " ";
+        this.fecha = " ";
+        this.ciudad = " ";
+        this.visitable = " ";
+        this.precio = " ";
+        this.moneda = " ";
+        this.video = " ";
+        this.imagen = " ";
     }
 
     public Monumento(String id, String nombre, String descripcion, String latitud, String longitud,
