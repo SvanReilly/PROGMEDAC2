@@ -81,27 +81,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onSuccess(Context context, ArrayList<Monumento> monumentos) {
                         Monumento monument = monumentos.get(0);
 
+                        // Establecer los valores en el layout
                         monumentNameMain.setText(monument.getNombre());
                         monumentDateMain.setText(fechaConstruccionText + " " + monument.getFecha());
-                        Glide.with(monumentPictureMain).load(monument.getImagen()).into(monumentPictureMain);
+                        Glide.with(getApplicationContext()).load(monument.getImagen()).into(monumentPictureMain);
                         monumentDescriptionMain.setText(monument.getDescripcion());
                         monumentActualLocation.setText(monument.getCiudad());
                         monumentLat.setText(latitudText + " " + monument.getLatitud());
                         monumentLong.setText(longitudText + " " + monument.getLongitud());
                         monumentPriceButtonMain.setText(comprarEntradaText + " " + monument.getPrecio() + monument.getMoneda());
 
+
+                        // Para mostrar una previsualizacion de video:
                         String html = monument.getVideo();
                         WebSettings settings = monumentVideoMain.getSettings();
                         settings.setJavaScriptEnabled(true);
                         monumentVideoMain.loadData(html, "text/html", "UTF-8");
 
+                        // Si hay datos que mostrar se harán visibles los siguientes elementos:
+                        resultsViewMain.setVisibility(View.VISIBLE);
+                        monumentTableRowMain.setVisibility(View.VISIBLE);
                     }
                 });
             } catch (ServidorPHPException e) {
-
             }
-            resultsViewMain.setVisibility(View.VISIBLE);
-            monumentTableRowMain.setVisibility(View.VISIBLE);
+            if (idTextBoxContent.isEmpty()) {
+                resultsViewMain.setVisibility(View.GONE);
+                monumentTableRowMain.setVisibility(View.GONE);
+            }
         }
     }
 }

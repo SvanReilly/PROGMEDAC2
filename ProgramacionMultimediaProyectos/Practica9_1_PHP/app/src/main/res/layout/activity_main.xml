@@ -45,12 +45,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-
                     android:layout_weight="1"
                     android:background="@drawable/border_radius_plain_text_id"
                     android:ems="10"
                     android:hint="Escriba un ID"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:padding="10sp"
                     android:textAlignment="center"
                     android:textColorHint="@color/black"
@@ -96,7 +95,7 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal|center_vertical"
                 android:src="@drawable/resultsview"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <TableRow
                 android:id="@+id/monumentTableRow"
@@ -106,7 +105,7 @@
                 android:background="@drawable/gradient_background_title"
                 android:layout_margin="15sp"
                 android:padding="15sp"
-                android:visibility="visible">
+                android:visibility="gone">
 
 
                 <LinearLayout
@@ -129,7 +128,8 @@
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
                         android:textSize="20sp"
-                        android:text="@string/date" />
+                        android:text="@string/date"
+                        android:padding="10sp"/>
 
 
                     <ImageView
@@ -137,7 +137,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="160sp"
                         android:layout_gravity="center"
-
                         tools:srcCompat="@tools:sample/avatars[2]" />
 
                     <TextView
@@ -147,14 +146,16 @@
                         android:text="@string/description"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textAlignment="center"/>
+                        android:textAlignment="center"
+                        android:padding="10sp"/>
 
                     <TextView
                         android:id="@+id/monumentDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="here your monument description"
-                        android:textAlignment="center"/>
+                        android:textAlignment="center"
+                        android:padding="10sp"/>
 
                     <TextView
                         android:id="@+id/monumentLocation"
@@ -163,17 +164,21 @@
                         android:text="@string/location"
                         android:textAlignment="center"
                         android:textSize="20sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:padding="10sp"/>
+
                     <TextView
                         android:id="@+id/monumentActualLocation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="here your monument city"
-                        android:textAlignment="center"/>
+                        android:textAlignment="center"
+                        android:padding="10sp"/>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content"
+                        android:padding="10sp">
 
                         <TextView
                             android:id="@+id/monumentLat"
@@ -197,7 +202,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="@string/button" />
+                        android:text="@string/button"
+                        android:padding="10sp"/>
 
                     <TextView
                         android:id="@+id/monumentMediaText"
@@ -206,12 +212,14 @@
                         android:text="@string/video"
                         android:textAlignment="center"
                         android:textSize="20sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:padding="15sp"/>
 
                     <WebView
                         android:id="@+id/monumentVideo"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        />
 
                 </LinearLayout>
 
