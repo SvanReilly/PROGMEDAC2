@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     private ControladorMonumento monumentController = new ControladorMonumento(this);
     private ImageView monumentHeaderMain, resultsViewMain, monumentPictureMain;
@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         monumentHeaderMain = findViewById(R.id.monumentHeader);
         Glide.with(this).asGif().load(R.drawable.monumentsearcher).into(monumentHeaderMain);
         //EditText del ID
-        editMonumentIDMain = findViewById(R.id.editMonumentID);
+        //editMonumentIDMain = findViewById(R.id.editMonumentID);
 
         // Diseño boton buscar monumento
-        searchButtonMain = findViewById(R.id.searchImageButton);
-        Glide.with(this).asGif().load(R.drawable.searchbutton).into(searchButtonMain);
+        //searchButtonMain = findViewById(R.id.searchImageButton);
+        //Glide.with(this).asGif().load(R.drawable.searchbutton).into(searchButtonMain);
         //Diseño del view de Resultados
         resultsViewMain = findViewById(R.id.resultsView);
         Glide.with(this).asGif().load(R.drawable.resultsview).into(resultsViewMain);
@@ -66,11 +66,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         latitudText = String.valueOf(monumentLat.getText());
         longitudText = String.valueOf(monumentLong.getText());
 
-        searchButtonMain.setOnClickListener(this);
+       // searchButtonMain.setOnClickListener(this);
 
     }
 
-    @Override
+    /*@Override
     public void onClick(View v) {
         String idTextBoxContent = String.valueOf(editMonumentIDMain.getText());
 
@@ -110,5 +110,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 monumentTableRowMain.setVisibility(View.GONE);
             }
         }
-    }
+    }*/
 }
