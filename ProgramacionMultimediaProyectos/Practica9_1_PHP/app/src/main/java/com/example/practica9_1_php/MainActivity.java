@@ -13,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+
+import org.osmdroid.config.Configuration;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Configuration.getInstance().setUserAgentValue("appIdMapPractice");
 
         //Diseño del encabezado de monument searcher
         monumentHeaderMain = findViewById(R.id.monumentHeader);

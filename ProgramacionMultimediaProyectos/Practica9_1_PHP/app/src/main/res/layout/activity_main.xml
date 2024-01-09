@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
@@ -62,11 +61,20 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
             </TableRow>
-
-            <org.osmdroid.views.MapView
-                android:id="@+id/openStreetMap"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="350sp"/>
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_margin="15sp"
+                android:padding="15sp">
+
+                <org.osmdroid.views.MapView
+                    android:id="@+id/openStreetMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="350sp"/>
+            </TableRow>
+
 
             <ImageView
                 android:id="@+id/resultsView"
