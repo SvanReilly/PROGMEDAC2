@@ -57,10 +57,10 @@
 <!--ScrollView de la información del monumento exclusivamente -->
 
         <ScrollView
-            android:id="@+id/scrollView2"
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <LinearLayout
                 android:layout_width="match_parent"

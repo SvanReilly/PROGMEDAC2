@@ -1,28 +1,28 @@
-package com.example.practica9_1_php;
+package com.example.mapas;
 
-import static com.example.practica9_1_php.Utilidades.RESULTADO_ERROR;
-import static com.example.practica9_1_php.Utilidades.RESULTADO_ERROR_DESCONOCIDO;
-import static com.example.practica9_1_php.Utilidades.RESULTADO_OK;
-import static com.example.practica9_1_php.Utilidades.URLSERVIDOR;
+import static com.example.mapas.Utilidades.RESULTADO_ERROR;
+import static com.example.mapas.Utilidades.RESULTADO_ERROR_DESCONOCIDO;
+import static com.example.mapas.Utilidades.RESULTADO_OK;
+import static com.example.mapas.Utilidades.URLSERVIDOR;
+
 import android.content.Context;
 import android.util.Log;
-import android.widget.TextView;
-import android.widget.Toast;
-import androidx.recyclerview.widget.LinearLayoutManager;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
 public class ControladorMonumento {
 
@@ -80,8 +80,8 @@ public class ControladorMonumento {
                                                 String visitable = per.getString("visitable");
                                                 String precio = per.getString("precio");
                                                 String moneda = per.getString("moneda");
-                                                String imagen = per.getString("imagen");
                                                 String video = per.getString("video");
+                                                String imagen = per.getString("imagen");
 
                                                 Monumento monumento = new Monumento(id, nombre, descripcion, fecha, latitud, longitud, ciudad, visitable, precio, moneda, video, imagen);
                                                 monumentos.add(monumento);
@@ -163,18 +163,18 @@ public class ControladorMonumento {
                                             JSONArray datosmonumento = response.getJSONObject(0).getJSONArray("mensaje");
                                             JSONObject monumentoJSON = datosmonumento.getJSONObject(0);
 
-                                            monumento.setId(monumentoJSON.getString("id"));
-                                            monumento.setNombre(monumentoJSON.getString("nombre"));
-                                            monumento.setDescripcion(monumentoJSON.getString("descripcion"));
-                                            monumento.setFecha(monumentoJSON.getString("fecha"));
-                                            monumento.setLatitud(monumentoJSON.getString("latitud"));
-                                            monumento.setLongitud(monumentoJSON.getString("longitud"));
-                                            monumento.setCiudad(monumentoJSON.getString("ciudad"));
-                                            monumento.setVisitable(monumentoJSON.getString("visitable"));
-                                            monumento.setPrecio(monumentoJSON.getString("precio"));
-                                            monumento.setMoneda(monumentoJSON.getString("moneda"));
-                                            monumento.setImagen(monumentoJSON.getString("imagen"));
-                                            monumento.setVideo(monumentoJSON.getString("video"));
+                                            monumento.id = monumentoJSON.getString("id");
+                                            monumento.nombre = monumentoJSON.getString("nombre");
+                                            monumento.descripcion = monumentoJSON.getString("descripcion");
+                                            monumento.fecha = monumentoJSON.getString("fecha");
+                                            monumento.latitud = monumentoJSON.getString("latitud");
+                                            monumento.longitud = monumentoJSON.getString("longitud");
+                                            monumento.ciudad = monumentoJSON.getString("ciudad");
+                                            monumento.visitable = monumentoJSON.getString("visitable");
+                                            monumento.precio = monumentoJSON.getString("precio");
+                                            monumento.moneda = monumentoJSON.getString("moneda");
+                                            monumento.video = monumentoJSON.getString("video");
+                                            monumento.imagen = monumentoJSON.getString("imagen");
 
                                             ArrayList<Monumento> monumentos = new ArrayList<>();
                                             monumentos.add(monumento);
@@ -214,6 +214,6 @@ public class ControladorMonumento {
         {
             throw new ServidorPHPException("Error -> " + e.toString());
         }
-        Log.w("a", monumento.getCiudad());
+        Log.w("a", monumento.ciudad);
     }
 }
