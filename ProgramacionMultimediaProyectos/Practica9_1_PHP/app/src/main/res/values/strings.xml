@@ -8,6 +8,8 @@
     <string name="longitud">Longitud: </string>
     <string name="button">Comprar entrada desde: </string>
     <string name="video">Vídeo</string>
+    <string name="mostrarMapa">Mostrar Mapa</string>
+    <string name="ocultarMapa">Ocultar Mapa</string>
 
 
 </resources>

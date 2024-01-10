@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId = "com.example.practica9_1_php"
         minSdk = 25
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

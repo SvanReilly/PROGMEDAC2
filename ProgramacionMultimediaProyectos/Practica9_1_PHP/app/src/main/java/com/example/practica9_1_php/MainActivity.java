@@ -10,11 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TableRow;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import org.osmdroid.config.Configuration;
+import org.osmdroid.views.MapController;
+import org.osmdroid.views.MapView;
 
 import java.util.ArrayList;
 
@@ -22,11 +25,13 @@ public class MainActivity extends AppCompatActivity {
 
     private ControladorMonumento monumentController = new ControladorMonumento(this);
     private ImageView monumentHeaderMain, resultsViewMain, monumentPictureMain;
-    private ImageButton searchButtonMain;
+    //private ImageButton searchButtonMain;
     private TextView monumentNameMain, monumentDateMain, monumentDescriptionMain, monumentActualLocation,
             monumentLat, monumentLong;
     private WebView monumentVideoMain;
     private Button monumentPriceButtonMain;
+    private Switch showHideMapSwitchMain;
+    private MapView openStreetMapMain;
     private EditText editMonumentIDMain;
     private TableRow monumentTableRowMain;
     String fechaConstruccionText, comprarEntradaText, latitudText, longitudText;
@@ -51,7 +56,9 @@ public class MainActivity extends AppCompatActivity {
         resultsViewMain = findViewById(R.id.resultsView);
         Glide.with(this).asGif().load(R.drawable.resultsview).into(resultsViewMain);
 
-
+        showHideMapSwitchMain=findViewById(R.id.showHideMapSwitch);
+        openStreetMapMain=findViewById(R.id.openStreetMap);
+        //MapController mapController = (MapController) openStreetMapMain.getController();
         monumentTableRowMain= findViewById(R.id.monumentTableRow);
         monumentNameMain=findViewById(R.id.monumentName);
         monumentDateMain=findViewById(R.id.monumentDate);
@@ -69,7 +76,24 @@ public class MainActivity extends AppCompatActivity {
         latitudText = String.valueOf(monumentLat.getText());
         longitudText = String.valueOf(monumentLong.getText());
 
+showHideMapSwitchMain.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        if (showHideMapSwitchMain.isChecked()){
+            showHideMapSwitchMain.setText(getString(R.string.ocultarMapa));
+            openStreetMapMain.setVisibility(View.VISIBLE);
+        } else {
+            showHideMapSwitchMain.setText(getString(R.string.mostrarMapa));
+            openStreetMapMain.setVisibility(View.GONE);
+        }
+    }
+
+    });
+
+
        // searchButtonMain.setOnClickListener(this);
+
+
 
     }
 

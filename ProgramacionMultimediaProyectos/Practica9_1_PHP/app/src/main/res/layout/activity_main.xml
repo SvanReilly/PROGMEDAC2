@@ -7,215 +7,213 @@
     android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
 
-        <LinearLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <!--Comment -->
+
+        <ImageView
+            android:id="@+id/monumentHeader"
             android:layout_width="match_parent"
+            android:layout_height="90sp"
+            android:gravity="center_horizontal|center_vertical"
+            android:src="@drawable/monumentsearcher" />
+
+<!-- S.S.R. : Ya que el ScrollView entraba en conflicto con la funcionalidad
+ del desplazamiento vertical del mapa se aádiço un switch para conseguir
+ ahorrar ese espacio extra en pantalla para una mejor lectura de los
+ datos del monumento cuando al usuario convenga. -->
+        <Switch
+            android:id="@+id/showHideMapSwitch"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="@string/ocultarMapa"
+            tools:ignore="UseSwitchCompatOrMaterialXml"
+            android:layout_gravity="center"
+            android:textStyle="bold|italic"
+            android:layout_margin="5sp"
+            android:checked="true" />
 
 
-            <!--Comment -->
-
-            <ImageView
-                android:id="@+id/monumentHeader"
+            <org.osmdroid.views.MapView
+                android:id="@+id/openStreetMap"
                 android:layout_width="match_parent"
-                android:layout_height="90sp"
-                android:gravity="center_horizontal|center_vertical"
-                android:src="@drawable/monumentsearcher" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="5sp">
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </TableRow>
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_margin="15sp"
-                android:padding="15sp">
-
-                <org.osmdroid.views.MapView
-                    android:id="@+id/openStreetMap"
-                    android:layout_width="match_parent"
-                    android:layout_height="350sp"/>
-            </TableRow>
-
-
-            <ImageView
-                android:id="@+id/resultsView"
-                android:layout_width="match_parent"
-                android:layout_height="60sp"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal|center_vertical"
-                android:src="@drawable/resultsview"
-                android:visibility="gone" />
-
-            <TableRow
-                android:id="@+id/monumentTableRow"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/gradient_background_title"
-                android:layout_margin="15sp"
-                android:padding="15sp"
+                android:layout_height="250sp"
+                android:layout_marginLeft="5sp"
+                android:layout_marginBottom="5sp"
+                android:layout_marginRight="5sp"
                 android:visibility="visible">
+            </org.osmdroid.views.MapView>
+
+<!--ScrollView de la información del monumento exclusivamente -->
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
 
-                <LinearLayout
+                <!--Comment -->
+
+
+                <ImageView
+                    android:id="@+id/resultsView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="60sp"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:src="@drawable/resultsview"
+                    />
 
-                    <TextView
-                        android:id="@+id/monumentName"
+                <TableRow
+                    android:id="@+id/monumentTableRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15sp"
+                    android:background="@drawable/gradient_background_title"
+                    android:orientation="vertical"
+                    android:padding="15sp"
+                    >
+
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
-                        android:text="@string/name" />
-
-                    <TextView
-                        android:id="@+id/monumentDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:textSize="20sp"
-                        android:text="@string/date"
-                        android:padding="10sp"/>
-
-
-                    <ImageView
-                        android:id="@+id/monumentImageView"
-                        android:layout_width="match_parent"
-                        android:layout_height="160sp"
-                        android:layout_gravity="center"
-                        tools:srcCompat="@tools:sample/avatars[2]" />
-
-                    <TextView
-                        android:id="@+id/monumentDescrLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/description"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textAlignment="center"
-                        android:padding="10sp"/>
-
-                    <TextView
-                        android:id="@+id/monumentDescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="here your monument description"
-                        android:textAlignment="center"
-                        android:padding="10sp"/>
-
-                    <TextView
-                        android:id="@+id/monumentLocation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/location"
-                        android:textAlignment="center"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:padding="10sp"/>
-
-                    <TextView
-                        android:id="@+id/monumentActualLocation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="here your monument city"
-                        android:textAlignment="center"
-                        android:padding="10sp"/>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10sp">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/monumentLat"
+                            android:id="@+id/monumentName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/latitud"
+                            android:text="@string/name"
                             android:textAlignment="center"
-                            android:layout_weight="1"/>
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/monumentLong"
+                            android:id="@+id/monumentDate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/longitud"
+                            android:padding="10sp"
+                            android:text="@string/date"
                             android:textAlignment="center"
-                            android:layout_weight="1"/>
-                    </TableRow>
-
-                    <Button
-                        android:id="@+id/monumentPriceButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="@string/button"
-                        android:padding="10sp"/>
-
-                    <TextView
-                        android:id="@+id/monumentMediaText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/video"
-                        android:textAlignment="center"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:padding="15sp"/>
-
-                    <WebView
-                        android:id="@+id/monumentVideo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        />
-
-                </LinearLayout>
+                            android:textSize="20sp" />
 
 
-            </TableRow>
+                        <ImageView
+                            android:id="@+id/monumentImageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="160sp"
+                            android:layout_gravity="center"
+                            tools:srcCompat="@tools:sample/avatars[2]" />
+
+                        <TextView
+                            android:id="@+id/monumentDescrLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10sp"
+                            android:text="@string/description"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/monumentDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10sp"
+                            android:text="here your monument description"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/monumentLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10sp"
+                            android:text="@string/location"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/monumentActualLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10sp"
+                            android:text="here your monument city"
+                            android:textAlignment="center" />
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10sp">
+
+                            <TextView
+                                android:id="@+id/monumentLat"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/latitud"
+                                android:textAlignment="center" />
+
+                            <TextView
+                                android:id="@+id/monumentLong"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/longitud"
+                                android:textAlignment="center" />
+                        </TableRow>
+
+                        <Button
+                            android:id="@+id/monumentPriceButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="10sp"
+                            android:text="@string/button" />
+
+                        <TextView
+                            android:id="@+id/monumentMediaText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="15sp"
+                            android:text="@string/video"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <WebView
+                            android:id="@+id/monumentVideo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
 
 
-        </LinearLayout>
-    </ScrollView>
+                </TableRow>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
