@@ -81,9 +81,9 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
         //Mapa
         openStreetMapMain = findViewById(R.id.openStreetMap);
         MapController mapController = (MapController) openStreetMapMain.getController();
-        GeoPoint granada18011Point = new GeoPoint(37.1881700, -3.6066700);
+        GeoPoint granada18011Point = new GeoPoint(37.1751700, -3.5947800);
         mapController.setCenter(granada18011Point);
-        mapController.setZoom(14);
+        mapController.setZoom(15);
 
         try {
             monumentController.obtenerTodosMonumentos(new VolleyCallBack() {
@@ -114,10 +114,11 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
     @Override
     public boolean onMarkerClick(Marker marker, MapView mapView) {
         markerID = marker.getId();
-        fechaConstruccionText = String.valueOf(R.string.date);
-        comprarEntradaText = String.valueOf(R.string.button);
-        latitudText = String.valueOf(R.string.latitud);
-        longitudText = String.valueOf(R.string.longitud);
+        fechaConstruccionText = getResources().getString(R.string.date);
+        comprarEntradaText = getResources().getString(R.string.button);
+        latitudText = getResources().getString(R.string.latitud);
+        longitudText = getResources().getString(R.string.longitud);
+
         try{
             monumentController.obtenerMonumentoID(markerID, new VolleyCallBack() {
                 @Override

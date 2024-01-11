@@ -1,6 +1,5 @@
 package com.example.openstreetmapspractice;
 
-
 import static com.example.openstreetmapspractice.Utilidades.RESULTADO_ERROR;
 import static com.example.openstreetmapspractice.Utilidades.RESULTADO_ERROR_DESCONOCIDO;
 import static com.example.openstreetmapspractice.Utilidades.RESULTADO_OK;
@@ -81,8 +80,8 @@ public class ControladorMonumento {
                                                 String visitable = per.getString("visitable");
                                                 String precio = per.getString("precio");
                                                 String moneda = per.getString("moneda");
-                                                String imagen = per.getString("imagen");
                                                 String video = per.getString("video");
+                                                String imagen = per.getString("imagen");
 
                                                 Monumento monumento = new Monumento(id, nombre, descripcion, fecha, latitud, longitud, ciudad, visitable, precio, moneda, video, imagen);
                                                 monumentos.add(monumento);
@@ -165,7 +164,7 @@ public class ControladorMonumento {
                                             JSONObject monumentoJSON = datosmonumento.getJSONObject(0);
 
                                             monumento.setId(monumentoJSON.getString("id"));
-                                            monumento.setNombre(monumentoJSON.getString("nombre"));
+                                            monumento.setNombre( monumentoJSON.getString("nombre"));
                                             monumento.setDescripcion(monumentoJSON.getString("descripcion"));
                                             monumento.setFecha(monumentoJSON.getString("fecha"));
                                             monumento.setLatitud(monumentoJSON.getString("latitud"));
@@ -174,8 +173,8 @@ public class ControladorMonumento {
                                             monumento.setVisitable(monumentoJSON.getString("visitable"));
                                             monumento.setPrecio(monumentoJSON.getString("precio"));
                                             monumento.setMoneda(monumentoJSON.getString("moneda"));
-                                            monumento.setImagen(monumentoJSON.getString("imagen"));
                                             monumento.setVideo(monumentoJSON.getString("video"));
+                                            monumento.setImagen(monumentoJSON.getString("imagen"));
 
                                             ArrayList<Monumento> monumentos = new ArrayList<>();
                                             monumentos.add(monumento);
@@ -218,4 +217,3 @@ public class ControladorMonumento {
         Log.w("a", monumento.getCiudad());
     }
 }
-

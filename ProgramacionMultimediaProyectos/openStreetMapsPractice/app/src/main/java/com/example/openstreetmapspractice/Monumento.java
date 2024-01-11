@@ -1,26 +1,38 @@
 package com.example.openstreetmapspractice;
-
+import java.util.Date;
 public class Monumento {
+    private String id; // Clave primaria, de tipo serial
+    private String nombre;
+    private String descripcion;
+    private String fecha;
+    private String latitud;
+    private String longitud;
+    private String ciudad;
+    private String visitable;
+    private String precio;
+    private String moneda;
+    private String imagen; // URL a imagen
+    private String video; // Código HTML del vídeo
 
-    private String id, nombre, descripcion, latitud, longitud, fecha, ciudad, visitable, precio, moneda, video, imagen ;
-
-    public Monumento() {
-        this.id = " ";
-        this.nombre = " ";
-        this.descripcion = " ";
-        this.latitud = " ";
-        this.longitud = " ";
-        this.fecha = " ";
-        this.ciudad = " ";
-        this.visitable = " ";
-        this.precio = " ";
-        this.moneda = " ";
-        this.video = " ";
-        this.imagen = " ";
+    // Constructor
+    public Monumento(){
+        this.id = "";
+        this.nombre =  "";
+        this.descripcion =  "";
+        this.latitud =  "";
+        this.longitud =  "";
+        this.fecha =  "";
+        this.ciudad =  "";
+        this.visitable =  "";
+        this.precio =  "";
+        this.moneda =  "";
+        this.video =  "";
+        this.imagen =  "";
     }
 
-    public Monumento(String id, String nombre, String descripcion, String latitud, String longitud,
-                     String fecha, String ciudad, String visitable, String precio, String moneda, String video, String imagen) {
+    public Monumento(String id, String nombre, String descripcion, String fecha, String latitud, String longitud,
+                     String ciudad, String visitable, String precio, String moneda, String video, String imagen) {
+
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -34,6 +46,7 @@ public class Monumento {
         this.video = video;
         this.imagen = imagen;
     }
+
 
     public String getId() {
         return id;
@@ -59,6 +72,14 @@ public class Monumento {
         this.descripcion = descripcion;
     }
 
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
     public String getLatitud() {
         return latitud;
     }
@@ -73,14 +94,6 @@ public class Monumento {
 
     public void setLongitud(String longitud) {
         this.longitud = longitud;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
     }
 
     public String getCiudad() {
@@ -115,14 +128,6 @@ public class Monumento {
         this.moneda = moneda;
     }
 
-    public String getVideo() {
-        return video;
-    }
-
-    public void setVideo(String video) {
-        this.video = video;
-    }
-
     public String getImagen() {
         return imagen;
     }
@@ -131,21 +136,12 @@ public class Monumento {
         this.imagen = imagen;
     }
 
-    @Override
-    public String toString() {
-        return "Monumento" +
-                "\nID=" + id +
-                "\nFecha=" + fecha +
-                "\nLatitud=" + latitud +
-                "\nLongitud=" + longitud +
-                "\nPrecio=" + precio +
-                "\nNombre='" + nombre +
-                "\nDescripcion='" + descripcion +
-                "\nCiudad='" + ciudad +
-                "\nMoneda='" + moneda +
-                "\nImagen='" + imagen +
-                "\nVideo='" + video +
-                "\nVisitable=" + visitable;
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
     }
 }
 
