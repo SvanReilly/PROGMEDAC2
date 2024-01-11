@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">openStreetMapsPractice</string>
+    <string name="name">MonumentName</string>
+    <string name="date">Construcción: </string>
+    <string name="description">Descripción</string>
+    <string name="location">Ubicación</string>
+    <string name="latitud">Latitud: </string>
+    <string name="longitud">Longitud: </string>
+    <string name="button">Comprar entrada desde: </string>
+    <string name="video">Vídeo</string>
+    <string name="mostrarMapa">Mostrar Mapa</string>
+    <string name="ocultarMapa">Ocultar Mapa</string>
+</resources>

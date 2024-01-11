@@ -1,4 +1,4 @@
-package com.example.practica9_1_php;
+package com.example.openstreetmapspractice;
 
 import android.net.Uri;
 

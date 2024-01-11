@@ -1,5 +1,4 @@
-package com.example.practica9_1_php;
-
+package com.example.openstreetmapspractice;
 import static java.lang.Float.parseFloat;
 
 import androidx.appcompat.app.AppCompatActivity;
