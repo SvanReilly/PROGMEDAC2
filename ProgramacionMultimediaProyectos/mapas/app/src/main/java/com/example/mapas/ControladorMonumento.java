@@ -163,18 +163,18 @@ public class ControladorMonumento {
                                             JSONArray datosmonumento = response.getJSONObject(0).getJSONArray("mensaje");
                                             JSONObject monumentoJSON = datosmonumento.getJSONObject(0);
 
-                                            monumento.id = monumentoJSON.getString("id");
-                                            monumento.nombre = monumentoJSON.getString("nombre");
-                                            monumento.descripcion = monumentoJSON.getString("descripcion");
-                                            monumento.fecha = monumentoJSON.getString("fecha");
-                                            monumento.latitud = monumentoJSON.getString("latitud");
-                                            monumento.longitud = monumentoJSON.getString("longitud");
-                                            monumento.ciudad = monumentoJSON.getString("ciudad");
-                                            monumento.visitable = monumentoJSON.getString("visitable");
-                                            monumento.precio = monumentoJSON.getString("precio");
-                                            monumento.moneda = monumentoJSON.getString("moneda");
-                                            monumento.video = monumentoJSON.getString("video");
-                                            monumento.imagen = monumentoJSON.getString("imagen");
+                                            monumento.setId(monumentoJSON.getString("id"));
+                                            monumento.setNombre(monumentoJSON.getString("nombre"));
+                                            monumento.setDescripcion(monumentoJSON.getString("descripcion"));
+                                            monumento.setFecha(monumentoJSON.getString("fecha"));
+                                            monumento.setLatitud(monumentoJSON.getString("latitud"));
+                                            monumento.setLongitud(monumentoJSON.getString("longitud"));
+                                            monumento.setCiudad(monumentoJSON.getString("ciudad"));
+                                            monumento.setVisitable(monumentoJSON.getString("visitable"));
+                                            monumento.setPrecio(monumentoJSON.getString("precio"));
+                                            monumento.setMoneda(monumentoJSON.getString("moneda"));
+                                            monumento.setVideo(monumentoJSON.getString("video"));
+                                            monumento.setImagen(monumentoJSON.getString("imagen"));
 
                                             ArrayList<Monumento> monumentos = new ArrayList<>();
                                             monumentos.add(monumento);
@@ -214,6 +214,6 @@ public class ControladorMonumento {
         {
             throw new ServidorPHPException("Error -> " + e.toString());
         }
-        Log.w("a", monumento.ciudad);
+        Log.w("a", monumento.getCiudad());
     }
 }

@@ -85,11 +85,11 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
     }
 
     private void marcador(Monumento monumento) {
-        GeoPoint geoPoint = new GeoPoint(parseFloat(monumento.latitud), parseFloat (monumento.longitud));
+        GeoPoint geoPoint = new GeoPoint(parseFloat(monumento.getLatitud()), parseFloat (monumento.getLongitud()));
         Marker marker = new Marker(mapaView);
         marker.setPosition(geoPoint);
         mapaView.getOverlays().add(marker);
-        marker.setId(monumento.id);
+        marker.setId(monumento.getId());
         marker.setOnMarkerClickListener(this);
     }
 
@@ -102,16 +102,16 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
                     public void onSuccess(Context context, ArrayList<Monumento> monumentos) {
                         Monumento monumento = monumentos.get(0);
 
-                        nombreView.setText(monumento.nombre);
-                        fechaView.setText(monumento.fecha);
-                        Picasso.get().load(monumento.imagen).into(fotoView);
-                        rellenoDescView.setText(monumento.descripcion);
-                        ciudadView.setText(monumento.ciudad);
-                        latitudView.setText("Latitud: " + monumento.latitud);
-                        longitudView.setText("Longitud: " + monumento.longitud);
-                        botonComprar.setText("Comprar entrada desde " +monumento.precio + monumento.moneda);
+                        nombreView.setText(monumento.getNombre());
+                        fechaView.setText(monumento.getFecha());
+                        Picasso.get().load(monumento.getImagen()).into(fotoView);
+                        rellenoDescView.setText(monumento.getDescripcion());
+                        ciudadView.setText(monumento.getCiudad());
+                        latitudView.setText("Latitud: " + monumento.getLatitud());
+                        longitudView.setText("Longitud: " + monumento.getLongitud());
+                        botonComprar.setText("Comprar entrada desde " +monumento.getPrecio() + monumento.getMoneda());
 
-                        String html = monumento.video;
+                        String html = monumento.getVideo();
                         WebSettings settings = videoView.getSettings();
                         settings.setJavaScriptEnabled(true);
                         videoView.loadData(html, "text/html", "UTF-8");

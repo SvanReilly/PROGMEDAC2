@@ -2,23 +2,22 @@ package com.example.practica9_1_php;
 
 import static java.lang.Float.parseFloat;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
-
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Switch;
 
+import android.widget.TableRow;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 import org.osmdroid.config.Configuration;
 import org.osmdroid.util.GeoPoint;
@@ -30,39 +29,34 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements Marker.OnMarkerClickListener {
 
-    private ControladorMonumento monumentController = new ControladorMonumento(this);
-
+    ControladorMonumento monumentController = new ControladorMonumento(this);
     private ImageView monumentPictureMain;
-    //private ImageButton searchButtonMain;
     private TextView monumentNameMain, monumentDateMain, monumentDescriptionMain, monumentActualLocation,
             monumentLat, monumentLong;
     private WebView monumentVideoMain;
     private Button monumentPriceButtonMain;
-    @SuppressLint("UseSwitchCompatOrMaterialCode")
     private Switch showHideMapSwitchMain;
     private MapView openStreetMapMain;
-    private ScrollView scrollViewMain;
-    String fechaConstruccionText, comprarEntradaText, latitudText, longitudText, markerID;
+    //private ScrollView scrollViewMain;
+    private TableRow monumentTableRowMain;
+    private String fechaConstruccionText, comprarEntradaText, latitudText, longitudText, markerID;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Configuration.getInstance().setUserAgentValue("appIdMapPractice");
-        fechaConstruccionText = String.valueOf(R.string.date);
-        comprarEntradaText = String.valueOf(R.string.button);
-        latitudText = String.valueOf(R.string.latitud);
-        longitudText = String.valueOf(R.string.longitud);
         //Diseño del encabezado de monument searcher
         ImageView monumentHeaderMain = findViewById(R.id.monumentHeader);
         Glide.with(this).asGif().load(R.drawable.monumentsearcher).into(monumentHeaderMain);
-
         //Diseño del view de Resultados
         ImageView resultsViewMain = findViewById(R.id.resultsView);
         Glide.with(this).asGif().load(R.drawable.resultsview).into(resultsViewMain);
 
-        scrollViewMain= findViewById(R.id.scrollView);
+        Configuration.getInstance().setUserAgentValue("appIdMapPractice");
+
+        //scrollViewMain= findViewById(R.id.scrollView);
+        monumentTableRowMain = findViewById(R.id.monumentTableRow);
         monumentNameMain=findViewById(R.id.monumentName);
         monumentDateMain=findViewById(R.id.monumentDate);
         monumentPictureMain = findViewById(R.id.monumentImageView);
@@ -72,8 +66,6 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
         monumentLong=findViewById(R.id.monumentLong);
         monumentPriceButtonMain = findViewById(R.id.monumentPriceButton);
         monumentVideoMain=findViewById(R.id.monumentVideo);
-
-
 
 
         //Switch para mostrar ocultar mapa
@@ -87,17 +79,12 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
                 openStreetMapMain.setVisibility(View.GONE);
             }
         });
-
         //Mapa
         openStreetMapMain = findViewById(R.id.openStreetMap);
         MapController mapController = (MapController) openStreetMapMain.getController();
-
-        //Creando GeoPoint
         GeoPoint granada18011Point = new GeoPoint(37.1881700, -3.6066700);
         mapController.setCenter(granada18011Point);
         mapController.setZoom(14);
-
-
 
         try {
             monumentController.obtenerTodosMonumentos(new VolleyCallBack() {
@@ -127,32 +114,33 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
 
     @Override
     public boolean onMarkerClick(Marker marker, MapView mapView) {
-        markerID = String.valueOf(marker.getId());
+        markerID = marker.getId();
+        fechaConstruccionText = String.valueOf(R.string.date);
+        comprarEntradaText = String.valueOf(R.string.button);
+        latitudText = String.valueOf(R.string.latitud);
+        longitudText = String.valueOf(R.string.longitud);
         try{
             monumentController.obtenerMonumentoID(markerID, new VolleyCallBack() {
                 @Override
-                public void onSuccess(Context context, ArrayList<Monumento> monumentos) {
+                public void onSuccess(Context context, ArrayList<Monumento> monuments) {
+                    Monumento monument = monuments.get(0);
 
-                    Monumento monument = monumentos.get(0);
-
-
-                    // Establecer los valores en el layout
                     monumentNameMain.setText(monument.getNombre());
                     monumentDateMain.setText(fechaConstruccionText + " " + monument.getFecha());
-                    Glide.with(getApplicationContext()).load(monument.getImagen()).into(monumentPictureMain);
+                    Glide.with(monumentPictureMain).load(monument.getImagen()).into(monumentPictureMain);
                     monumentDescriptionMain.setText(monument.getDescripcion());
                     monumentActualLocation.setText(monument.getCiudad());
                     monumentLat.setText(latitudText + " " + monument.getLatitud());
                     monumentLong.setText(longitudText + " " + monument.getLongitud());
                     monumentPriceButtonMain.setText(comprarEntradaText + " " + monument.getPrecio() + monument.getMoneda());
 
-                    // Para mostrar una previsualizacion de video:
                     String html = monument.getVideo();
                     WebSettings settings = monumentVideoMain.getSettings();
                     settings.setJavaScriptEnabled(true);
                     monumentVideoMain.loadData(html, "text/html", "UTF-8");
 
-                    scrollViewMain.setVisibility(View.VISIBLE);
+                    //scrollViewMain.setVisibility(View.VISIBLE);
+                    monumentTableRowMain.setVisibility(View.VISIBLE);
                 }
             });
         }
@@ -162,5 +150,3 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
         return true;
     }
 }
-
-

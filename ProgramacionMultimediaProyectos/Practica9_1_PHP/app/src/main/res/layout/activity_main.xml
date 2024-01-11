@@ -66,11 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-
                 <!--Comment -->
-
-
                 <ImageView
                     android:id="@+id/resultsView"
                     android:layout_width="match_parent"
@@ -89,7 +85,6 @@
                     android:orientation="vertical"
                     android:padding="15sp"
                     >
-
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -113,7 +108,6 @@
                             android:text="@string/date"
                             android:textAlignment="center"
                             android:textSize="20sp" />
-
 
                         <ImageView
                             android:id="@+id/monumentImageView"
@@ -208,12 +202,9 @@
 
                 </TableRow>
 
-
             </LinearLayout>
+
         </ScrollView>
 
-
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

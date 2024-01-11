@@ -1,7 +1,5 @@
 package com.example.practica9_1_php;
 
-import java.util.Date;
-
 public class Monumento {
 
     private String id, nombre, descripcion, latitud, longitud, fecha, ciudad, visitable, precio, moneda, video, imagen ;
