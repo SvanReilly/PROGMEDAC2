@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -26,7 +27,7 @@ import org.osmdroid.views.overlay.Marker;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements Marker.OnMarkerClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, Marker.OnMarkerClickListener, View.OnTouchListener {
 
     ControladorMonumento monumentController = new ControladorMonumento(this);
     private ImageView monumentPictureMain;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
     private Button monumentPriceButtonMain;
     private Switch showHideMapSwitchMain;
     private MapView openStreetMapMain;
-    //private ScrollView scrollViewMain;
+    private ScrollView scrollViewMain;
     private TableRow monumentTableRowMain;
     private String fechaConstruccionText, comprarEntradaText, latitudText, longitudText, markerID;
 
@@ -54,8 +55,8 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
 
         Configuration.getInstance().setUserAgentValue("appIdMapPractice");
 
-        //scrollViewMain= findViewById(R.id.scrollView);
-        monumentTableRowMain = findViewById(R.id.monumentTableRow);
+        scrollViewMain= findViewById(R.id.scrollView);
+        //monumentTableRowMain = findViewById(R.id.monumentTableRow);
         monumentNameMain=findViewById(R.id.monumentName);
         monumentDateMain=findViewById(R.id.monumentDate);
         monumentPictureMain = findViewById(R.id.monumentImageView);
@@ -69,15 +70,9 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
 
         //Switch para mostrar ocultar mapa
         showHideMapSwitchMain=findViewById(R.id.showHideMapSwitch);
-        showHideMapSwitchMain.setOnClickListener(v -> {
-            if (showHideMapSwitchMain.isChecked()){
-                showHideMapSwitchMain.setText(getString(R.string.ocultarMapa));
-                openStreetMapMain.setVisibility(View.VISIBLE);
-            } else if (!showHideMapSwitchMain.isChecked()) {
-                showHideMapSwitchMain.setText(getString(R.string.mostrarMapa));
-                openStreetMapMain.setVisibility(View.GONE);
-            }
-        });
+        showHideMapSwitchMain.setOnClickListener(this);
+        monumentHeaderMain.setOnTouchListener(this);
+
         //Mapa
         openStreetMapMain = findViewById(R.id.openStreetMap);
         MapController mapController = (MapController) openStreetMapMain.getController();
@@ -98,6 +93,24 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
         } catch (ServidorPHPException e) {
             throw new RuntimeException(e);
         }
+    }
+//on Create END//
+
+
+    //Public methods//
+    @Override
+    public void onClick(View v) {
+
+        if (v.getId()==R.id.showHideMapSwitch){
+            if (showHideMapSwitchMain.isChecked()){
+                showHideMapSwitchMain.setText(getString(R.string.ocultarMapa));
+                openStreetMapMain.setVisibility(View.VISIBLE);
+            } else if (!showHideMapSwitchMain.isChecked()) {
+                showHideMapSwitchMain.setText(getString(R.string.mostrarMapa));
+                openStreetMapMain.setVisibility(View.GONE);
+            }
+        }
+
     }
 
     //Creando Marcadores
@@ -140,7 +153,11 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
                     monumentVideoMain.loadData(html, "text/html", "UTF-8");
 
                     //scrollViewMain.setVisibility(View.VISIBLE);
-                    monumentTableRowMain.setVisibility(View.VISIBLE);
+                    scrollViewMain.setVisibility(View.VISIBLE);
+                    openStreetMapMain.setVisibility(View.GONE);
+                    showHideMapSwitchMain.setChecked(false);
+                    showHideMapSwitchMain.setText(getResources().getString(R.string.mostrarMapa));
+
                 }
             });
         }
@@ -148,5 +165,18 @@ public class MainActivity extends AppCompatActivity implements Marker.OnMarkerCl
             throw new RuntimeException(e);
         }
         return true;
+    }
+
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+
+        if(v.getId()==R.id.monumentHeader) {
+            scrollViewMain.setVisibility(View.GONE);
+            openStreetMapMain.setVisibility(View.VISIBLE);
+            showHideMapSwitchMain.setChecked(true);
+            showHideMapSwitchMain.setText(getResources().getString(R.string.ocultarMapa));
+        }
+        return false;
     }
 }

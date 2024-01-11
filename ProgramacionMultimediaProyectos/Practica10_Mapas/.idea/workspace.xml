@@ -17,15 +17,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="532391d2-d26c-43c2-b127-94548a4d586d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Practica10_PHP/app/src/main/java/com/example/practica9_1_php/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Practica10_PHP/app/src/main/java/com/example/practica9_1_php/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Practica10_PHP/app/src/main/java/com/example/practica9_1_php/Utilidades.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Practica10_PHP/app/src/main/java/com/example/practica9_1_php/Utilidades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Practica9_1_PHP/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Practica9_1_PHP/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Practica9_1_PHP/app/src/main/java/com/example/practica9_1_php/Utilidades.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Practica9_1_PHP/app/src/main/java/com/example/practica9_1_php/Utilidades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mapas/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mapas/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mapas/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mapas/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mapas/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mapas/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mapas/app/src/main/java/com/example/mapas/Utilidades.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mapas/app/src/main/java/com/example/mapas/Utilidades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mapas/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../mapas/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openStreetMapsPractice/app/src/main/java/com/example/openstreetmapspractice/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../openStreetMapsPractice/app/src/main/java/com/example/openstreetmapspractice/MainActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
