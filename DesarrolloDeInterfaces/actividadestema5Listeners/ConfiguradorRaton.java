@@ -2,22 +2,30 @@ package actividadestema5Listeners;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Graphics;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.io.File;
+import java.net.URL;
+
+import javax.help.HelpBroker;
+import javax.help.HelpSet;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
-import java.awt.event.ItemListener;
-import java.awt.event.ItemEvent;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.plaf.basic.BasicProgressBarUI;
-import javax.swing.event.ChangeEvent;
-import javax.swing.JProgressBar;
-import java.awt.Font;
 
 public class ConfiguradorRaton extends JFrame {
 
@@ -25,6 +33,8 @@ public class ConfiguradorRaton extends JFrame {
 	private JPanel contentPane;
 	private JComboBox<Object> combo1;
 	private JSpinner spinner1;
+	
+	private JMenuItem itemAyuda;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -66,6 +76,17 @@ public class ConfiguradorRaton extends JFrame {
 		combo1.setBounds(249, 61, 142, 27);
 		contentPane.add(combo1);
 		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, -4, 441, 22);
+		contentPane.add(menuBar);
+
+		JMenu GuiaItem = new JMenu("Ayuda");
+		menuBar.add(GuiaItem);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		itemAyuda = new JMenuItem("Guía"); // Inicializar itemAyuda como una variable de instancia
+		GuiaItem.add(itemAyuda);
+		
 		JProgressBar progressBar = new JProgressBar();
 		progressBar.setStringPainted(true);
 		progressBar.setUI(new BasicProgressBarUI() {
@@ -106,6 +127,7 @@ public class ConfiguradorRaton extends JFrame {
 		spinner1.setModel(new SpinnerNumberModel(0, 0, 100, 25));
 		spinner1.setBounds(38, 61, 123, 26);
 		contentPane.add(spinner1);
+		cargarAyuda();
 		
 	}
 
@@ -127,6 +149,26 @@ public class ConfiguradorRaton extends JFrame {
 			g.fillOval(335,149,60,60);
 		}
 
+	}
+	
+	private void cargarAyuda() {
+		try {
+			// Carga el fichero de ayuda
+			File fichero = new File("C:\\Users\\AlumnoT\\eclipse-workspace\\PROGMEDAC2\\DesarrolloDeInterfaces\\actividadestema5Listeners\\help\\help_set.hs");
+			URL hsURL = fichero.toURI().toURL();
+
+			// Crea el HelpSet y el HelpBroker
+			HelpSet helpset = new HelpSet(getClass().getClassLoader(), hsURL);
+			HelpBroker hb = helpset.createHelpBroker();
+
+			// Pone ayuda a item de menu al pulsar F1. mntmIndice es el JMenuitem
+			hb.enableHelpOnButton(itemAyuda, "aplicacion", helpset);
+
+			
+
+		} catch (Exception e) {
+			 e.printStackTrace();
+		}
 	}
 	
 }
