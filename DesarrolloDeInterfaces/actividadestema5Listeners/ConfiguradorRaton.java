@@ -76,16 +76,6 @@ public class ConfiguradorRaton extends JFrame {
 		combo1.setBounds(249, 61, 142, 27);
 		contentPane.add(combo1);
 		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, -4, 441, 22);
-		contentPane.add(menuBar);
-
-		JMenu GuiaItem = new JMenu("Ayuda");
-		menuBar.add(GuiaItem);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		itemAyuda = new JMenuItem("Guía"); // Inicializar itemAyuda como una variable de instancia
-		GuiaItem.add(itemAyuda);
 		
 		JProgressBar progressBar = new JProgressBar();
 		progressBar.setStringPainted(true);
@@ -127,6 +117,19 @@ public class ConfiguradorRaton extends JFrame {
 		spinner1.setModel(new SpinnerNumberModel(0, 0, 100, 25));
 		spinner1.setBounds(38, 61, 123, 26);
 		contentPane.add(spinner1);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, -4, 441, 22);
+		contentPane.add(menuBar);
+
+		JMenu GuiaItem = new JMenu("Ayuda");
+		menuBar.add(GuiaItem);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		itemAyuda = new JMenuItem("Guía"); // Inicializar itemAyuda como una variable de instancia
+		GuiaItem.add(itemAyuda);
+		
+		
 		cargarAyuda();
 		
 	}
@@ -154,7 +157,8 @@ public class ConfiguradorRaton extends JFrame {
 	private void cargarAyuda() {
 		try {
 			// Carga el fichero de ayuda
-			File fichero = new File("C:\\Users\\AlumnoT\\eclipse-workspace\\PROGMEDAC2\\DesarrolloDeInterfaces\\actividadestema5Listeners\\help\\help_set.hs");
+			File fichero = new File("C:\\Users\\AlumnoT\\eclipse-workspace\\PROGMEDAC2\\"
+					+ "DesarrolloDeInterfaces\\actividadestema5Listeners\\help\\help_set.hs");
 			URL hsURL = fichero.toURI().toURL();
 
 			// Crea el HelpSet y el HelpBroker
