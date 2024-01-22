@@ -11,7 +11,7 @@ public class ClienteHTTP {
 
 		try {
 			// Creamos la instancia URI
-			URI uri = new URI("http://www.youtube.com");
+			URI uri = new URI("https://www.youtube.com");
 
 			// Convertimos la instancia a URL
 			URL url = uri.toURL();

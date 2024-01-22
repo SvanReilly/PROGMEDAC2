@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 
 public class ClienteTelnet {
 	public static void main(String[] args) {
@@ -21,6 +22,7 @@ public class ClienteTelnet {
 
             // Obtenemos los flujos de comunicación
             InputStream inputStream = telnetClient.getInputStream();
+            OutputStream outputStream = telnetClient.getOutputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
             // Imprimimos cada línea de contenido del servidor

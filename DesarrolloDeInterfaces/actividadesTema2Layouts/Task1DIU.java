@@ -88,7 +88,7 @@ public class Task1DIU extends JFrame {
 		
 		passwordField = new JPasswordField();
 		panel.add(passwordField);
-		String contra = "1234";
+		String contra = "admin";
 		String userAdmin = "admin";
 		JButton Log_In_Button = new JButton("Log In");
 		Dialog1 dialog = new Dialog1();
@@ -98,12 +98,14 @@ public class Task1DIU extends JFrame {
 				
 				if (passwordEntered.equals(contra) && userName.getText().equals(userAdmin) ) {
 					
+					dialog.setTitle("Logging in window");
 					dialog.setVisible(true);
 					dialog.DialogText.setText("BIENVENIDO.");
 				
 					
 				} else {
 					//JOptionPane.showInternalMessageDialog(null, "El usuario o la contraseña son incorrectas, intente de nuevo.");
+					dialog.setTitle("Logging in window");
 					dialog.setVisible(true);
 					dialog.DialogText.setText("El usuario o la contraseña son incorrectas, intente de nuevo.");
 				}
