@@ -7,6 +7,7 @@ import java.util.Properties;
 
 public class ClienteSMTP {
 
+<<<<<<< Updated upstream
     public static void main(String[] args) {
         // Configurar las propiedades para la sesión
         Properties properties = new Properties();
@@ -22,6 +23,23 @@ public class ClienteSMTP {
                 return new PasswordAuthentication("correo gmail", "contraseña");
             }
         });
+=======
+		// Crear una sesión de correo electrónico
+		Session session = Session.getDefaultInstance(properties, new Authenticator() {
+			@Override
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication("aom0016@alu.medac.es", "GottaGetIt1994");
+			}
+		});
+
+		try {
+			// Crear un mensaje de correo electrónico
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("aom0016@alu.medac.es"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("arg0062@alu.medac.es"));
+			message.setSubject("Asunto del Correo");
+			message.setText("Cuerpo del Correo: That's what it is not what it looks.");
+>>>>>>> Stashed changes
 
         try {
             // Crear un mensaje de correo electrónico
@@ -31,6 +49,7 @@ public class ClienteSMTP {
             message.setSubject("Asunto del Correo");
             message.setText("Cuerpo del Correo");
 
+<<<<<<< Updated upstream
             // Enviar el mensaje
             Transport.send(message);
 
@@ -40,3 +59,11 @@ public class ClienteSMTP {
         }
     }
 }
+=======
+			System.out.println("Correo electronico enviado satisfactoriamente.");
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
+	}
+}
+>>>>>>> Stashed changes

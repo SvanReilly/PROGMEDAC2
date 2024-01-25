@@ -11,12 +11,16 @@ public class ClienteHTTP {
 
 		try {
 			// Creamos la instancia URI
+<<<<<<< Updated upstream
 			URI uri = new URI("https://www.youtube.com");
+=======
+			URI uri = new URI("https://es.tradingview.com/");
+>>>>>>> Stashed changes
 
 			// Convertimos la instancia a URL
 			URL url = uri.toURL();
 
-			// Abrimos la conexión
+			// Abrimos la conexion
 			URLConnection connection = url.openConnection();
 
 			// Obtenemos el flujo de entrada del servidor
@@ -25,14 +29,14 @@ public class ClienteHTTP {
 			// Leemos los datos de la respuesta
 			String line;
 			while ((line = reader.readLine()) != null) {
-				// Procesamos la línea de la respuesta según tus necesidades
+				// Procesamos la linea de la respuesta segun tus necesidades
 				System.out.println(line);
 			}
 
-			// Cerramos la conexión
+			// Cerramos la conexion
 			reader.close();
 		} catch (Exception e) {
-			// Capturamos cualquier excepción que pueda ocurrir durante el proceso
+			// Capturamos cualquier excepcion que pueda ocurrir durante el proceso
 			e.printStackTrace();
 		}
 
