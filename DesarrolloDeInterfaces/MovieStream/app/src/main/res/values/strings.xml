@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MovieStream</string>
+    <string name="filmLibraryStr">Film library</string>
+</resources>

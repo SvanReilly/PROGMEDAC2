@@ -3,15 +3,15 @@ plugins {
 }
 
 android {
-    namespace = "com.example.practica_7_2pokedexbbdd"
+    namespace = "com.svanreilly.moviestream"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.practica_7_2pokedexbbdd"
+        applicationId = "com.svanreilly.moviestream"
         minSdk = 25
         targetSdk = 34
         versionCode = 1
-        versionName = "pre-alpha 1.0 nevergonnagive nevergonnagive"
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -28,7 +28,6 @@ android {
     }
 }
 
-
 dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -38,6 +37,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+    implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
     implementation("com.squareup.picasso:picasso:2.71828")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
