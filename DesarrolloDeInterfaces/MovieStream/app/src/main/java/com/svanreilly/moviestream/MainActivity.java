@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.imag
 //        pokedexHeaderMain = findViewById(R.id.pokedexHeader);
 //        Glide.with(this).asGif().load(R.drawable.pokedexnacionalspain).into(pokedexHeaderMain);
 
-        //    private ImageButton imagePlayButtonViewMain1, imagePlayButtonViewMain2, imagePlayButtonViewMain3, imagePlayButtonViewMain4, imagePlayButtonViewMain5, imagePlayButtonViewMain6;
         ImageView movieStreamTextViewMain = findViewById(R.id.movieStreamImageView);
         Glide.with(this).asGif().load(R.drawable.moviestream).into(movieStreamTextViewMain);
 
