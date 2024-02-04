@@ -1,8 +1,5 @@
 package com.svanreilly.moviestream;
 
-import android.widget.Button;
-import android.widget.ImageButton;
-
 public class Movie {
 
         private String title;
@@ -10,14 +7,13 @@ public class Movie {
         private String cover;
         private String releaseDate;
         private String streamingLink;
-        private ImageButton playButton;
-        public Movie(String title, String director, String cover, String releaseDate, String streamingLink, ImageButton playButton) {
+        public Movie(String title, String director, String cover, String releaseDate, String streamingLink) {
             this.title = title;
             this.director = director;
             this.cover = cover;
             this.releaseDate = releaseDate;
             this.streamingLink = streamingLink;
-            this.playButton = playButton;
+
         }
 
     public String getTitle() {
@@ -60,11 +56,4 @@ public class Movie {
         this.streamingLink = streamingLink;
     }
 
-    public ImageButton getPlayButton() {
-        return playButton;
-    }
-
-    public void setPlayButton(ImageButton playButton) {
-        this.playButton = playButton;
-    }
 }

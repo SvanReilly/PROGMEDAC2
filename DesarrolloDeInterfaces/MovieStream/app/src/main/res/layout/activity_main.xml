@@ -16,7 +16,7 @@
         android:background="@drawable/gradient_background">
         <!--Alejandro Ortega Maldonado-->
         <ImageView
-            android:id="@+id/textView"
+            android:id="@+id/movieStreamImageView"
             android:layout_width="match_parent"
             android:layout_height="120sp"
             android:src="@drawable/moviestream"
@@ -27,8 +27,9 @@
             android:id="@+id/recView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15sp"
             />
+
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
