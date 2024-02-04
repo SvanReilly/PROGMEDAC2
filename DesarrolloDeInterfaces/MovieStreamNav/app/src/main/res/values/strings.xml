@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">MovieStreamNav</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Movies</string>
-    <string name="title_notifications">Information</string>
-
-    <string name="filmLibraryStr">Film library</string>
-</resources>
